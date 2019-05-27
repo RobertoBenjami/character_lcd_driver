@@ -1,0 +1,20 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# Picdem_16f877_Release_HTC configuration
+CND_ARTIFACT_DIR_Picdem_16f877_Release_HTC=dist/Picdem_16f877_Release_HTC/production
+CND_ARTIFACT_NAME_Picdem_16f877_Release_HTC=demo-cursor.X.production.hex
+CND_ARTIFACT_PATH_Picdem_16f877_Release_HTC=dist/Picdem_16f877_Release_HTC/production/demo-cursor.X.production.hex
+CND_PACKAGE_DIR_Picdem_16f877_Release_HTC=${CND_DISTDIR}/Picdem_16f877_Release_HTC/package
+CND_PACKAGE_NAME_Picdem_16f877_Release_HTC=demo-cursor.x.tar
+CND_PACKAGE_PATH_Picdem_16f877_Release_HTC=${CND_DISTDIR}/Picdem_16f877_Release_HTC/package/demo-cursor.x.tar
+# Picdem_16f877_Release_XC8 configuration
+CND_ARTIFACT_DIR_Picdem_16f877_Release_XC8=dist/Picdem_16f877_Release_XC8/production
+CND_ARTIFACT_NAME_Picdem_16f877_Release_XC8=demo-cursor.X.production.hex
+CND_ARTIFACT_PATH_Picdem_16f877_Release_XC8=dist/Picdem_16f877_Release_XC8/production/demo-cursor.X.production.hex
+CND_PACKAGE_DIR_Picdem_16f877_Release_XC8=${CND_DISTDIR}/Picdem_16f877_Release_XC8/package
+CND_PACKAGE_NAME_Picdem_16f877_Release_XC8=demo-cursor.x.tar
+CND_PACKAGE_PATH_Picdem_16f877_Release_XC8=${CND_DISTDIR}/Picdem_16f877_Release_XC8/package/demo-cursor.x.tar

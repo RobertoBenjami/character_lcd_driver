@@ -1,0 +1,494 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+AUTOBLINKER	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1101;"	d	line:1101	file:
+BLINKER::;	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1103;"	d	line:1103	file:
+BLINKER::{	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1100;"	d	line:1100	file:
+BlinkPhase	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	482;"	v	line:482
+BlinkTimer	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1123;"	v	line:1123	file:
+CGR	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+CGRROM	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+CHARGEN	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+CHARGENROM	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+CLOCKTIMERNUM::0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	39;"	d	line:39	file:
+CLOCKTIMERNUM::1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	37;"	d	line:37	file:
+CURPOS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+CURTYPE	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+Cpu16bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	256;"	d	line:256	file:
+Cpu16bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	263;"	d	line:263	file:
+Cpu16bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	270;"	d	line:270	file:
+Cpu16bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	277;"	d	line:277	file:
+Cpu16bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	284;"	d	line:284	file:
+Cpu8bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	227;"	d	line:227	file:
+Cpu8bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	234;"	d	line:234	file:
+Cpu8bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	241;"	d	line:241	file:
+Cpu8bit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	248;"	d	line:248	file:
+CpuClock::SystemClock	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	222;"	d	line:222	file:
+CpuMips::(1UL*CpuClock)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	228;"	d	line:228	file:
+CpuMips::(1UL*CpuClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	264;"	d	line:264	file:
+CpuMips::(1UL*CpuClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	271;"	d	line:271	file:
+CpuMips::(1UL*CpuClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	278;"	d	line:278	file:
+CpuMips::(1UL*CpuClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	285;"	d	line:285	file:
+CpuMips::(1UL*CpuClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	235;"	d	line:235	file:
+CpuMips::(1UL*CpuClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	242;"	d	line:242	file:
+CpuMips::(1UL*CpuClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	249;"	d	line:249	file:
+CpuMips::(1UL*CpuClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	257;"	d	line:257	file:
+DDR	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+DDRBITCLR::(p,m)GLUE(DDR,p)&=~(1<<m)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	324;"	d	line:324	file:
+DDRBITSET::(p,m)GLUE(DDR,p)|=(1<<m)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	323;"	d	line:323	file:
+DDRX::(p,m)GLUE(DDR,p)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	329;"	d	line:329	file:
+DELAYNUM::(CpuMips/1000/10)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	236;"	d	line:236	file:
+DELAYNUM::(CpuMips/1000/14)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	229;"	d	line:229	file:
+DELAYNUM::(CpuMips/1000/7)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	258;"	d	line:258	file:
+DELAYNUM::(CpuMips/1000/7)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	265;"	d	line:265	file:
+DELAYNUM::(CpuMips/1000/7)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	272;"	d	line:272	file:
+DELAYNUM::(CpuMips/1000/7)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	279;"	d	line:279	file:
+DELAYNUM::(CpuMips/1000/7)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	286;"	d	line:286	file:
+DELAYNUM::(CpuMips/1000/8)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	243;"	d	line:243	file:
+DELAYNUM::(CpuMips/1000/8)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	250;"	d	line:250	file:
+DelayLcd	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	792;"	f	line:792	signature:(void)
+DelayLcd::;	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	786;"	d	line:786	file:
+DelayMs	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	748;"	f	line:748	signature:(unsigned char ms)
+EDELAY::;	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	668;"	d	line:668	file:
+EDELAY::NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	708;"	d	line:708	file:
+EDELAY::NOP;NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	705;"	d	line:705	file:
+EDELAY::NOP;NOP;NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	702;"	d	line:702	file:
+EDELAY::NOP;NOP;NOP;NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	699;"	d	line:699	file:
+EDELAY::Nop	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	733;"	d	line:733	file:
+EDELAY::Nop;Nop	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	731;"	d	line:731	file:
+EDELAY::Nop;Nop;Nop	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	727;"	d	line:727	file:
+EDELAY::Nop;Nop;Nop;Nop	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	724;"	d	line:724	file:
+EDELAY::Nop;Nop;Nop;Nop;Nop;Nop;Nop;No	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	715;"	d	line:715	file:
+EDELAY::Nop;Nop;Nop;Nop;Nop;Nop;Nop;No	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	718;"	d	line:718	file:
+EDELAY::Nop;Nop;Nop;Nop;Nop;Nop;Nop;No	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	721;"	d	line:721	file:
+EDELAY::_NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	692;"	d	line:692	file:
+EDELAY::_NOP;_NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	689;"	d	line:689	file:
+EDELAY::_NOP;_NOP;_NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	686;"	d	line:686	file:
+EDELAY::_NOP;_NOP;_NOP;_NOP;_NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	683;"	d	line:683	file:
+EDELAY::_NOP;_NOP;_NOP;_NOP;_NOP;_NOP;	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	677;"	d	line:677	file:
+EDELAY::_NOP;_NOP;_NOP;_NOP;_NOP;_NOP;	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	680;"	d	line:680	file:
+EDELAYCYCLE::0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	669;"	d	line:669	file:
+EDELAYCYCLE::1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	693;"	d	line:693	file:
+EDELAYCYCLE::1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	709;"	d	line:709	file:
+EDELAYCYCLE::1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	734;"	d	line:734	file:
+EDELAYCYCLE::12	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	678;"	d	line:678	file:
+EDELAYCYCLE::12	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	719;"	d	line:719	file:
+EDELAYCYCLE::16	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	716;"	d	line:716	file:
+EDELAYCYCLE::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	690;"	d	line:690	file:
+EDELAYCYCLE::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	706;"	d	line:706	file:
+EDELAYCYCLE::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	730;"	d	line:730	file:
+EDELAYCYCLE::3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	687;"	d	line:687	file:
+EDELAYCYCLE::3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	703;"	d	line:703	file:
+EDELAYCYCLE::3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	728;"	d	line:728	file:
+EDELAYCYCLE::4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	684;"	d	line:684	file:
+EDELAYCYCLE::4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	700;"	d	line:700	file:
+EDELAYCYCLE::4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	725;"	d	line:725	file:
+EDELAYCYCLE::8	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	681;"	d	line:681	file:
+EDELAYCYCLE::8	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	722;"	d	line:722	file:
+EIMPULSE::{GPIOX_SETBIT(LCDE);EDELAY;GPI	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	949;"	d	line:949	file:
+EIMPULSE::{GPIOX_SETBIT(LCDE);GPIOX_SETB	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	947;"	d	line:947	file:
+GLUE::(a,b)a##b	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	322;"	d	line:322	file:
+GPIOX_CLRBIT::(x)LATBIT(x)=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	379;"	d	line:379	file:
+GPIOX_CLRBIT::(x)PORTBIT(x)=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	368;"	d	line:368	file:
+GPIOX_CLRBIT::(x)PORTBITCLR(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	334;"	d	line:334	file:
+GPIOX_CLRBIT::(x)x(LATBIT)=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	353;"	d	line:353	file:
+GPIOX_GETBIT::(x)(PINBIT(x))	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	335;"	d	line:335	file:
+GPIOX_GETBIT::(x)PORTBIT(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	369;"	d	line:369	file:
+GPIOX_GETBIT::(x)PORTBIT(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	380;"	d	line:380	file:
+GPIOX_GETBIT::(x)x(PORTBIT)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	354;"	d	line:354	file:
+GPIOX_MODEPININ::(x)DDRBITCLR(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	331;"	d	line:331	file:
+GPIOX_MODEPININ::(x)TRISBIT(x)=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	365;"	d	line:365	file:
+GPIOX_MODEPININ::(x)TRISBIT(x)=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	376;"	d	line:376	file:
+GPIOX_MODEPININ::(x)x(TRISBIT)=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	350;"	d	line:350	file:
+GPIOX_MODEPINOUT::(x)DDRBITSET(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	332;"	d	line:332	file:
+GPIOX_MODEPINOUT::(x)TRISBIT(x)=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	366;"	d	line:366	file:
+GPIOX_MODEPINOUT::(x)TRISBIT(x)=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	377;"	d	line:377	file:
+GPIOX_MODEPINOUT::(x)x(TRISBIT)=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	351;"	d	line:351	file:
+GPIOX_MODEPORT::(x)DDRX(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	336;"	d	line:336	file:
+GPIOX_MODEPORT::(x)TRISX(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	370;"	d	line:370	file:
+GPIOX_MODEPORT::(x)TRISX(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	381;"	d	line:381	file:
+GPIOX_MODEPORT::(x)x(TRISX)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	355;"	d	line:355	file:
+GPIOX_PIN::(x)GPIOX_PIN_(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	318;"	d	line:318	file:
+GPIOX_PIN::(x)x(GPIOX_PIN_)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	314;"	d	line:314	file:
+GPIOX_PIN_::(p,m)m	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	309;"	d	line:309	file:
+GPIOX_PORTNAME::(x)GPIOX_PORTNAME_(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	317;"	d	line:317	file:
+GPIOX_PORTNAME::(x)x(GPIOX_PORTNAME_)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	313;"	d	line:313	file:
+GPIOX_PORTNAME_::(p,m)p	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	308;"	d	line:308	file:
+GPIOX_PORTNUM::(x)GPIOX_PORTNUM_(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	316;"	d	line:316	file:
+GPIOX_PORTNUM::(x)x(GPIOX_PORTNUM_)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	312;"	d	line:312	file:
+GPIOX_PORTNUM_::(p,m)GPIOX_PORTTONUM_##p	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	307;"	d	line:307	file:
+GPIOX_PORTTONUM_A::1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	295;"	d	line:295	file:
+GPIOX_PORTTONUM_B::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	296;"	d	line:296	file:
+GPIOX_PORTTONUM_C::3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	297;"	d	line:297	file:
+GPIOX_PORTTONUM_D::4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	298;"	d	line:298	file:
+GPIOX_PORTTONUM_E::5	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	299;"	d	line:299	file:
+GPIOX_PORTTONUM_F::6	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	300;"	d	line:300	file:
+GPIOX_PORTTONUM_G::7	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	301;"	d	line:301	file:
+GPIOX_PORTTONUM_H::8	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	302;"	d	line:302	file:
+GPIOX_PORTTONUM_J::9	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	303;"	d	line:303	file:
+GPIOX_PORTTONUM_K::10	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	304;"	d	line:304	file:
+GPIOX_PORTTONUM_L::11	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	305;"	d	line:305	file:
+GPIOX_PORTTONUM_M::12	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	306;"	d	line:306	file:
+GPIOX_SETBIT::(x)LATBIT(x)=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	378;"	d	line:378	file:
+GPIOX_SETBIT::(x)PORTBIT(x)=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	367;"	d	line:367	file:
+GPIOX_SETBIT::(x)PORTBITSET(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	333;"	d	line:333	file:
+GPIOX_SETBIT::(x)x(LATBIT)=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	352;"	d	line:352	file:
+GPIOX_WRITEPORT::(x)LATX(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	382;"	d	line:382	file:
+GPIOX_WRITEPORT::(x)PORTX(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	337;"	d	line:337	file:
+GPIOX_WRITEPORT::(x)PORTX(x)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	371;"	d	line:371	file:
+GPIOX_WRITEPORT::(x)x(LATX)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	356;"	d	line:356	file:
+HOME	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+LATBIT::(p,m)LAT##p##bits.LAT##p##m	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	342;"	d	line:342	file:
+LATX::(p,m)LAT##p	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	345;"	d	line:345	file:
+LCD4BITMODE	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	143;"	d	line:143	file:
+LCD8BITMODE	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	141;"	d	line:141	file:
+LCDBLINKSPEED::10	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	195;"	d	line:195
+LCDCHARPERMODUL::(1UL*LCDLINES*LCDWIDTH)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	409;"	d	line:409	file:
+LCDCHARPERSEC::(1UL*LCDFRAMEPERSEC*(LCDLINES*	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	410;"	d	line:410	file:
+LCDCURSOR	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	203;"	d	line:203
+LCDDELAYCYCLE::(LCDEXECUTIONCYCLE-LCDPROCCYCL	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	790;"	d	line:790	file:
+LCDDT0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	509;"	d	line:509	file:
+LCDDT0::(f)f(C,0)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	116;"	d	line:116
+LCDDT0::C,0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	130;"	d	line:130
+LCDDT0::LCDDT4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	513;"	d	line:513	file:
+LCDDT0TO3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	600;"	d	line:600	file:
+LCDDT0TO3::GPIOX_WRITEPORT(LCDDT4)=(GPIOX	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	594;"	d	line:594	file:
+LCDDT0TO7	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	661;"	d	line:661	file:
+LCDDT0TO7::GPIOX_WRITEPORT(LCDDT0)=(GPIOX	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	650;"	d	line:650	file:
+LCDDT0TO7::GPIOX_WRITEPORT(LCDDT0)=ch.chr	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	647;"	d	line:647	file:
+LCDDT1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	510;"	d	line:510	file:
+LCDDT1::(f)f(C,1)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	117;"	d	line:117
+LCDDT1::C,1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	131;"	d	line:131
+LCDDT1::LCDDT5	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	514;"	d	line:514	file:
+LCDDT2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	511;"	d	line:511	file:
+LCDDT2::(f)f(D,2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	118;"	d	line:118
+LCDDT2::D,2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	132;"	d	line:132
+LCDDT2::LCDDT6	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	515;"	d	line:515	file:
+LCDDT3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	512;"	d	line:512	file:
+LCDDT3::(f)f(D,3)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	119;"	d	line:119
+LCDDT3::D,3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	133;"	d	line:133
+LCDDT3::LCDDT7	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	516;"	d	line:516	file:
+LCDDT4::(f)f(B,0)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	120;"	d	line:120
+LCDDT4::B,0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	134;"	d	line:134
+LCDDT4TO7	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	586;"	d	line:586	file:
+LCDDT4TO7::GPIOX_WRITEPORT(LCDDT4)=(GPIOX	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	580;"	d	line:580	file:
+LCDDT5::(f)f(B,1)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	121;"	d	line:121
+LCDDT5::B,1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	135;"	d	line:135
+LCDDT6::(f)f(B,2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	122;"	d	line:122
+LCDDT6::B,2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	136;"	d	line:136
+LCDDT7::(f)f(B,3)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	123;"	d	line:123
+LCDDT7::B,3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	137;"	d	line:137
+LCDDTAUTOOPT	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	536;"	d	line:536	file:
+LCDDTAUTOOPT	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	541;"	d	line:541	file:
+LCDDTIN::GPIOX_MODEPININ(LCDDT4);GPIOX_	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	559;"	d	line:559	file:
+LCDDTIN::GPIOX_MODEPORT(LCDDT0)=0b00000	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	611;"	d	line:611	file:
+LCDDTIN::GPIOX_MODEPORT(LCDDT0)=0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	614;"	d	line:614	file:
+LCDDTIN::GPIOX_MODEPORT(LCDDT0)|=(0b111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	616;"	d	line:616	file:
+LCDDTIN::GPIOX_MODEPORT(LCDDT4)&=~(0x0F	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	554;"	d	line:554	file:
+LCDDTIN::GPIOX_MODEPORT(LCDDT4)|=(0x0F<	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	556;"	d	line:556	file:
+LCDDTIN::{GPIOX_MODEPININ(LCDDT0);GPIOX	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	621;"	d	line:621	file:
+LCDDTOUT::GPIOX_MODEPINOUT(LCDDT4);GPIOX	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	572;"	d	line:572	file:
+LCDDTOUT::GPIOX_MODEPORT(LCDDT0)&=~(0b11	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	634;"	d	line:634	file:
+LCDDTOUT::GPIOX_MODEPORT(LCDDT0)=0b00000	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	632;"	d	line:632	file:
+LCDDTOUT::GPIOX_MODEPORT(LCDDT0)=0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	629;"	d	line:629	file:
+LCDDTOUT::GPIOX_MODEPORT(LCDDT4)&=~(0x0F	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	569;"	d	line:569	file:
+LCDDTOUT::GPIOX_MODEPORT(LCDDT4)|=(0x0F<	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	567;"	d	line:567	file:
+LCDDTOUT::{GPIOX_MODEPINOUT(LCDDT0);GPIO	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	639;"	d	line:639	file:
+LCDE2::(f)f(B,3)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	113;"	d	line:113
+LCDE2::B,3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	127;"	d	line:127
+LCDE::(f)f(A,4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	112;"	d	line:112
+LCDE::A,4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	126;"	d	line:126
+LCDEXECUTIONCYCLE::((CpuMips*LCDEXECUTIONTIME)/10	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	767;"	d	line:767	file:
+LCDEXECUTIONTIME::150	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	185;"	d	line:185
+LCDFRAMEPERSEC::20	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	181;"	d	line:181
+LCDLINES	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	405;"	d	line:405	file:
+LCDLINES::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	406;"	d	line:406	file:
+LCDLINES::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	149;"	d	line:149
+LCDMODEONCEIRQ	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	47;"	d	line:47
+LCDNOP::PCLATU=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	340;"	d	line:340
+LCDPROCCYCLE::(LCDPROCCYCLENULL+2*EDELAYCYCL	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	780;"	d	line:780	file:
+LCDPROCCYCLE::(LCDPROCCYCLENULL+4*EDELAYCYCL	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	778;"	d	line:778	file:
+LCDPROCCYCLE::(LCDPROCCYCLENULLSTEREO+4*EDEL	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	774;"	d	line:774	file:
+LCDPROCCYCLE::(LCDPROCCYCLENULLSTEREO+8*EDEL	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	772;"	d	line:772	file:
+LCDPROCCYCLENULL::109	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	230;"	d	line:230	file:
+LCDPROCCYCLENULL::61	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	237;"	d	line:237	file:
+LCDPROCCYCLENULL::61	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	251;"	d	line:251	file:
+LCDPROCCYCLENULL::67	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	244;"	d	line:244	file:
+LCDPROCCYCLENULL::90	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	259;"	d	line:259	file:
+LCDPROCCYCLENULL::90	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	266;"	d	line:266	file:
+LCDPROCCYCLENULL::90	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	273;"	d	line:273	file:
+LCDPROCCYCLENULL::90	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	280;"	d	line:280	file:
+LCDPROCCYCLENULL::90	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	287;"	d	line:287	file:
+LCDPROCCYCLENULLSTEREO::100	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	238;"	d	line:238	file:
+LCDPROCCYCLENULLSTEREO::100	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	252;"	d	line:252	file:
+LCDPROCCYCLENULLSTEREO::100	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	260;"	d	line:260	file:
+LCDPROCCYCLENULLSTEREO::107	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	245;"	d	line:245	file:
+LCDPROCCYCLENULLSTEREO::159	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	267;"	d	line:267	file:
+LCDPROCCYCLENULLSTEREO::159	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	274;"	d	line:274	file:
+LCDPROCCYCLENULLSTEREO::159	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	281;"	d	line:281	file:
+LCDPROCCYCLENULLSTEREO::159	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	288;"	d	line:288	file:
+LCDPROCCYCLENULLSTEREO::192	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	231;"	d	line:231	file:
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1144;"	v	line:1144
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1270;"	v	line:1270
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1334;"	v	line:1334
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1346;"	v	line:1346
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1456;"	v	line:1456
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1492;"	v	line:1492
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1503;"	v	line:1503
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1547;"	v	line:1547
+LCDRS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1558;"	v	line:1558
+LCDRS::(f)f(B,4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	115;"	d	line:115
+LCDRS::B,4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	129;"	d	line:129
+LCDRW::(f)f(B,5)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	114;"	d	line:114
+LCDRW::B,5	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	128;"	d	line:128
+LCDTIMERNUM::2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	155;"	d	line:155
+LCDTIMERPR18::-1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	163;"	d	line:163
+LCDUSERTIMER	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	170;"	d	line:170
+LCDWIDTH::16	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	152;"	d	line:152
+LCDZEROCHANGE	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	211;"	d	line:211
+LCHAR	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+LED1::LATBbits.LATB0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	30;"	d	line:30	file:
+LED2::LATBbits.LATB1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	31;"	d	line:31	file:
+LEDIO1::TRISBbits.TRISB0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	32;"	d	line:32	file:
+LEDIO2::TRISBbits.TRISB1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	33;"	d	line:33	file:
+LEDS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	29;"	d	line:29	file:
+LS	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	g	line:471	file:
+LcdBlink	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	476;"	v	line:476
+LcdBlink	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	478;"	v	line:478
+LcdBlinkChar::(s)LcdBlink[s>>3]|=(1<<(s&7))	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	404;"	d	line:404
+LcdBusy	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	832;"	f	line:832	signature:(void)
+LcdChangeCharset	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1677;"	f	line:1677	signature:(char* pch)
+LcdChangeCharset	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	417;"	p	line:417	signature:(char* pch)
+LcdChangeCharsetRom	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1724;"	f	line:1724	signature:(rom char* pch)
+LcdCursorBlink::LcdCursorType|=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	425;"	d	line:425
+LcdCursorOff::LcdCursorType&=~2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	424;"	d	line:424
+LcdCursorOn::LcdCursorType|=2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	423;"	d	line:423
+LcdCursorPos	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	487;"	v	line:487
+LcdCursorType	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	488;"	v	line:488
+LcdCursorUnBlink::LcdCursorType&=~1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	426;"	d	line:426
+LcdInit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	957;"	f	line:957	signature:(void)
+LcdInit	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	432;"	p	line:432	signature:(void)
+LcdIntProcess::if(!LcdIrqStatus)LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	452;"	d	line:452
+LcdIntProcess::if(INTCONbits.T0IE&&INTCONbits	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	514;"	d	line:514
+LcdIntProcess::if(INTCONbits.TMR0IF)LcdProces	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	538;"	d	line:538
+LcdIntProcess::if(PIR1bits.TMR1IF)LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	519;"	d	line:519
+LcdIntProcess::if(PIR1bits.TMR1IF)LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	543;"	d	line:543
+LcdIntProcess::if(PIR1bits.TMR2IF)LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	524;"	d	line:524
+LcdIntProcess::if(PIR1bits.TMR2IF)LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	548;"	d	line:548
+LcdIntProcess::if(PIR2bits.TMR3IF)LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	553;"	d	line:553
+LcdIrqStatus	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	493;"	v	line:493
+LcdPos	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	458;"	v	line:458
+LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	436;"	p	line:436	signature:(void)
+LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	451;"	p	line:451	signature:(void)
+LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	511;"	p	line:511	signature:(void)
+LcdProcess	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	535;"	p	line:535	signature:(void)
+LcdRefreshAll	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	1611;"	f	line:1611	signature:(void)
+LcdRefreshAll	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	441;"	p	line:441	signature:(void)
+LcdRefreshStart::LcdIrqStatus=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	453;"	d	line:453
+LcdRefreshStart::T0CONbits.TMR0ON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	539;"	d	line:539
+LcdRefreshStart::T1CONbits.TMR1ON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	520;"	d	line:520
+LcdRefreshStart::T1CONbits.TMR1ON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	544;"	d	line:544
+LcdRefreshStart::T1CONbits.TON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	565;"	d	line:565
+LcdRefreshStart::T2CONbits.TMR2ON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	525;"	d	line:525
+LcdRefreshStart::T2CONbits.TMR2ON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	549;"	d	line:549
+LcdRefreshStart::T2CONbits.TON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	569;"	d	line:569
+LcdRefreshStart::T3CONbits.TMR3ON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	554;"	d	line:554
+LcdRefreshStart::T3CONbits.TON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	573;"	d	line:573
+LcdRefreshStart::T4CONbits.TON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	577;"	d	line:577
+LcdRefreshStart::T5CONbits.TON=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	581;"	d	line:581
+LcdRefreshStart::{TCNT0=0;TIMSK0=(1<<OCIE0A);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	467;"	d	line:467
+LcdRefreshStart::{TCNT0=0;TIMSK=(1<<TOIE0);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	476;"	d	line:476
+LcdRefreshStart::{TCNT0=0;TIMSK|=(1<<OCIE0);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	471;"	d	line:471
+LcdRefreshStart::{TCNT1=0;TIMSK1=(1<<OCIE1A);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	484;"	d	line:484
+LcdRefreshStart::{TCNT1=0;TIMSK|=(1<<OCIE1A);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	488;"	d	line:488
+LcdRefreshStart::{TCNT2=0;TIMSK2=(1<<OCIE2A);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	495;"	d	line:495
+LcdRefreshStart::{TCNT2=0;TIMSK|=(1<<OCIE2);}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	500;"	d	line:500
+LcdRefreshStart::{TMR0=0;INTCONbits.T0IE=1;}	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	515;"	d	line:515
+LcdRefreshStop::INTCONbits.T0IE=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	516;"	d	line:516
+LcdRefreshStop::LcdIrqStatus=1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	454;"	d	line:454
+LcdRefreshStop::T0CONbits.TMR0ON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	540;"	d	line:540
+LcdRefreshStop::T1CONbits.TMR1ON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	521;"	d	line:521
+LcdRefreshStop::T1CONbits.TMR1ON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	545;"	d	line:545
+LcdRefreshStop::T1CONbits.TON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	566;"	d	line:566
+LcdRefreshStop::T2CONbits.TMR2ON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	526;"	d	line:526
+LcdRefreshStop::T2CONbits.TMR2ON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	550;"	d	line:550
+LcdRefreshStop::T2CONbits.TON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	570;"	d	line:570
+LcdRefreshStop::T3CONbits.TMR3ON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	555;"	d	line:555
+LcdRefreshStop::T3CONbits.TON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	574;"	d	line:574
+LcdRefreshStop::T4CONbits.TON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	578;"	d	line:578
+LcdRefreshStop::T5CONbits.TON=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	582;"	d	line:582
+LcdRefreshStop::TIMSK&=~(1<<OCIE0)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	472;"	d	line:472
+LcdRefreshStop::TIMSK&=~(1<<OCIE1A)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	489;"	d	line:489
+LcdRefreshStop::TIMSK&=~(1<<OCIE2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	501;"	d	line:501
+LcdRefreshStop::TIMSK0=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	468;"	d	line:468
+LcdRefreshStop::TIMSK1=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	485;"	d	line:485
+LcdRefreshStop::TIMSK2=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	496;"	d	line:496
+LcdRefreshStop::TIMSK=0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	477;"	d	line:477
+LcdRefreshed::(!(TIMSK&(1<<OCIE0)))	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	473;"	d	line:473
+LcdRefreshed::(!(TIMSK&(1<<OCIE1A)))	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	490;"	d	line:490
+LcdRefreshed::(!(TIMSK&(1<<OCIE2)))	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	502;"	d	line:502
+LcdRefreshed::(!INTCONbits.T0IE)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	517;"	d	line:517
+LcdRefreshed::(!T0CONbits.TMR0ON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	541;"	d	line:541
+LcdRefreshed::(!T1CONbits.TMR1ON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	522;"	d	line:522
+LcdRefreshed::(!T1CONbits.TMR1ON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	546;"	d	line:546
+LcdRefreshed::(!T1CONbits.TON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	567;"	d	line:567
+LcdRefreshed::(!T2CONbits.TMR2ON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	527;"	d	line:527
+LcdRefreshed::(!T2CONbits.TMR2ON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	551;"	d	line:551
+LcdRefreshed::(!T2CONbits.TON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	571;"	d	line:571
+LcdRefreshed::(!T3CONbits.TMR3ON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	556;"	d	line:556
+LcdRefreshed::(!T3CONbits.TON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	575;"	d	line:575
+LcdRefreshed::(!T4CONbits.TON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	579;"	d	line:579
+LcdRefreshed::(!T5CONbits.TON)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	583;"	d	line:583
+LcdRefreshed::(!TIMSK)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	478;"	d	line:478
+LcdRefreshed::(!TIMSK0)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	469;"	d	line:469
+LcdRefreshed::(!TIMSK1)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	486;"	d	line:486
+LcdRefreshed::(!TIMSK2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	497;"	d	line:497
+LcdRefreshed::LcdIrqStatus	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	456;"	d	line:456
+LcdStatus	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	v	line:471
+LcdText	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	454;"	v	line:454
+LcdText	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	456;"	v	line:456
+LcdUnBlinkChar::(s)LcdBlink[s>>3]&=~(1<<(s&7))	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	405;"	d	line:405
+LcdWrite	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	888;"	f	line:888	signature:(void)
+LcdWrite2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	908;"	f	line:908	signature:(void)
+LcdWrite2::;	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	920;"	d	line:920	file:
+NOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	358;"	d	line:358	file:
+NOP::LCDNOP	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	359;"	d	line:359	file:
+PINBIT::(p,m)GLUE(PIN,p)&(1<<m)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	327;"	d	line:327	file:
+PORTBIT::(p,m)PORT##p##bits.R##p##m	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	343;"	d	line:343	file:
+PORTBITCLR::(p,m)GLUE(PORT,p)&=~(1<<m)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	326;"	d	line:326	file:
+PORTBITSET::(p,m)GLUE(PORT,p)|=(1<<m)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	325;"	d	line:325	file:
+PORTX::(p,m)GLUE(PORT,p)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	328;"	d	line:328	file:
+PORTX::(p,m)PORT##p	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	346;"	d	line:346	file:
+PROGMEM	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	928;"	v	line:928
+REFREND	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	471;"	e	line:471	enum:LS	file:
+SETCGRAMADDR::0x40	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	418;"	d	line:418	file:
+SETDDRAMADDR1::0x80	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	413;"	d	line:413	file:
+SETDDRAMADDR2::0xC0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	414;"	d	line:414	file:
+SETDDRAMADDR3::(0x80+LCDWIDTH)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	415;"	d	line:415	file:
+SETDDRAMADDR4::(0xC0+LCDWIDTH)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	416;"	d	line:416	file:
+TIMECLK::1000	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	26;"	d	line:26	file:
+TIMER0COMPLESS::_asm	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	71;"	d	line:71	file:
+TIMER1COMPLESS::_asm	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	82;"	d	line:82	file:
+TMCOMP::((TimerSrcClock+TIMECLK/2)/TIM	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	56;"	d	line:56	file:
+TMCOMPCOR0::7	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	59;"	d	line:59	file:
+TMCOMPCOR1::5	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	60;"	d	line:60	file:
+TRISBIT::(p,m)TRIS##p##bits.TRIS##p##m	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	341;"	d	line:341	file:
+TRISX::(p,m)TRIS##p	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	344;"	d	line:344	file:
+TimerSrcClock::(1UL*SystemClock)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	232;"	d	line:232	file:
+TimerSrcClock::(1UL*SystemClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	268;"	d	line:268	file:
+TimerSrcClock::(1UL*SystemClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	275;"	d	line:275	file:
+TimerSrcClock::(1UL*SystemClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	282;"	d	line:282	file:
+TimerSrcClock::(1UL*SystemClock/2)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	289;"	d	line:289	file:
+TimerSrcClock::(1UL*SystemClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	239;"	d	line:239	file:
+TimerSrcClock::(1UL*SystemClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	246;"	d	line:246	file:
+TimerSrcClock::(1UL*SystemClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	253;"	d	line:253	file:
+TimerSrcClock::(1UL*SystemClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	261;"	d	line:261	file:
+TimerSrcClock::(1UL*SystemClock/4)	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	23;"	d	line:23	file:
+USER0CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	241;"	d	line:241
+USER0CHAR1::0b11011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	242;"	d	line:242
+USER0CHAR2::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	243;"	d	line:243
+USER0CHAR3::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	244;"	d	line:244
+USER0CHAR4::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	245;"	d	line:245
+USER0CHAR5::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	246;"	d	line:246
+USER0CHAR6::0b11011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	247;"	d	line:247
+USER0CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	248;"	d	line:248
+USER1CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	250;"	d	line:250
+USER1CHAR1::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	251;"	d	line:251
+USER1CHAR2::0b11001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	252;"	d	line:252
+USER1CHAR3::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	253;"	d	line:253
+USER1CHAR4::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	254;"	d	line:254
+USER1CHAR5::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	255;"	d	line:255
+USER1CHAR6::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	256;"	d	line:256
+USER1CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	257;"	d	line:257
+USER2CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	259;"	d	line:259
+USER2CHAR1::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	260;"	d	line:260
+USER2CHAR2::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	261;"	d	line:261
+USER2CHAR3::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	262;"	d	line:262
+USER2CHAR4::0b11011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	263;"	d	line:263
+USER2CHAR5::0b10111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	264;"	d	line:264
+USER2CHAR6::0b10001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	265;"	d	line:265
+USER2CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	266;"	d	line:266
+USER3CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	268;"	d	line:268
+USER3CHAR1::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	269;"	d	line:269
+USER3CHAR2::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	270;"	d	line:270
+USER3CHAR3::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	271;"	d	line:271
+USER3CHAR4::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	272;"	d	line:272
+USER3CHAR5::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	273;"	d	line:273
+USER3CHAR6::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	274;"	d	line:274
+USER3CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	275;"	d	line:275
+USER4CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	277;"	d	line:277
+USER4CHAR1::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	278;"	d	line:278
+USER4CHAR2::0b11001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	279;"	d	line:279
+USER4CHAR3::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	280;"	d	line:280
+USER4CHAR4::0b10001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	281;"	d	line:281
+USER4CHAR5::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	282;"	d	line:282
+USER4CHAR6::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	283;"	d	line:283
+USER4CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	284;"	d	line:284
+USER5CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	286;"	d	line:286
+USER5CHAR1::0b10001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	287;"	d	line:287
+USER5CHAR2::0b10111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	288;"	d	line:288
+USER5CHAR3::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	289;"	d	line:289
+USER5CHAR4::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	290;"	d	line:290
+USER5CHAR5::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	291;"	d	line:291
+USER5CHAR6::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	292;"	d	line:292
+USER5CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	293;"	d	line:293
+USER6CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	295;"	d	line:295
+USER6CHAR1::0b11001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	296;"	d	line:296
+USER6CHAR2::0b10111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	297;"	d	line:297
+USER6CHAR3::0b10011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	298;"	d	line:298
+USER6CHAR4::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	299;"	d	line:299
+USER6CHAR5::0b10101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	300;"	d	line:300
+USER6CHAR6::0b11011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	301;"	d	line:301
+USER6CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	302;"	d	line:302
+USER7CHAR0::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	304;"	d	line:304
+USER7CHAR1::0b10001	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	305;"	d	line:305
+USER7CHAR2::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	306;"	d	line:306
+USER7CHAR3::0b11101	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	307;"	d	line:307
+USER7CHAR4::0b11011	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	308;"	d	line:308
+USER7CHAR5::0b10111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	309;"	d	line:309
+USER7CHAR6::0b10111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	310;"	d	line:310
+USER7CHAR7::0b11111	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	311;"	d	line:311
+USERCHARSET	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	217;"	d	line:217
+USERCHARSETARRAY	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	410;"	t	line:410
+USERCHARSETCHANGE	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	222;"	d	line:222
+YourHighPriorityISRCode	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	261;"	f	line:261
+YourLowPriorityISRCode	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	253;"	f	line:253
+__CHARLCD_H	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.h	5;"	d	line:5
+bit0	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	435;"	m	line:435	file:
+bit1	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	436;"	m	line:436	file:
+bit2	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	437;"	m	line:437	file:
+bit3	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	438;"	m	line:438	file:
+bit4	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	439;"	m	line:439	file:
+bit5	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	440;"	m	line:440	file:
+bit6	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	441;"	m	line:441	file:
+bit7	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	442;"	m	line:442	file:
+ch	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	450;"	v	line:450
+chr	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	449;"	m	line:449	file:
+cl	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	795;"	l	line:795	file:
+dl	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	750;"	l	line:750
+ev	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	42;"	v	line:42
+honap	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	43;"	v	line:43
+honaphosszak	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	48;"	v	line:48
+i	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	959;"	l	line:959
+i	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	127;"	l	line:127
+init	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	85;"	f	line:85	signature:(void)
+j	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	127;"	l	line:127
+lastsec	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	125;"	l	line:125
+main	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	123;"	f	line:123	signature:(void)
+masodperc	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	47;"	v	line:47
+msec	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	263;"	l	line:263	file:
+nap	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	44;"	v	line:44
+nibble03	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	446;"	m	line:446	file:
+nibble47	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	447;"	m	line:447	file:
+ora	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	45;"	v	line:45
+perc	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	46;"	v	line:46
+temp	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	50;"	v	line:50
+uchp	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	498;"	v	line:498
+uchpr	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	503;"	v	line:503
+userchars	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\demo-ora-c18.c	53;"	v	line:53
+userromcharset::(n)pgm_read_dword_near(&userro	D:\Benjami\Pic\benjami-periferia\charlcd\demo-ora\charlcd.c	927;"	d	line:927	file:

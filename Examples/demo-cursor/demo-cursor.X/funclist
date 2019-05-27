@@ -1,0 +1,12 @@
+_DelayLcd: CODE, 388 0 5
+_LcdProcess: CODE, 218 0 135
+_main: CODE, 400 0 79
+_LcdWrite: CODE, 353 0 35
+_DelayMs: CODE, 197 0 21
+_LcdRefreshAll: CODE, 33 0 12
+_LcdInit: CODE, 45 0 152
+__initialization: CODE, 15 0 14
+_isr: CODE, 543 0 7
+PL2: CODE, 393 0 7
+_mwait: CODE, 479 0 56
+Total: 523

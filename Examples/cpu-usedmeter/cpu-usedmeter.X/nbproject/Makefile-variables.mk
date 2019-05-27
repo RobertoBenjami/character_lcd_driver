@@ -1,0 +1,34 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# Picdem_16f877_Release_HTC configuration
+CND_ARTIFACT_DIR_Picdem_16f877_Release_HTC=dist/Picdem_16f877_Release_HTC/production
+CND_ARTIFACT_NAME_Picdem_16f877_Release_HTC=cpu-usedmeter.X.production.hex
+CND_ARTIFACT_PATH_Picdem_16f877_Release_HTC=dist/Picdem_16f877_Release_HTC/production/cpu-usedmeter.X.production.hex
+CND_PACKAGE_DIR_Picdem_16f877_Release_HTC=${CND_DISTDIR}/Picdem_16f877_Release_HTC/package
+CND_PACKAGE_NAME_Picdem_16f877_Release_HTC=cpu-usedmeter.x.tar
+CND_PACKAGE_PATH_Picdem_16f877_Release_HTC=${CND_DISTDIR}/Picdem_16f877_Release_HTC/package/cpu-usedmeter.x.tar
+# Picdem_16f452_Release_HTC18 configuration
+CND_ARTIFACT_DIR_Picdem_16f452_Release_HTC18=dist/Picdem_16f452_Release_HTC18/production
+CND_ARTIFACT_NAME_Picdem_16f452_Release_HTC18=cpu-usedmeter.X.production.hex
+CND_ARTIFACT_PATH_Picdem_16f452_Release_HTC18=dist/Picdem_16f452_Release_HTC18/production/cpu-usedmeter.X.production.hex
+CND_PACKAGE_DIR_Picdem_16f452_Release_HTC18=${CND_DISTDIR}/Picdem_16f452_Release_HTC18/package
+CND_PACKAGE_NAME_Picdem_16f452_Release_HTC18=cpu-usedmeter.x.tar
+CND_PACKAGE_PATH_Picdem_16f452_Release_HTC18=${CND_DISTDIR}/Picdem_16f452_Release_HTC18/package/cpu-usedmeter.x.tar
+# Picdem_16f452_Release_C18 configuration
+CND_ARTIFACT_DIR_Picdem_16f452_Release_C18=dist/Picdem_16f452_Release_C18/production
+CND_ARTIFACT_NAME_Picdem_16f452_Release_C18=cpu-usedmeter.X.production.hex
+CND_ARTIFACT_PATH_Picdem_16f452_Release_C18=dist/Picdem_16f452_Release_C18/production/cpu-usedmeter.X.production.hex
+CND_PACKAGE_DIR_Picdem_16f452_Release_C18=${CND_DISTDIR}/Picdem_16f452_Release_C18/package
+CND_PACKAGE_NAME_Picdem_16f452_Release_C18=cpu-usedmeter.x.tar
+CND_PACKAGE_PATH_Picdem_16f452_Release_C18=${CND_DISTDIR}/Picdem_16f452_Release_C18/package/cpu-usedmeter.x.tar
+# Picdem_16f452_Release_XC configuration
+CND_ARTIFACT_DIR_Picdem_16f452_Release_XC=dist/Picdem_16f452_Release_XC/production
+CND_ARTIFACT_NAME_Picdem_16f452_Release_XC=cpu-usedmeter.X.production.hex
+CND_ARTIFACT_PATH_Picdem_16f452_Release_XC=dist/Picdem_16f452_Release_XC/production/cpu-usedmeter.X.production.hex
+CND_PACKAGE_DIR_Picdem_16f452_Release_XC=${CND_DISTDIR}/Picdem_16f452_Release_XC/package
+CND_PACKAGE_NAME_Picdem_16f452_Release_XC=cpu-usedmeter.x.tar
+CND_PACKAGE_PATH_Picdem_16f452_Release_XC=${CND_DISTDIR}/Picdem_16f452_Release_XC/package/cpu-usedmeter.x.tar

@@ -1,0 +1,1764 @@
+#ifndef __CHARLCDIO_H
+#define __CHARLCDIO_H
+
+//******************************************************************************
+#if defined(__AVR__)
+//******************************************************************************
+// LCD E
+#if LCDEPORT == 'A'
+#define LCDEPINOUT DDRA |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRA &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTA |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTA &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PINA & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'B'
+#define LCDEPINOUT DDRB |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRB &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTB |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTB &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PINB & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'C'
+#define LCDEPINOUT DDRC |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRC &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTC |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTC &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PINC & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'D'
+#define LCDEPINOUT DDRD |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRD &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTD |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTD &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PIND & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'E'
+#define LCDEPINOUT DDRE |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRE &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTE |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTE &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PINE & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'F'
+#define LCDEPINOUT DDRF |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRF &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTF |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTF &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PINF & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'G'
+#define LCDEPINOUT DDRG |=  (1 << LCDEPINNUM)
+#define LCDEPININ  DDRG &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1  PORTG |=  (1 << LCDEPINNUM)
+#define LCDEPIN0  PORTG &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PING & (1 << LCDEPINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDEPIN
+
+//------------------------------------------------------------------------------
+// LCD E2 (csak 80 karakteresnél nagyobb esetén)
+#ifdef LCDE2PORT
+#if LCDE2PORT == 'A'
+#define LCDE2PINOUT DDRA |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRA &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTA |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTA &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PINA & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'B'
+#define LCDE2PINOUT DDRB |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRB &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTB |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTB &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PINB & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'C'
+#define LCDE2PINOUT DDRC |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRC &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTC |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTC &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PINC & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'D'
+#define LCDE2PINOUT DDRD |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRD &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTD |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTD &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PIND & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'E'
+#define LCDE2PINOUT DDRE |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRE &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTE |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTE &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PINE & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'F'
+#define LCDE2PINOUT DDRF |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRF &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTF |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTF &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PINF & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'G'
+#define LCDE2PINOUT DDRG |=  (1 << LCDE2PINNUM)
+#define LCDE2PININ  DDRG &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1  PORTG |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0  PORTG &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PING & (1 << LCDE2PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // #if LCDE2PIN == x
+#endif // #ifdef LCDE2PIN
+
+//------------------------------------------------------------------------------
+// LCD R/W (interrupt módban nélkülözhetõ, ekkor: LCD R/W - GND)
+#ifdef LCDRWPORT
+#if LCDRWPORT == 'A'
+#define LCDRWPINOUT DDRA |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRA &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTA |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTA &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PINA & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'B'
+#define LCDRWPINOUT DDRB |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRB &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTB |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTB &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PINB & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'C'
+#define LCDRWPINOUT DDRC |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRC &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTC |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTC &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PINC & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'D'
+#define LCDRWPINOUT DDRD |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRD &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTD |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTD &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PIND & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'E'
+#define LCDRWPINOUT DDRE |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRE &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTE |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTE &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PINE & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'F'
+#define LCDRWPINOUT DDRF |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRF &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTF |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTF &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PINF & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'G'
+#define LCDRWPINOUT DDRG |=  (1 << LCDRWPINNUM)
+#define LCDRWPININ  DDRG &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1  PORTG |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0  PORTG &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PING & (1 << LCDRWPINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // #if LCDRWPIN == x
+#endif // #ifdef LCDRWPIN
+
+//------------------------------------------------------------------------------
+// LCD RS
+#if LCDRSPORT == 'A'
+#define LCDRSPINOUT DDRA |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRA &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTA |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTA &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PINA & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'B'
+#define LCDRSPINOUT DDRB |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRB &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTB |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTB &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PINB & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'C'
+#define LCDRSPINOUT DDRC |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRC &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTC |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTC &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PINC & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'D'
+#define LCDRSPINOUT DDRD |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRD &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTD |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTD &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PIND & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'E'
+#define LCDRSPINOUT DDRE |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRE &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTE |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTE &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PINE & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'F'
+#define LCDRSPINOUT DDRF |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRF &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTF |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTF &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PINF & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'G'
+#define LCDRSPINOUT DDRG |=  (1 << LCDRSPINNUM)
+#define LCDRSPININ  DDRG &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1  PORTG |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0  PORTG &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PING & (1 << LCDRSPINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDRSPIN
+
+//------------------------------------------------------------------------------
+#if !defined LCD4BITMODE
+
+// LCD DT0
+#if LCDDT0PORT == 'A'
+#define LCDDT0PINOUT DDRA |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRA &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTA |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTA &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PINA & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'B'
+#define LCDDT0PINOUT DDRB |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRB &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTB |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTB &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PINB & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'C'
+#define LCDDT0PINOUT DDRC |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRC &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTC |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTC &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PINC & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'D'
+#define LCDDT0PINOUT DDRD |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRD &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTD |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTD &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PIND & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'E'
+#define LCDDT0PINOUT DDRE |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRE &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTE |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTE &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PINE & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'F'
+#define LCDDT0PINOUT DDRF |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRF &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTF |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTF &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PINF & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'G'
+#define LCDDT0PINOUT DDRG |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PININ  DDRG &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1  PORTG |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0  PORTG &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PING & (1 << LCDDT0PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT0PIN
+
+//------------------------------------------------------------------------------
+// LCD DT1
+#if LCDDT1PORT == 'A'
+#define LCDDT1PINOUT DDRA |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRA &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTA |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTA &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PINA & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'B'
+#define LCDDT1PINOUT DDRB |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRB &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTB |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTB &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PINB & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'C'
+#define LCDDT1PINOUT DDRC |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRC &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTC |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTC &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PINC & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'D'
+#define LCDDT1PINOUT DDRD |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRD &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTD |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTD &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PIND & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'E'
+#define LCDDT1PINOUT DDRE |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRE &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTE |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTE &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PINE & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'F'
+#define LCDDT1PINOUT DDRF |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRF &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTF |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTF &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PINF & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'G'
+#define LCDDT1PINOUT DDRG |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PININ  DDRG &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1  PORTG |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0  PORTG &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PING & (1 << LCDDT1PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT1PIN
+
+//------------------------------------------------------------------------------
+// LCD DT2
+#if LCDDT2PORT == 'A'
+#define LCDDT2PINOUT DDRA |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRA &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTA |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTA &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PINA & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'B'
+#define LCDDT2PINOUT DDRB |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRB &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTB |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTB &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PINB & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'C'
+#define LCDDT2PINOUT DDRC |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRC &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTC |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTC &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PINC & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'D'
+#define LCDDT2PINOUT DDRD |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRD &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTD |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTD &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PIND & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'E'
+#define LCDDT2PINOUT DDRE |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRE &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTE |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTE &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PINE & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'F'
+#define LCDDT2PINOUT DDRF |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRF &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTF |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTF &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PINF & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'G'
+#define LCDDT2PINOUT DDRG |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PININ  DDRG &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1  PORTG |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0  PORTG &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PING & (1 << LCDDT2PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT2PIN
+
+//------------------------------------------------------------------------------
+// LCD DT3
+#if LCDDT3PORT == 'A'
+#define LCDDT3PINOUT DDRA |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRA &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTA |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTA &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PINA & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'B'
+#define LCDDT3PINOUT DDRB |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRB &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTB |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTB &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PINB & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'C'
+#define LCDDT3PINOUT DDRC |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRC &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTC |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTC &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PINC & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'D'
+#define LCDDT3PINOUT DDRD |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRD &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTD |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTD &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PIND & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'E'
+#define LCDDT3PINOUT DDRE |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRE &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTE |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTE &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PINE & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'F'
+#define LCDDT3PINOUT DDRF |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRF &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTF |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTF &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PINF & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'G'
+#define LCDDT3PINOUT DDRG |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PININ  DDRG &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1  PORTG |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0  PORTG &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PING & (1 << LCDDT3PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT3PIN
+
+#endif // !LCD4BITMODE
+
+//------------------------------------------------------------------------------
+// LCD DT4
+#if LCDDT4PORT == 'A'
+#define LCDDT4PINOUT DDRA |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRA &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTA |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTA &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PINA & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'B'
+#define LCDDT4PINOUT DDRB |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRB &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTB |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTB &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PINB & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'C'
+#define LCDDT4PINOUT DDRC |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRC &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTC |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTC &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PINC & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'D'
+#define LCDDT4PINOUT DDRD |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRD &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTD |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTD &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PIND & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'E'
+#define LCDDT4PINOUT DDRE |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRE &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTE |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTE &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PINE & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'F'
+#define LCDDT4PINOUT DDRF |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRF &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTF |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTF &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PINF & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'G'
+#define LCDDT4PINOUT DDRG |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PININ  DDRG &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1  PORTG |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0  PORTG &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PING & (1 << LCDDT4PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT4PIN
+
+//------------------------------------------------------------------------------
+// LCD DT5
+#if LCDDT5PORT == 'A'
+#define LCDDT5PINOUT DDRA |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRA &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTA |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTA &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PINA & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'B'
+#define LCDDT5PINOUT DDRB |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRB &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTB |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTB &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PINB & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'C'
+#define LCDDT5PINOUT DDRC |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRC &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTC |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTC &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PINC & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'D'
+#define LCDDT5PINOUT DDRD |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRD &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTD |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTD &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PIND & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'E'
+#define LCDDT5PINOUT DDRE |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRE &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTE |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTE &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PINE & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'F'
+#define LCDDT5PINOUT DDRF |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRF &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTF |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTF &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PINF & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'G'
+#define LCDDT5PINOUT DDRG |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PININ  DDRG &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1  PORTG |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0  PORTG &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PING & (1 << LCDDT5PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT5PIN
+
+//------------------------------------------------------------------------------
+// LCD DT6
+#if LCDDT6PORT == 'A'
+#define LCDDT6PINOUT DDRA |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRA &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTA |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTA &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PINA & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'B'
+#define LCDDT6PINOUT DDRB |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRB &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTB |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTB &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PINB & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'C'
+#define LCDDT6PINOUT DDRC |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRC &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTC |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTC &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PINC & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'D'
+#define LCDDT6PINOUT DDRD |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRD &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTD |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTD &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PIND & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'E'
+#define LCDDT6PINOUT DDRE |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRE &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTE |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTE &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PINE & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'F'
+#define LCDDT6PINOUT DDRF |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRF &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTF |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTF &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PINF & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'G'
+#define LCDDT6PINOUT DDRG |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PININ  DDRG &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1  PORTG |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0  PORTG &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PING & (1 << LCDDT6PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT6PIN
+
+//------------------------------------------------------------------------------
+// LCD DT7
+#if LCDDT7PORT == 'A'
+#define LCDDT7PINOUT DDRA |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRA &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTA |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTA &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PINA & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'B'
+#define LCDDT7PINOUT DDRB |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRB &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTB |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTB &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PINB & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'C'
+#define LCDDT7PINOUT DDRC |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRC &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTC |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTC &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PINC & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'D'
+#define LCDDT7PINOUT DDRD |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRD &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTD |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTD &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PIND & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'E'
+#define LCDDT7PINOUT DDRE |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRE &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTE |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTE &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PINE & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'F'
+#define LCDDT7PINOUT DDRF |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRF &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTF |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTF &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PINF & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'G'
+#define LCDDT7PINOUT DDRG |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PININ  DDRG &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1  PORTG |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0  PORTG &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PING & (1 << LCDDT7PINNUM)
+#else
+#error "AVR: ilyen port nincs"
+#endif // LCDDT7PIN
+
+// AVR
+//==============================================================================
+// PIC16
+#elif ((defined(_PIC14)) || (defined(_PIC14E)))
+// LCD E
+#if LCDEPORT == 'A'
+#define LCDEPININ  TRISA |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISA &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTA |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTA &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTA & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'B'
+#define LCDEPININ  TRISB |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISB &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTB |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTB &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTB & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'C'
+#define LCDEPININ  TRISC |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISC &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTC |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTC &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTC & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'D'
+#define LCDEPININ  TRISD |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISD &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTD |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTD &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTD & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'E'
+#define LCDEPININ  TRISE |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISE &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTE |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTE &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTE & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'F'
+#define LCDEPININ  TRISF |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISF &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTF |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTF &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTF & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'G'
+#define LCDEPININ  TRISG |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISG &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1   PORTG |=  (1 << LCDEPINNUM)
+#define LCDEPIN0   PORTG &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTG & (1 << LCDEPINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDEPORT
+
+//------------------------------------------------------------------------------
+// LCD E2 (csak 80 karakteresnél nagyobb esetén)
+#ifdef LCDE2PORT
+#if LCDE2PORT == 'A'
+#define LCDE2PININ  TRISA |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISA &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1   PORTA |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTA &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTA & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'B'
+#define LCDE2PININ  TRISB |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISB &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1   PORTB |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTB &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTB & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'C'
+#define LCDE2PININ  TRISC |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISC &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1   PORTC |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTC &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTC & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'D'
+#define LCDE2PININ  TRISD |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISD &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1   PORTD |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTD &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTD & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'E'
+#define LCDE2PININ  TRISE |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISE &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1   PORTE |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTE &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTE & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'F'
+#define LCDE2PININ  TRISF |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISF &= ~(1 << LCDEP2INNUM)
+#define LCDE2PIN1   PORTF |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTF &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTF & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'G'
+#define LCDE2PININ  TRISG |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISG &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1   PORTG |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0   PORTG &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTG & (1 << LCDE2PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // #if LCDE2PORT == x
+#endif // #ifdef LCDE2PORT
+
+//------------------------------------------------------------------------------
+// LCD R/W (interrupt módban nélkülözhetõ, ekkor: LCD R/W - GND)
+#ifdef LCDRWPORT
+#if LCDRWPORT == 'A'
+#define LCDRWPININ  TRISA |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISA &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTA |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTA &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTA & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'B'
+#define LCDRWPININ  TRISB |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISB &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTB |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTB &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTB & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'C'
+#define LCDRWPININ  TRISC |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISC &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTC |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTC &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTC & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'D'
+#define LCDRWPININ  TRISD |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISD &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTD |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTD &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTD & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'E'
+#define LCDRWPININ  TRISE |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISE &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTE |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTE &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTE & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'F'
+#define LCDRWPININ  TRISF |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISF &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTF |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTF &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTF & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'G'
+#define LCDRWPININ  TRISG |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISG &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1   PORTG |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0   PORTG &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTG & (1 << LCDRWPINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // #if LCDRWPORT
+#endif // #ifdef LCDRWPORT
+
+//------------------------------------------------------------------------------
+// LCD RS
+#if LCDRSPORT == 'A'
+#define LCDRSPININ  TRISA |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISA &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTA |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTA &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTA & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'B'
+#define LCDRSPININ  TRISB |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISB &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTB |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTB &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTB & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'C'
+#define LCDRSPININ  TRISC |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISC &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTC |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTC &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTC & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'D'
+#define LCDRSPININ  TRISD |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISD &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTD |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTD &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTD & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'E'
+#define LCDRSPININ  TRISE |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISE &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTE |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTE &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTE & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'F'
+#define LCDRSPININ  TRISF |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISF &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTF |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTF &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTF & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'G'
+#define LCDRSPININ  TRISG |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISG &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1   PORTG |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0   PORTG &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTG & (1 << LCDRSPINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDRSPORT
+
+//------------------------------------------------------------------------------
+#if !defined LCD4BITMODE
+
+// LCD DT0
+#if LCDDT0PORT == 'A'
+#define LCDDT0PININ  TRISA |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISA &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTA |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTA &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTA & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'B'
+#define LCDDT0PININ  TRISB |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISB &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTB |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTB &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTB & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'C'
+#define LCDDT0PININ  TRISC |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISC &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTC |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTC &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTC & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'D'
+#define LCDDT0PININ  TRISD |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISD &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTD |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTD &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTD & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'E'
+#define LCDDT0PININ  TRISE |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISE &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTE |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTE &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTE & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'F'
+#define LCDDT0PININ  TRISF |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISF &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTF |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTF &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTF & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'G'
+#define LCDDT0PININ  TRISG |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISG &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1   PORTG |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0   PORTG &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTG & (1 << LCDDT0PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT0PORT
+
+//------------------------------------------------------------------------------
+// LCD DT1
+#if LCDDT1PORT == 'A'
+#define LCDDT1PININ  TRISA |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISA &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTA |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTA &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTA & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'B'
+#define LCDDT1PININ  TRISB |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISB &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTB |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTB &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTB & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'C'
+#define LCDDT1PININ  TRISC |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISC &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTC |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTC &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTC & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'D'
+#define LCDDT1PININ  TRISD |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISD &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTD |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTD &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTD & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'E'
+#define LCDDT1PININ  TRISE |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISE &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTE |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTE &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTE & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'F'
+#define LCDDT1PININ  TRISF |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISF &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTF |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTF &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTF & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'G'
+#define LCDDT1PININ  TRISG |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISG &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1   PORTG |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0   PORTG &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTG & (1 << LCDDT1PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT1PORT
+
+//------------------------------------------------------------------------------
+// LCD DT2
+#if LCDDT2PORT == 'A'
+#define LCDDT2PININ  TRISA |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISA &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTA |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTA &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTA & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'B'
+#define LCDDT2PININ  TRISB |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISB &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTB |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTB &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTB & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'C'
+#define LCDDT2PININ  TRISC |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISC &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTC |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTC &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTC & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'D'
+#define LCDDT2PININ  TRISD |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISD &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTD |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTD &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTD & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'E'
+#define LCDDT2PININ  TRISE |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISE &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTE |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTE &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTE & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'F'
+#define LCDDT2PININ  TRISF |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISF &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTF |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTF &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTF & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'G'
+#define LCDDT2PININ  TRISG |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISG &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1   PORTG |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0   PORTG &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTG & (1 << LCDDT2PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT2PORT
+
+//------------------------------------------------------------------------------
+// LCD DT3
+#if LCDDT3PORT == 'A'
+#define LCDDT3PININ  TRISA |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISA &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTA |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTA &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTA & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'B'
+#define LCDDT3PININ  TRISB |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISB &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTB |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTB &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTB & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'C'
+#define LCDDT3PININ  TRISC |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISC &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTC |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTC &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTC & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'D'
+#define LCDDT3PININ  TRISD |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISD &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTD |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTD &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTD & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'E'
+#define LCDDT3PININ  TRISE |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISE &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTE |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTE &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTE & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'F'
+#define LCDDT3PININ  TRISF |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISF &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTF |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTF &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTF & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'G'
+#define LCDDT3PININ  TRISG |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISG &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1   PORTG |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0   PORTG &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTG & (1 << LCDDT3PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT3PORT
+
+#endif // !LCD4BITMODE
+
+//------------------------------------------------------------------------------
+// LCD DT4
+#if LCDDT4PORT == 'A'
+#define LCDDT4PININ  TRISA |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISA &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTA |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTA &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTA & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'B'
+#define LCDDT4PININ  TRISB |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISB &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTB |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTB &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTB & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'C'
+#define LCDDT4PININ  TRISC |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISC &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTC |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTC &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTC & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'D'
+#define LCDDT4PININ  TRISD |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISD &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTD |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTD &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTD & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'E'
+#define LCDDT4PININ  TRISE |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISE &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTE |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTE &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTE & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'F'
+#define LCDDT4PININ  TRISF |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISF &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTF |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTF &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTF & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'G'
+#define LCDDT4PININ  TRISG |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISG &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1   PORTG |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0   PORTG &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTG & (1 << LCDDT4PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT4PORT
+
+//------------------------------------------------------------------------------
+// LCD DT5
+#if LCDDT5PORT == 'A'
+#define LCDDT5PININ  TRISA |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISA &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTA |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTA &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTA & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'B'
+#define LCDDT5PININ  TRISB |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISB &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTB |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTB &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTB & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'C'
+#define LCDDT5PININ  TRISC |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISC &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTC |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTC &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTC & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'D'
+#define LCDDT5PININ  TRISD |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISD &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTD |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTD &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTD & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'E'
+#define LCDDT5PININ  TRISE |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISE &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTE |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTE &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTE & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'F'
+#define LCDDT5PININ  TRISF |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISF &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTF |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTF &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTF & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'G'
+#define LCDDT5PININ  TRISG |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISG &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1   PORTG |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0   PORTG &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTG & (1 << LCDDT5PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT5PORT
+
+//------------------------------------------------------------------------------
+// LCD DT6
+#if LCDDT6PORT == 'A'
+#define LCDDT6PININ  TRISA |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISA &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTA |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTA &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTA & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'B'
+#define LCDDT6PININ  TRISB |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISB &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTB |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTB &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTB & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'C'
+#define LCDDT6PININ  TRISC |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISC &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTC |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTC &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTC & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'D'
+#define LCDDT6PININ  TRISD |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISD &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTD |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTD &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTD & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'E'
+#define LCDDT6PININ  TRISE |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISE &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTE |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTE &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTE & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'F'
+#define LCDDT6PININ  TRISF |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISF &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTF |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTF &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTF & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'G'
+#define LCDDT6PININ  TRISG |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISG &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1   PORTG |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0   PORTG &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTG & (1 << LCDDT6PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT6PORT
+
+//------------------------------------------------------------------------------
+// LCD DT7
+#if LCDDT7PORT == 'A'
+#define LCDDT7PININ  TRISA |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISA &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTA |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTA &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTA & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'B'
+#define LCDDT7PININ  TRISB |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISB &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTB |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTB &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTB & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'C'
+#define LCDDT7PININ  TRISC |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISC &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTC |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTC &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTC & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'D'
+#define LCDDT7PININ  TRISD |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISD &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTD |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTD &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTD & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'E'
+#define LCDDT7PININ  TRISE |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISE &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTE |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTE &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTE & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'F'
+#define LCDDT7PININ  TRISF |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISF &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTF |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTF &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTF & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'G'
+#define LCDDT7PININ  TRISG |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISG &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1   PORTG |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0   PORTG &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTG & (1 << LCDDT7PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT7PORT
+
+//==============================================================================
+// PIC18, PIC24
+#else // defined (__AVR__)
+// LCD E
+#if LCDEPORT == 'A'
+#define LCDEPININ  TRISA |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISA &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATA |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATA &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTA & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'B'
+#define LCDEPININ  TRISB |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISB &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATB |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATB &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTB & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'C'
+#define LCDEPININ  TRISC |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISC &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATC |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATC &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTC & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'D'
+#define LCDEPININ  TRISD |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISD &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATD |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATD &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTD & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'E'
+#define LCDEPININ  TRISE |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISE &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATE |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATE &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTE & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'F'
+#define LCDEPININ  TRISF |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISF &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATF |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATF &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTF & (1 << LCDEPINNUM)
+#elif LCDEPORT == 'G'
+#define LCDEPININ  TRISG |=  (1 << LCDEPINNUM)
+#define LCDEPINOUT TRISG &= ~(1 << LCDEPINNUM)
+#define LCDEPIN1    LATG |=  (1 << LCDEPINNUM)
+#define LCDEPIN0    LATG &= ~(1 << LCDEPINNUM)
+#define LCDEPIN    PORTG & (1 << LCDEPINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDEPORT
+
+//------------------------------------------------------------------------------
+// LCD E2 (csak 80 karakteresnél nagyobb esetén)
+#ifdef LCDE2PORT
+#if LCDE2PORT == 'A'
+#define LCDE2PININ  TRISA |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISA &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1    LATA |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATA &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTA & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'B'
+#define LCDE2PININ  TRISB |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISB &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1    LATB |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATB &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTB & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'C'
+#define LCDE2PININ  TRISC |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISC &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1    LATC |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATC &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTC & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'D'
+#define LCDE2PININ  TRISD |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISD &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1    LATD |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATD &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTD & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'E'
+#define LCDE2PININ  TRISE |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISE &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1    LATE |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATE &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTE & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'F'
+#define LCDE2PININ  TRISF |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISF &= ~(1 << LCDEP2INNUM)
+#define LCDE2PIN1    LATF |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATF &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTF & (1 << LCDE2PINNUM)
+#elif LCDE2PORT == 'G'
+#define LCDE2PININ  TRISG |=  (1 << LCDE2PINNUM)
+#define LCDE2PINOUT TRISG &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN1    LATG |=  (1 << LCDE2PINNUM)
+#define LCDE2PIN0    LATG &= ~(1 << LCDE2PINNUM)
+#define LCDE2PIN    PORTG & (1 << LCDE2PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // #if LCDE2PORT == x
+#endif // #ifdef LCDE2PORT
+
+//------------------------------------------------------------------------------
+// LCD R/W (interrupt módban nélkülözhetõ, ekkor: LCD R/W - GND)
+#ifdef LCDRWPORT
+#if LCDRWPORT == 'A'
+#define LCDRWPININ  TRISA |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISA &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATA |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATA &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTA & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'B'
+#define LCDRWPININ  TRISB |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISB &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATB |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATB &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTB & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'C'
+#define LCDRWPININ  TRISC |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISC &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATC |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATC &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTC & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'D'
+#define LCDRWPININ  TRISD |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISD &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATD |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATD &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTD & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'E'
+#define LCDRWPININ  TRISE |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISE &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATE |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATE &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTE & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'F'
+#define LCDRWPININ  TRISF |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISF &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATF |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATF &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTF & (1 << LCDRWPINNUM)
+#elif LCDRWPORT == 'G'
+#define LCDRWPININ  TRISG |=  (1 << LCDRWPINNUM)
+#define LCDRWPINOUT TRISG &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN1    LATG |=  (1 << LCDRWPINNUM)
+#define LCDRWPIN0    LATG &= ~(1 << LCDRWPINNUM)
+#define LCDRWPIN    PORTG & (1 << LCDRWPINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // #if LCDRWPORT
+#endif // #ifdef LCDRWPORT
+
+//------------------------------------------------------------------------------
+// LCD RS
+#if LCDRSPORT == 'A'
+#define LCDRSPININ  TRISA |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISA &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATA |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATA &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTA & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'B'
+#define LCDRSPININ  TRISB |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISB &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATB |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATB &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTB & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'C'
+#define LCDRSPININ  TRISC |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISC &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATC |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATC &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTC & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'D'
+#define LCDRSPININ  TRISD |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISD &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATD |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATD &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTD & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'E'
+#define LCDRSPININ  TRISE |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISE &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATE |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATE &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTE & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'F'
+#define LCDRSPININ  TRISF |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISF &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATF |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATF &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTF & (1 << LCDRSPINNUM)
+#elif LCDRSPORT == 'G'
+#define LCDRSPININ  TRISG |=  (1 << LCDRSPINNUM)
+#define LCDRSPINOUT TRISG &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN1    LATG |=  (1 << LCDRSPINNUM)
+#define LCDRSPIN0    LATG &= ~(1 << LCDRSPINNUM)
+#define LCDRSPIN    PORTG & (1 << LCDRSPINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDRSPORT
+
+//------------------------------------------------------------------------------
+#if !defined LCD4BITMODE
+
+// LCD DT0
+#if LCDDT0PORT == 'A'
+#define LCDDT0PININ  TRISA |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISA &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATA |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATA &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTA & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'B'
+#define LCDDT0PININ  TRISB |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISB &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATB |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATB &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTB & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'C'
+#define LCDDT0PININ  TRISC |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISC &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATC |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATC &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTC & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'D'
+#define LCDDT0PININ  TRISD |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISD &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATD |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATD &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTD & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'E'
+#define LCDDT0PININ  TRISE |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISE &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATE |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATE &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTE & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'F'
+#define LCDDT0PININ  TRISF |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISF &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATF |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATF &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTF & (1 << LCDDT0PINNUM)
+#elif LCDDT0PORT == 'G'
+#define LCDDT0PININ  TRISG |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PINOUT TRISG &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN1    LATG |=  (1 << LCDDT0PINNUM)
+#define LCDDT0PIN0    LATG &= ~(1 << LCDDT0PINNUM)
+#define LCDDT0PIN    PORTG & (1 << LCDDT0PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT0PORT
+
+//------------------------------------------------------------------------------
+// LCD DT1
+#if LCDDT1PORT == 'A'
+#define LCDDT1PININ  TRISA |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISA &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATA |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATA &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTA & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'B'
+#define LCDDT1PININ  TRISB |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISB &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATB |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATB &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTB & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'C'
+#define LCDDT1PININ  TRISC |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISC &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATC |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATC &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTC & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'D'
+#define LCDDT1PININ  TRISD |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISD &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATD |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATD &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTD & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'E'
+#define LCDDT1PININ  TRISE |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISE &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATE |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATE &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTE & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'F'
+#define LCDDT1PININ  TRISF |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISF &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATF |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATF &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTF & (1 << LCDDT1PINNUM)
+#elif LCDDT1PORT == 'G'
+#define LCDDT1PININ  TRISG |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PINOUT TRISG &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN1    LATG |=  (1 << LCDDT1PINNUM)
+#define LCDDT1PIN0    LATG &= ~(1 << LCDDT1PINNUM)
+#define LCDDT1PIN    PORTG & (1 << LCDDT1PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT1PORT
+
+//------------------------------------------------------------------------------
+// LCD DT2
+#if LCDDT2PORT == 'A'
+#define LCDDT2PININ  TRISA |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISA &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATA |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATA &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTA & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'B'
+#define LCDDT2PININ  TRISB |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISB &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATB |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATB &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTB & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'C'
+#define LCDDT2PININ  TRISC |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISC &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATC |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATC &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTC & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'D'
+#define LCDDT2PININ  TRISD |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISD &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATD |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATD &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTD & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'E'
+#define LCDDT2PININ  TRISE |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISE &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATE |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATE &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTE & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'F'
+#define LCDDT2PININ  TRISF |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISF &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATF |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATF &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTF & (1 << LCDDT2PINNUM)
+#elif LCDDT2PORT == 'G'
+#define LCDDT2PININ  TRISG |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PINOUT TRISG &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN1    LATG |=  (1 << LCDDT2PINNUM)
+#define LCDDT2PIN0    LATG &= ~(1 << LCDDT2PINNUM)
+#define LCDDT2PIN    PORTG & (1 << LCDDT2PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT2PORT
+
+//------------------------------------------------------------------------------
+// LCD DT3
+#if LCDDT3PORT == 'A'
+#define LCDDT3PININ  TRISA |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISA &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATA |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATA &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTA & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'B'
+#define LCDDT3PININ  TRISB |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISB &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATB |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATB &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTB & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'C'
+#define LCDDT3PININ  TRISC |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISC &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATC |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATC &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTC & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'D'
+#define LCDDT3PININ  TRISD |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISD &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATD |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATD &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTD & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'E'
+#define LCDDT3PININ  TRISE |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISE &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATE |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATE &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTE & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'F'
+#define LCDDT3PININ  TRISF |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISF &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATF |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATF &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTF & (1 << LCDDT3PINNUM)
+#elif LCDDT3PORT == 'G'
+#define LCDDT3PININ  TRISG |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PINOUT TRISG &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN1    LATG |=  (1 << LCDDT3PINNUM)
+#define LCDDT3PIN0    LATG &= ~(1 << LCDDT3PINNUM)
+#define LCDDT3PIN    PORTG & (1 << LCDDT3PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT3PORT
+
+#endif // !LCD4BITMODE
+
+//------------------------------------------------------------------------------
+// LCD DT4
+#if LCDDT4PORT == 'A'
+#define LCDDT4PININ  TRISA |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISA &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATA |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATA &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTA & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'B'
+#define LCDDT4PININ  TRISB |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISB &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATB |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATB &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTB & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'C'
+#define LCDDT4PININ  TRISC |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISC &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATC |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATC &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTC & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'D'
+#define LCDDT4PININ  TRISD |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISD &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATD |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATD &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTD & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'E'
+#define LCDDT4PININ  TRISE |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISE &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATE |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATE &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTE & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'F'
+#define LCDDT4PININ  TRISF |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISF &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATF |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATF &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTF & (1 << LCDDT4PINNUM)
+#elif LCDDT4PORT == 'G'
+#define LCDDT4PININ  TRISG |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PINOUT TRISG &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN1    LATG |=  (1 << LCDDT4PINNUM)
+#define LCDDT4PIN0    LATG &= ~(1 << LCDDT4PINNUM)
+#define LCDDT4PIN    PORTG & (1 << LCDDT4PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT4PORT
+
+//------------------------------------------------------------------------------
+// LCD DT5
+#if LCDDT5PORT == 'A'
+#define LCDDT5PININ  TRISA |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISA &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATA |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATA &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTA & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'B'
+#define LCDDT5PININ  TRISB |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISB &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATB |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATB &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTB & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'C'
+#define LCDDT5PININ  TRISC |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISC &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATC |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATC &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTC & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'D'
+#define LCDDT5PININ  TRISD |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISD &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATD |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATD &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTD & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'E'
+#define LCDDT5PININ  TRISE |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISE &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATE |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATE &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTE & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'F'
+#define LCDDT5PININ  TRISF |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISF &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATF |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATF &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTF & (1 << LCDDT5PINNUM)
+#elif LCDDT5PORT == 'G'
+#define LCDDT5PININ  TRISG |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PINOUT TRISG &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN1    LATG |=  (1 << LCDDT5PINNUM)
+#define LCDDT5PIN0    LATG &= ~(1 << LCDDT5PINNUM)
+#define LCDDT5PIN    PORTG & (1 << LCDDT5PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT5PORT
+
+//------------------------------------------------------------------------------
+// LCD DT6
+#if LCDDT6PORT == 'A'
+#define LCDDT6PININ  TRISA |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISA &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATA |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATA &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTA & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'B'
+#define LCDDT6PININ  TRISB |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISB &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATB |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATB &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTB & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'C'
+#define LCDDT6PININ  TRISC |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISC &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATC |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATC &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTC & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'D'
+#define LCDDT6PININ  TRISD |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISD &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATD |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATD &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTD & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'E'
+#define LCDDT6PININ  TRISE |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISE &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATE |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATE &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTE & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'F'
+#define LCDDT6PININ  TRISF |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISF &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATF |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATF &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTF & (1 << LCDDT6PINNUM)
+#elif LCDDT6PORT == 'G'
+#define LCDDT6PININ  TRISG |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PINOUT TRISG &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN1    LATG |=  (1 << LCDDT6PINNUM)
+#define LCDDT6PIN0    LATG &= ~(1 << LCDDT6PINNUM)
+#define LCDDT6PIN    PORTG & (1 << LCDDT6PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT6PORT
+
+//------------------------------------------------------------------------------
+// LCD DT7
+#if LCDDT7PORT == 'A'
+#define LCDDT7PININ  TRISA |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISA &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATA |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATA &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTA & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'B'
+#define LCDDT7PININ  TRISB |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISB &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATB |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATB &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTB & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'C'
+#define LCDDT7PININ  TRISC |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISC &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATC |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATC &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTC & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'D'
+#define LCDDT7PININ  TRISD |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISD &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATD |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATD &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTD & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'E'
+#define LCDDT7PININ  TRISE |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISE &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATE |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATE &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTE & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'F'
+#define LCDDT7PININ  TRISF |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISF &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATF |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATF &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTF & (1 << LCDDT7PINNUM)
+#elif LCDDT7PORT == 'G'
+#define LCDDT7PININ  TRISG |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PINOUT TRISG &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN1    LATG |=  (1 << LCDDT7PINNUM)
+#define LCDDT7PIN0    LATG &= ~(1 << LCDDT7PINNUM)
+#define LCDDT7PIN    PORTG & (1 << LCDDT7PINNUM)
+#else
+#error "PIC: ilyen port nincs"
+#endif // LCDDT7PORT
+#endif // else defined(__AVR__)
+
+#endif // __CHARLCDIO_H

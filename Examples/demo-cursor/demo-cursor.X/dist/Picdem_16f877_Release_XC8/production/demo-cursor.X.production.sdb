@@ -1,0 +1,286 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC PIC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"471 D:\Benjami\Pic\benjami-periferia\charlcd\demo-cursor/charlcd.c
+[e E1115 LS `uc
+HOME 0
+LCHAR 1
+DDR 2
+CURTYPE 3
+CURPOS 4
+CGR 5
+CHARGEN 6
+CGRROM 7
+CHARGENROM 8
+REFREND 9
+]
+"748
+[v _DelayMs DelayMs `(v  1 e 0 0 ]
+"792
+[v _DelayLcd DelayLcd `(v  1 e 0 0 ]
+"888
+[v _LcdWrite LcdWrite `(v  1 e 0 0 ]
+"957
+[v _LcdInit LcdInit `(v  1 e 0 0 ]
+"1118
+[v _LcdProcess LcdProcess `(v  1 e 0 0 ]
+"1611
+[v _LcdRefreshAll LcdRefreshAll `(v  1 e 0 0 ]
+"1677
+[v _LcdChangeCharset LcdChangeCharset `(v  1 e 0 0 ]
+"45 D:\Benjami\Pic\benjami-periferia\charlcd\demo-cursor/cursor-demo-htc.c
+[v _mwait mwait `(v  1 e 0 0 ]
+"81
+[v _main main `(v  1 e 0 0 ]
+"150
+[v _isr isr `II(v  1 s 0 isr ]
+"4 D:\Programok\Microchip\xc8\v1.33\sources\common\abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"4 D:\Programok\Microchip\xc8\v1.33\sources\common\abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"33 D:\Programok\Microchip\xc8\v1.33\sources\common\abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"5 D:\Programok\Microchip\xc8\v1.33\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"42 D:\Programok\Microchip\xc8\v1.33\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"37 D:\Programok\Microchip\xc8\v1.33\sources\common\attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"32 D:\Programok\Microchip\xc8\v1.33\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"62 D:\Programok\Microchip\xc8\v1.33\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 D:\Programok\Microchip\xc8\v1.33\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"4 D:\Programok\Microchip\xc8\v1.33\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 D:\Programok\Microchip\xc8\v1.33\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 D:\Programok\Microchip\xc8\v1.33\sources\common\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"18 D:\Programok\Microchip\xc8\v1.33\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 D:\Programok\Microchip\xc8\v1.33\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"4 D:\Programok\Microchip\xc8\v1.33\sources\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 D:\Programok\Microchip\xc8\v1.33\sources\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"27 D:\Programok\Microchip\xc8\v1.33\sources\common\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"35 D:\Programok\Microchip\xc8\v1.33\sources\common\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"30 D:\Programok\Microchip\xc8\v1.33\sources\common\lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 D:\Programok\Microchip\xc8\v1.33\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 D:\Programok\Microchip\xc8\v1.33\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 D:\Programok\Microchip\xc8\v1.33\sources\common\Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 D:\Programok\Microchip\xc8\v1.33\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 D:\Programok\Microchip\xc8\v1.33\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 D:\Programok\Microchip\xc8\v1.33\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"48
+[v ___eetoc __eetoc `(uc  1 e 1 0 ]
+"56
+[v ___eetoi __eetoi `(ui  1 e 2 0 ]
+"64
+[v ___eetom __eetom `(um  1 e 3 0 ]
+"72
+[v ___eetol __eetol `(ul  1 e 4 0 ]
+"80
+[v ___ctoee __ctoee `(uc  1 e 1 0 ]
+"87
+[v ___itoee __itoee `(ui  1 e 2 0 ]
+"94
+[v ___mtoee __mtoee `(um  1 e 3 0 ]
+"101
+[v ___ltoee __ltoee `(ul  1 e 4 0 ]
+"108
+[v ___eetoft __eetoft `(f  1 e 3 0 ]
+"116
+[v ___eetofl __eetofl `(d  1 e 3 0 ]
+"124
+[v ___fttoee __fttoee `(f  1 e 3 0 ]
+"131
+[v ___fltoee __fltoee `(d  1 e 3 0 ]
+"49 D:\Programok\Microchip\xc8\v1.33\sources\pic\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+[s S19 . 1 `uc 1 bit0 1 0 :1:0 
+`uc 1 bit1 1 0 :1:1 
+`uc 1 bit2 1 0 :1:2 
+`uc 1 bit3 1 0 :1:3 
+`uc 1 bit4 1 0 :1:4 
+`uc 1 bit5 1 0 :1:5 
+`uc 1 bit6 1 0 :1:6 
+`uc 1 bit7 1 0 :1:7 
+]
+"450 D:\Benjami\Pic\benjami-periferia\charlcd\demo-cursor/charlcd.c
+[s S28 . 1 `uc 1 nibble03 1 0 :4:0 
+`uc 1 nibble47 1 0 :4:4 
+]
+[u S31 . 1 `S19 1 . 1 0 `S28 1 . 1 0 `uc 1 chr 1 0 ]
+[v _ch ch `VES31  1 e 1 0 ]
+"456
+[v _LcdText LcdText `VE[33]uc  1 e 33 0 ]
+"458
+[v _LcdPos LcdPos `VEuc  1 e 1 0 ]
+"471
+[v _LcdStatus LcdStatus `E1115  1 e 1 0 ]
+"487
+[v _LcdCursorPos LcdCursorPos `VEuc  1 e 1 0 ]
+"488
+[v _LcdCursorType LcdCursorType `VEuc  1 e 1 0 ]
+"498
+[v _uchp uchp `*.1uc  1 e 1 0 ]
+[s S47 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"173 D:\Programok\Microchip\xc8\v1.33\include\pic16f877a.h
+[u S54 . 1 `S47 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES54  1 e 1 @5 ]
+[s S134 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"224
+[u S143 . 1 `S134 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES143  1 e 1 @6 ]
+"329
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1301
+[v _TRISAbits TRISAbits `VES54  1 e 1 @133 ]
+"1352
+[v _TRISBbits TRISBbits `VES143  1 e 1 @134 ]
+"1457
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S156 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 . 1 0 :2:4 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2192
+[s S161 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+]
+[u S166 . 1 `S156 1 . 1 0 `S161 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES166  1 e 1 @159 ]
+"2231
+[v _EEDATA EEDATA `VEuc  1 e 1 @268 ]
+"2237
+[v _EEADR EEADR `VEuc  1 e 1 @269 ]
+"2255
+[v _EECON1 EECON1 `VEuc  1 e 1 @396 ]
+"2299
+[v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
+"2349
+[v _CARRY CARRY `VEb  1 e 0 @24 ]
+"2441
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2559
+[v _RD RD `VEb  1 e 0 @3168 ]
+"2759
+[v _WR WR `VEb  1 e 0 @3169 ]
+"2761
+[v _WREN WREN `VEb  1 e 0 @3170 ]
+"81 D:\Benjami\Pic\benjami-periferia\charlcd\demo-cursor/cursor-demo-htc.c
+[v _main main `(v  1 e 0 0 ]
+{
+"128
+} 0
+"45
+[v _mwait mwait `(v  1 e 0 0 ]
+{
+"49
+[v mwait@dl dl `VEui  1 a 2 2 ]
+[v mwait@dh dh `VEui  1 a 2 0 ]
+"48
+[v mwait@cc cc `uc  1 s 1 cc ]
+"78
+} 0
+"1611 D:\Benjami\Pic\benjami-periferia\charlcd\demo-cursor/charlcd.c
+[v _LcdRefreshAll LcdRefreshAll `(v  1 e 0 0 ]
+{
+"1651
+} 0
+"1118
+[v _LcdProcess LcdProcess `(v  1 e 0 0 ]
+{
+"1596
+} 0
+"792
+[v _DelayLcd DelayLcd `(v  1 e 0 0 ]
+{
+"809
+[v DelayLcd@cl cl `VEuc  1 a 1 2 ]
+"817
+} 0
+"957
+[v _LcdInit LcdInit `(v  1 e 0 0 ]
+{
+"959
+[v LcdInit@i i `uc  1 a 1 5 ]
+"1088
+} 0
+"888
+[v _LcdWrite LcdWrite `(v  1 e 0 0 ]
+{
+"904
+} 0
+"748
+[v _DelayMs DelayMs `(v  1 e 0 0 ]
+{
+[v DelayMs@ms ms `uc  1 a 1 wreg ]
+"750
+[v DelayMs@dl dl `VEui  1 a 2 3 ]
+"748
+[v DelayMs@ms ms `uc  1 a 1 wreg ]
+[v DelayMs@ms ms `uc  1 a 1 2 ]
+"759
+} 0
+"150 D:\Benjami\Pic\benjami-periferia\charlcd\demo-cursor/cursor-demo-htc.c
+[v _isr isr `II(v  1 s 0 isr ]
+{
+"155
+} 0

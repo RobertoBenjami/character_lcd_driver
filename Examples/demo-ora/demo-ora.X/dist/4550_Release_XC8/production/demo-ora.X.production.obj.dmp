@@ -1,0 +1,1000 @@
+	1	IDENT	16
+		Object code version	= 3.11
+		Machine			= 18F4550
+		32 bit order		= 0 1 2 3
+		16 bit order		= 0 1
+	2	FNCONF	14
+		PSECT rparam; local prefix ??; arg prefix ?
+	3	PSECT	11
+		pa_nodes	GLOBAL
+	4	XPSECT	27
+		pa_nodes space = 00 delta = 01 class=CODE
+	5	PSECT	9
+		rparam	GLOBAL
+	6	XPSECT	27
+		rparam space = 01 delta = 01 class=COMRAM
+	7	PSECT	15
+		intsave_regs	GLOBAL
+	8	XPSECT	33
+		intsave_regs space = 01 delta = 01 class=BIGRAM
+	9	PSECT	9
+		text12	GLOBAL
+	10	XPSECT	25
+		text12	reloc=2 space = 00 delta = 01 class=CODE
+	11	PSECT	9
+		text11	GLOBAL
+	12	XPSECT	25
+		text11	reloc=2 space = 00 delta = 01 class=CODE
+	13	PSECT	15
+		intcode_body	GLOBAL
+	14	XPSECT	31
+		intcode_body	reloc=2 space = 00 delta = 01 class=CODE
+	15	PSECT	10
+		intcode	GLOBAL
+	16	XPSECT	26
+		intcode	reloc=2 space = 00 delta = 01 class=CODE
+	17	PSECT	12
+		intcodelo	GLOBAL
+	18	XPSECT	28
+		intcodelo	reloc=2 space = 00 delta = 01 class=CODE
+	19	PSECT	8
+		text8	GLOBAL
+	20	XPSECT	24
+		text8	reloc=2 space = 00 delta = 01 class=CODE
+	21	PSECT	8
+		text7	GLOBAL
+	22	XPSECT	24
+		text7	reloc=2 space = 00 delta = 01 class=CODE
+	23	PSECT	8
+		text6	GLOBAL
+	24	XPSECT	24
+		text6	reloc=2 space = 00 delta = 01 class=CODE
+	25	PSECT	8
+		text5	GLOBAL
+	26	XPSECT	24
+		text5	reloc=2 space = 00 delta = 01 class=CODE
+	27	PSECT	8
+		text4	GLOBAL
+	28	XPSECT	24
+		text4	reloc=2 space = 00 delta = 01 class=CODE
+	29	PSECT	8
+		text3	GLOBAL
+	30	XPSECT	24
+		text3	reloc=2 space = 00 delta = 01 class=CODE
+	31	PSECT	8
+		text2	GLOBAL
+	32	XPSECT	24
+		text2	reloc=2 space = 00 delta = 01 class=CODE
+	33	PSECT	8
+		text1	GLOBAL
+	34	XPSECT	24
+		text1	reloc=2 space = 00 delta = 01 class=CODE
+	35	PSECT	8
+		text0	GLOBAL
+	36	XPSECT	24
+		text0	reloc=2 space = 00 delta = 01 class=CODE
+	37	PSECT	15
+		cstackCOMRAM	GLOBAL
+	38	XPSECT	33
+		cstackCOMRAM space = 01 delta = 01 class=COMRAM
+	39	PSECT	13
+		dataCOMRAM	GLOBAL
+	40	XPSECT	31
+		dataCOMRAM space = 01 delta = 01 class=COMRAM
+	41	PSECT	12
+		bssCOMRAM	GLOBAL
+	42	XPSECT	30
+		bssCOMRAM space = 01 delta = 01 class=COMRAM
+	43	PSECT	8
+		cinit	GLOBAL
+	44	XPSECT	24
+		cinit	reloc=2 space = 00 delta = 01 class=CODE
+	45	PSECT	11
+		nvCOMRAM	GLOBAL
+	46	XPSECT	29
+		nvCOMRAM space = 01 delta = 01 class=COMRAM
+	47	PSECT	13
+		smallconst	GLOBAL
+	48	XPSECT	35
+		smallconst	reloc=2 space = 00 delta = 01 class=SMALLCONST
+	49	PSECT	14
+		idataCOMRAM	GLOBAL
+	50	XPSECT	30
+		idataCOMRAM space = 00 delta = 01 class=CODE
+	51	PSECT	3
+		(abs)	GLOBAL	OVRLD	ABS
+	52	XPSECT	15
+		(abs) space = 00 delta = 01
+	53	PSECTBOUND	15
+		(abs)	start=0000	end=0000 delta = 01 space = 0	GLOBAL	OVRLD	ABS
+	54	SYM	496
+		_ch	nvCOMRAM	0	GLOBAL	
+		_ev	dataCOMRAM	0	GLOBAL	
+		_PR2	(abs)	FCB	GLOBAL	
+		_nap	dataCOMRAM	4	GLOBAL	
+		_ora	dataCOMRAM	5	GLOBAL	
+		_WREG	(abs)	FE8	GLOBAL	
+		_main	text0	0	GLOBAL	
+		_init	text5	0	GLOBAL	
+		_irqh	intcode	0	GLOBAL	
+		_perc	dataCOMRAM	6	GLOBAL	
+		_irql	intcodelo	0	GLOBAL	
+		_temp	bssCOMRAM	4	GLOBAL	
+		_utoa	text1	0	GLOBAL	
+		start		0	GLOBAL	EXTERN
+		__end_of_DelayMs	text8	24	GLOBAL	
+		__end_of_LcdInit	text6	EC	GLOBAL	
+		_LcdProcess	text11	0	GLOBAL	
+		_T2CON	(abs)	FCA	GLOBAL	
+		__end_of___lwdiv	text3	4A	GLOBAL	
+		__end_of___lwmod	text2	3E	GLOBAL	
+		_TMR0H	(abs)	FD7	GLOBAL	
+		_TMR0L	(abs)	FD6	GLOBAL	
+		_honap	dataCOMRAM	3	GLOBAL	
+		utoa@c	cstackCOMRAM	10	GLOBAL	
+	55	SYM	493
+		utoa@v	cstackCOMRAM	E	GLOBAL	
+		__end_of_LcdWrite	text7	5A	GLOBAL	
+		__initialization	cinit	0	GLOBAL	
+		__end_of_main	text0	32	GLOBAL	
+		__end_of_init	text5	24	GLOBAL	
+		__end_of_irqh	intcode_body	3C	GLOBAL	
+		__end_of_irql	intcodelo	A	GLOBAL	
+		__end_of_utoa	text1	92	GLOBAL	
+		__activetblptr	(abs)	1	GLOBAL	
+		_ADCON1	(abs)	FC1	GLOBAL	
+		_PCLATU	(abs)	FFB	GLOBAL	
+		_LcdPos	bssCOMRAM	2	GLOBAL	
+		__size_ofi2_LcdWrite	(abs)	0	GLOBAL	
+		_memcpy	text4	0	GLOBAL	
+		__pdataCOMRAM	dataCOMRAM	0	GLOBAL	
+		__mediumconst		0	GLOBAL	EXTERN
+		__accesstop		0	GLOBAL	EXTERN
+		__end_of__initialization	cinit	2C	GLOBAL	
+		__pcstackCOMRAM	cstackCOMRAM	0	GLOBAL	
+	56	SYM	504
+		__pnvCOMRAM	nvCOMRAM	0	GLOBAL	
+		__size_of_LcdProcess	(abs)	0	GLOBAL	
+		_DelayMs	text8	0	GLOBAL	
+		_LcdInit	text6	0	GLOBAL	
+		_LcdText	bssCOMRAM	5	GLOBAL	
+		__Hparam	__Hrparam	0	GLOBAL	REDIRECT
+		__Lparam	__Lrparam	0	GLOBAL	REDIRECT
+		__end_of_honaphosszak	smallconst	D	GLOBAL	
+		___lwdiv	text3	0	GLOBAL	
+		___lwmod	text2	0	GLOBAL	
+		__psmallconst	smallconst	0	GLOBAL	
+		__end_ofi2_LcdWrite	text12	5A	GLOBAL	
+		__pcinit	cinit	0	GLOBAL	
+		__size_of_memcpy	(abs)	0	GLOBAL	
+		__ramtop		0	GLOBAL	EXTERN
+		__ptext0	text0	0	GLOBAL	
+		__ptext1	text1	0	GLOBAL	
+		__ptext2	text2	0	GLOBAL	
+		__ptext3	text3	0	GLOBAL	
+		__ptext4	text4	0	GLOBAL	
+		__ptext5	text5	0	GLOBAL	
+	57	SYM	493
+		__ptext6	text6	0	GLOBAL	
+		__ptext7	text7	0	GLOBAL	
+		__ptext8	text8	0	GLOBAL	
+		_T0CONbits	(abs)	FD5	GLOBAL	
+		_T2CONbits	(abs)	FCA	GLOBAL	
+		__pintcode_body	intcode_body	0	GLOBAL	
+		end_of_initialization	cinit	2C	GLOBAL	
+		DelayMs@dl	cstackCOMRAM	4	GLOBAL	
+		DelayMs@ms	cstackCOMRAM	3	GLOBAL	
+		memcpy@d	cstackCOMRAM	6	GLOBAL	
+		memcpy@n	cstackCOMRAM	4	GLOBAL	
+		memcpy@s	cstackCOMRAM	7	GLOBAL	
+		int_func	intcode_body	0	GLOBAL	
+		utoa@buf	cstackCOMRAM	11	GLOBAL	
+		utoa@val	cstackCOMRAM	A	GLOBAL	
+		_TRISAbits	(abs)	F92	GLOBAL	
+		_TRISBbits	(abs)	F93	GLOBAL	
+		__end_of_LcdProcess	text11	68	GLOBAL	
+		_LcdStatus	dataCOMRAM	2	GLOBAL	
+	58	SYM	502
+		__pidataCOMRAM	idataCOMRAM	0	GLOBAL	
+		__end_of_memcpy	text4	32	GLOBAL	
+		start_initialization	cinit	0	GLOBAL	
+		__size_of_LcdWrite	(abs)	0	GLOBAL	
+		__pbssCOMRAM	bssCOMRAM	0	GLOBAL	
+		__end_of__stringdata	smallconst	2E	GLOBAL	
+		_honaphosszak	smallconst	1	GLOBAL	
+		___lwdiv@dividend	cstackCOMRAM	3	GLOBAL	
+		__pintcode	intcode	0	GLOBAL	
+		?___lwdiv	cstackCOMRAM	3	GLOBAL	
+		?___lwmod	cstackCOMRAM	3	GLOBAL	
+		__pintcodelo	intcodelo	0	GLOBAL	
+		__smallconst		0	GLOBAL	EXTERN
+		___lwdiv@quotient	cstackCOMRAM	7	GLOBAL	
+		_masodperc	bssCOMRAM	3	GLOBAL	
+		_LATAbits	(abs)	F89	GLOBAL	
+		_LATBbits	(abs)	F8A	GLOBAL	
+		_IPR1bits	(abs)	F9F	GLOBAL	
+	59	SYM	491
+		_PIE1bits	(abs)	F9D	GLOBAL	
+		LcdInit@i	cstackCOMRAM	6	GLOBAL	
+		_PIR1bits	(abs)	F9E	GLOBAL	
+		_RCONbits	(abs)	FD0	GLOBAL	
+		__stringdata	smallconst	D	GLOBAL	
+		_LcdWrite	text7	0	GLOBAL	
+		_INTCON2bits	(abs)	FF1	GLOBAL	
+		__size_of_DelayMs	(abs)	0	GLOBAL	
+		__size_of_LcdInit	(abs)	0	GLOBAL	
+		__Hrparam		0	GLOBAL	EXTERN
+		__Lrparam		0	GLOBAL	EXTERN
+		__Lsmallconst		0	GLOBAL	EXTERN
+		__size_of___lwdiv	(abs)	0	GLOBAL	
+		__size_of___lwmod	(abs)	0	GLOBAL	
+		___lwdiv@divisor	cstackCOMRAM	5	GLOBAL	
+		___lwdiv@counter	cstackCOMRAM	9	GLOBAL	
+		__ptext11	text11	0	GLOBAL	
+		__ptext12	text12	0	GLOBAL	
+		__size_of_main	(abs)	0	GLOBAL	
+		__size_of_init	(abs)	0	GLOBAL	
+		__size_of_irqh	(abs)	0	GLOBAL	
+	60	SYM	344
+		__size_of_irql	(abs)	0	GLOBAL	
+		__size_of_utoa	(abs)	0	GLOBAL	
+		_INTCONbits	(abs)	FF2	GLOBAL	
+		memcpy@d1	cstackCOMRAM	8	GLOBAL	
+		memcpy@s1	cstackCOMRAM	3	GLOBAL	
+		irqh@msec	bssCOMRAM	0	GLOBAL	
+		intlevel1		0	GLOBAL	EXTERN
+		intlevel2		0	GLOBAL	EXTERN
+		___lwmod@dividend	cstackCOMRAM	3	GLOBAL	
+		utoa@base	cstackCOMRAM	C	GLOBAL	
+		___lwmod@divisor	cstackCOMRAM	5	GLOBAL	
+		___lwmod@counter	cstackCOMRAM	7	GLOBAL	
+		i2_LcdWrite	text12	0	GLOBAL	
+	61	SIGNAT	8
+		_main	88
+	62	SIGNAT	8
+		_init	88
+	63	SIGNAT	8
+		_irqh	88
+	64	SIGNAT	8
+		_irql	1112
+	65	SIGNAT	8
+		_utoa	12410
+	66	SIGNAT	14
+		_LcdProcess	88
+	67	SIGNAT	10
+		_memcpy	12410
+	68	SIGNAT	11
+		_DelayMs	4216
+	69	SIGNAT	11
+		_LcdInit	88
+	70	SIGNAT	11
+		___lwdiv	8314
+	71	SIGNAT	11
+		___lwmod	8314
+	72	SIGNAT	12
+		_LcdWrite	88
+	73	SIGNAT	14
+		i2_LcdWrite	88
+	74	TEXT	23
+		idataCOMRAM	0x0	0x7
+	     0: DD 07 01 0C 18 17 3A                           	......:
+	75	TEXT	62
+		smallconst	0x0	0x2F
+	     0: 00 1F 1C 1F 1E 1F 1E 1F 1F 1E 1F 1E 1F 20 20 20	.............   
+	    10: 65 65 65 65 2E 68 68 2E 6E 6E 20 20 20 20 20 20	eeee.hh.nn      
+	    20: 20 6F 6F 3A 70 70 3A 6D 6D 20 20 20 20 00 00   	 oo:pp:mm    ..
+	76	SYM	500
+		D:/Programok/Microchip/xc8/v1.33/include\pic18f4550.h		0	FILNAM
+		C:\Users\Benjami\AppData\Local\Temp\s6l8.		0	FILNAM
+		998	cinit	0	LINENO
+		1000	cinit	0	LINENO
+		1003	cinit	0	LINENO
+		1064	cinit	0	LINENO
+		1065	cinit	4	LINENO
+		1066	cinit	6	LINENO
+		1067	cinit	6	LINENO
+		1068	cinit	8	LINENO
+		1069	cinit	A	LINENO
+		1074	cinit	C	LINENO
+		1075	cinit	E	LINENO
+		1076	cinit	10	LINENO
+		1077	cinit	12	LINENO
+		1078	cinit	14	LINENO
+		1079	cinit	16	LINENO
+		1080	cinit	18	LINENO
+		1081	cinit	1C	LINENO
+		1082	cinit	20	LINENO
+		1083	cinit	20	LINENO
+		1084	cinit	22	LINENO
+		1085	cinit	26	LINENO
+		1086	cinit	28	LINENO
+		1087	cinit	2A	LINENO
+	77	TEXT	68
+		cinit	0x0	0x3A
+	     0: 00 EE 00 F0 26 0E EE 6A E8 06 FD E1 00 0E F6 6E	....&..j.......n
+	    10: 00 0E F7 6E 00 0E F8 6E 00 EE 00 F0 10 EE 07 F0	...n...n........
+	    20: 09 00 F5 CF EE FF E5 50 E1 50 FA E1 00 0E F8 6E	.......P.P.....n
+	    30: 00 0E F7 6E 00 01 00 EF 00 F0                  	...n......
+	78	RELOC	244
+		0x0	RELBITS COMPLEX		6
+		0xF & (bssCOMRAM >> 0x8)
+		0x2	COMPLEX		1
+		0xFF & bssCOMRAM
+		0xC	COMPLEX		1
+		low idataCOMRAM
+		0x10	COMPLEX		1
+		high idataCOMRAM
+		0x14	COMPLEX		1
+		low (idataCOMRAM >> 0x10)
+		0x18	RELBITS COMPLEX		6
+		0xF & (dataCOMRAM >> 0x8)
+		0x1A	COMPLEX		1
+		0xFF & dataCOMRAM
+		0x2C	COMPLEX		1
+		low (__Lsmallconst >> 0x10)
+		0x30	COMPLEX		1
+		high __Lsmallconst
+		0x36	COMPLEX		1
+		(text0 >> 0x1) & 0xFF
+		0x38	RELBITS COMPLEX		12
+		text0 >> 0x9
+	79	TEXT	60
+		text0	0x0	0x32
+	     0: 8A 9C 8A 9E 93 9C 93 9E 8A 9C 8A 8E 8A 9C 8A 8E	................
+	    10: 8A 9C 8A 8E 8A 9C 8A 8E 8A 9C 8A 8E 8A 8C 8A 9E	................
+	    20: 8A 8C 8A 9E 8A 8C 8A 9E 8A 8C 8A 9E 8A 8C 8A 9E	................
+	    30: EB D7                                          	..
+	80	SYM	506
+		1093	cinit	2C	LINENO
+		1095	cinit	2C	LINENO
+		1096	cinit	2E	LINENO
+		1097	cinit	30	LINENO
+		1098	cinit	32	LINENO
+		1099	cinit	34	LINENO
+		1100	cinit	36	LINENO
+		../demo-ora-htc18.c		0	FILNAM
+		120	text0	0	LINENO
+		124	text0	0	LINENO
+		125	text0	8	LINENO
+		127	text0	8	LINENO
+		128	text0	C	LINENO
+		129	text0	10	LINENO
+		130	text0	14	LINENO
+		131	text0	18	LINENO
+		132	text0	1C	LINENO
+		133	text0	20	LINENO
+		134	text0	24	LINENO
+		135	text0	28	LINENO
+		136	text0	2C	LINENO
+		D:\Programok\Microchip\xc8\v1.33\sources\common\itoa.c		0	FILNAM
+		17	text1	0	LINENO
+		22	text1	2	LINENO
+		24	text1	A	LINENO
+		25	text1	26	LINENO
+		26	text1	28	LINENO
+		27	text1	2E	LINENO
+	81	TEXT	82
+		text1	0x0	0x48
+	     0: 11 6E 0A C0 0E F0 0B C0 0F F0 0E C0 03 F0 0F C0	.n..............
+	    10: 04 F0 0C C0 05 F0 0D C0 06 F0 00 EC 00 F0 03 C0	................
+	    20: 0E F0 04 C0 0F F0 11 2A 0F 50 0E 10 EE E1 11 50	.......*.P.....P
+	    30: D9 6E DA 6A 00 0E DF 6A 11 06 0A C0 03 F0 0B C0	.n.j...j........
+	    40: 04 F0 0C C0 05 F0 0D C0                        	........
+	82	RELOC	504
+		0x0	RPSECT	cstackCOMRAM	1
+		0x2	RELBITS RPSECT	cstackCOMRAM	12
+		0x4	RELBITS RPSECT	cstackCOMRAM	12
+		0x6	RELBITS RPSECT	cstackCOMRAM	12
+		0x8	RELBITS RPSECT	cstackCOMRAM	12
+		0xA	RELBITS RPSECT	cstackCOMRAM	12
+		0xC	RELBITS RPSECT	cstackCOMRAM	12
+		0xE	RELBITS RPSECT	cstackCOMRAM	12
+		0x10	RELBITS RPSECT	cstackCOMRAM	12
+		0x12	RELBITS RPSECT	cstackCOMRAM	12
+		0x14	RELBITS RPSECT	cstackCOMRAM	12
+		0x16	RELBITS RPSECT	cstackCOMRAM	12
+		0x18	RELBITS RPSECT	cstackCOMRAM	12
+		0x1A	COMPLEX		1
+		(text3 >> 0x1) & 0xFF
+		0x1C	RELBITS COMPLEX		12
+		text3 >> 0x9
+		0x1E	RELBITS RPSECT	cstackCOMRAM	12
+		0x20	RELBITS RPSECT	cstackCOMRAM	12
+		0x22	RELBITS RPSECT	cstackCOMRAM	12
+		0x24	RELBITS RPSECT	cstackCOMRAM	12
+		0x26	RPSECT	cstackCOMRAM	1
+		0x28	RPSECT	cstackCOMRAM	1
+		0x2A	RPSECT	cstackCOMRAM	1
+		0x2E	RPSECT	cstackCOMRAM	1
+		0x38	RPSECT	cstackCOMRAM	1
+		0x3A	RELBITS RPSECT	cstackCOMRAM	12
+		0x3C	RELBITS RPSECT	cstackCOMRAM	12
+		0x3E	RELBITS RPSECT	cstackCOMRAM	12
+		0x40	RELBITS RPSECT	cstackCOMRAM	12
+		0x42	RELBITS RPSECT	cstackCOMRAM	12
+		0x44	RELBITS RPSECT	cstackCOMRAM	12
+		0x46	RELBITS RPSECT	cstackCOMRAM	12
+	83	TEXT	84
+		text1	0x48	0x4A
+	     0: 06 F0 00 EC 00 F0 03 50 10 6E 0A C0 03 F0 0B C0	.......P.n......
+	    10: 04 F0 0C C0 05 F0 0D C0 06 F0 00 EC 00 F0 03 C0	................
+	    20: 0A F0 04 C0 0B F0 09 0E 10 64 02 D0 07 0E 10 26	.........d.....&
+	    30: 30 0E 10 26 11 50 D9 6E DA 6A 10 C0 DF FF 11 06	0..&.P.n.j......
+	    40: 0B 50 0A 10 D6 E1 11 2A 12 00                  	.P.....*..
+	84	RELOC	464
+		0x0	RELBITS RPSECT	cstackCOMRAM	12
+		0x2	COMPLEX		1
+		(text2 >> 0x1) & 0xFF
+		0x4	RELBITS COMPLEX		12
+		text2 >> 0x9
+		0x6	RPSECT	cstackCOMRAM	1
+		0x8	RPSECT	cstackCOMRAM	1
+		0xA	RELBITS RPSECT	cstackCOMRAM	12
+		0xC	RELBITS RPSECT	cstackCOMRAM	12
+		0xE	RELBITS RPSECT	cstackCOMRAM	12
+		0x10	RELBITS RPSECT	cstackCOMRAM	12
+		0x12	RELBITS RPSECT	cstackCOMRAM	12
+		0x14	RELBITS RPSECT	cstackCOMRAM	12
+		0x16	RELBITS RPSECT	cstackCOMRAM	12
+		0x18	RELBITS RPSECT	cstackCOMRAM	12
+		0x1A	COMPLEX		1
+		(text3 >> 0x1) & 0xFF
+		0x1C	RELBITS COMPLEX		12
+		text3 >> 0x9
+		0x1E	RELBITS RPSECT	cstackCOMRAM	12
+		0x20	RELBITS RPSECT	cstackCOMRAM	12
+		0x22	RELBITS RPSECT	cstackCOMRAM	12
+		0x24	RELBITS RPSECT	cstackCOMRAM	12
+		0x28	RPSECT	cstackCOMRAM	1
+		0x2E	RPSECT	cstackCOMRAM	1
+		0x32	RPSECT	cstackCOMRAM	1
+		0x34	RPSECT	cstackCOMRAM	1
+		0x3A	RELBITS RPSECT	cstackCOMRAM	12
+		0x3E	RPSECT	cstackCOMRAM	1
+		0x40	RPSECT	cstackCOMRAM	1
+		0x42	RPSECT	cstackCOMRAM	1
+		0x46	RPSECT	cstackCOMRAM	1
+	85	TEXT	72
+		text2	0x0	0x3E
+	     0: 06 50 05 10 17 E0 01 0E 07 6E 04 D0 D8 90 05 36	.P.......n.....6
+	    10: 06 36 07 2A 06 AE FA D7 05 50 03 5C 06 50 04 58	.6.*.....P.\.P.X
+	    20: 04 E3 05 50 03 5E 06 50 04 5A D8 90 06 32 05 32	...P.^.P.Z...2.2
+	    30: 07 2E F2 D7 03 C0 03 F0 04 C0 04 F0 12 00      	..............
+	86	RELOC	352
+		0x0	RPSECT	cstackCOMRAM	1
+		0x2	RPSECT	cstackCOMRAM	1
+		0x8	RPSECT	cstackCOMRAM	1
+		0xE	RPSECT	cstackCOMRAM	1
+		0x10	RPSECT	cstackCOMRAM	1
+		0x12	RPSECT	cstackCOMRAM	1
+		0x14	RPSECT	cstackCOMRAM	1
+		0x18	RPSECT	cstackCOMRAM	1
+		0x1A	RPSECT	cstackCOMRAM	1
+		0x1C	RPSECT	cstackCOMRAM	1
+		0x1E	RPSECT	cstackCOMRAM	1
+		0x22	RPSECT	cstackCOMRAM	1
+		0x24	RPSECT	cstackCOMRAM	1
+		0x26	RPSECT	cstackCOMRAM	1
+		0x28	RPSECT	cstackCOMRAM	1
+		0x2C	RPSECT	cstackCOMRAM	1
+		0x2E	RPSECT	cstackCOMRAM	1
+		0x30	RPSECT	cstackCOMRAM	1
+		0x34	RELBITS RPSECT	cstackCOMRAM	12
+		0x36	RELBITS RPSECT	cstackCOMRAM	12
+		0x38	RELBITS RPSECT	cstackCOMRAM	12
+		0x3A	RELBITS RPSECT	cstackCOMRAM	12
+	87	SYM	499
+		29	text1	3A	LINENO
+		30	text1	52	LINENO
+		31	text1	6E	LINENO
+		32	text1	74	LINENO
+		33	text1	78	LINENO
+		34	text1	7C	LINENO
+		35	text1	88	LINENO
+		36	text1	8E	LINENO
+		37	text1	90	LINENO
+		D:\Programok\Microchip\xc8\v1.33\sources\common\lwmod.c		0	FILNAM
+		8	text2	0	LINENO
+		13	text2	0	LINENO
+		14	text2	6	LINENO
+		15	text2	A	LINENO
+		16	text2	C	LINENO
+		17	text2	12	LINENO
+		15	text2	14	LINENO
+		20	text2	18	LINENO
+		21	text2	22	LINENO
+		22	text2	2A	LINENO
+		23	text2	30	LINENO
+		24	text2	34	LINENO
+		25	text2	34	LINENO
+		26	text2	3C	LINENO
+		D:\Programok\Microchip\xc8\v1.33\sources\common\lwdiv.c		0	FILNAM
+		8	text3	0	LINENO
+		14	text3	0	LINENO
+	88	TEXT	84
+		text3	0x0	0x4A
+	     0: 07 6A 08 6A 06 50 05 10 1B E0 01 0E 09 6E 04 D0	.j.j.P.......n..
+	    10: D8 90 05 36 06 36 09 2A 06 AE FA D7 D8 90 07 36	...6.6.*.......6
+	    20: 08 36 05 50 03 5C 06 50 04 58 05 E3 05 50 03 5E	.6.P.\.P.X...P.^
+	    30: 06 50 04 5A 07 80 D8 90 06 32 05 32 09 2E EE D7	.P.Z.....2.2....
+	    40: 07 C0 03 F0 08 C0 04 F0 12 00                  	..........
+	89	RELOC	432
+		0x0	RPSECT	cstackCOMRAM	1
+		0x2	RPSECT	cstackCOMRAM	1
+		0x4	RPSECT	cstackCOMRAM	1
+		0x6	RPSECT	cstackCOMRAM	1
+		0xC	RPSECT	cstackCOMRAM	1
+		0x12	RPSECT	cstackCOMRAM	1
+		0x14	RPSECT	cstackCOMRAM	1
+		0x16	RPSECT	cstackCOMRAM	1
+		0x18	RPSECT	cstackCOMRAM	1
+		0x1E	RPSECT	cstackCOMRAM	1
+		0x20	RPSECT	cstackCOMRAM	1
+		0x22	RPSECT	cstackCOMRAM	1
+		0x24	RPSECT	cstackCOMRAM	1
+		0x26	RPSECT	cstackCOMRAM	1
+		0x28	RPSECT	cstackCOMRAM	1
+		0x2C	RPSECT	cstackCOMRAM	1
+		0x2E	RPSECT	cstackCOMRAM	1
+		0x30	RPSECT	cstackCOMRAM	1
+		0x32	RPSECT	cstackCOMRAM	1
+		0x34	RPSECT	cstackCOMRAM	1
+		0x38	RPSECT	cstackCOMRAM	1
+		0x3A	RPSECT	cstackCOMRAM	1
+		0x3C	RPSECT	cstackCOMRAM	1
+		0x40	RELBITS RPSECT	cstackCOMRAM	12
+		0x42	RELBITS RPSECT	cstackCOMRAM	12
+		0x44	RELBITS RPSECT	cstackCOMRAM	12
+		0x46	RELBITS RPSECT	cstackCOMRAM	12
+	90	TEXT	60
+		text4	0x0	0x32
+	     0: 08 6E 03 C0 07 F0 08 C0 06 F0 0A D0 07 C0 F6 FF	.n..............
+	    10: 06 50 D9 6E DA 6A 08 00 F5 CF DF FF 07 2A 06 2A	.P.n.j.......*.*
+	    20: 04 06 D8 A0 05 06 00 28 D8 B4 00 28 D8 B4 12 00	.......(...(....
+	    30: ED D7                                          	..
+	91	RELOC	236
+		0x0	RPSECT	cstackCOMRAM	1
+		0x2	RELBITS RPSECT	cstackCOMRAM	12
+		0x4	RELBITS RPSECT	cstackCOMRAM	12
+		0x6	RELBITS RPSECT	cstackCOMRAM	12
+		0x8	RELBITS RPSECT	cstackCOMRAM	12
+		0xC	RELBITS RPSECT	cstackCOMRAM	12
+		0x10	RPSECT	cstackCOMRAM	1
+		0x1C	RPSECT	cstackCOMRAM	1
+		0x1E	RPSECT	cstackCOMRAM	1
+		0x20	RPSECT	cstackCOMRAM	1
+		0x24	RPSECT	cstackCOMRAM	1
+		0x26	COMPLEX		1
+		(0x4 + cstackCOMRAM) & 0xFF
+		0x2A	COMPLEX		1
+		(0x5 + cstackCOMRAM) & 0xFF
+	92	SYM	496
+		15	text3	4	LINENO
+		16	text3	A	LINENO
+		17	text3	E	LINENO
+		18	text3	10	LINENO
+		19	text3	16	LINENO
+		17	text3	18	LINENO
+		22	text3	1C	LINENO
+		23	text3	22	LINENO
+		24	text3	2C	LINENO
+		25	text3	34	LINENO
+		27	text3	36	LINENO
+		28	text3	3C	LINENO
+		29	text3	40	LINENO
+		30	text3	40	LINENO
+		31	text3	48	LINENO
+		D:\Programok\Microchip\xc8\v1.33\sources\common\memcpy.c		0	FILNAM
+		11	text4	0	LINENO
+		24	text4	2	LINENO
+		25	text4	6	LINENO
+		26	text4	A	LINENO
+		27	text4	C	LINENO
+		26	text4	20	LINENO
+		32	text4	2E	LINENO
+		26	text4	30	LINENO
+		../demo-ora-htc18.c		0	FILNAM
+		82	text5	0	LINENO
+		86	text5	0	LINENO
+		87	text5	2	LINENO
+		88	text5	4	LINENO
+	93	TEXT	46
+		text5	0x0	0x24
+	     0: D5 9C D5 9A D5 86 F1 84 F2 8A D5 8E 27 0E D6 6E	............'..n
+	    10: D1 0E D7 6E D0 9E F2 8C F2 8E 8A 9C 8A 9E 93 9C	...n............
+	    20: 93 9E D1 0C                                    	....
+	94	SYM	495
+		89	text5	6	LINENO
+		90	text5	8	LINENO
+		91	text5	A	LINENO
+		92	text5	C	LINENO
+		93	text5	10	LINENO
+		107	text5	14	LINENO
+		111	text5	16	LINENO
+		112	text5	18	LINENO
+		116	text5	1A	LINENO
+		118	text5	22	LINENO
+		../charlcd.c		0	FILNAM
+		880	text6	0	LINENO
+		884	text6	0	LINENO
+		885	text6	2	LINENO
+		892	text6	4	LINENO
+		893	text6	6	LINENO
+		897	text6	8	LINENO
+		898	text6	A	LINENO
+		902	text6	C	LINENO
+		903	text6	E	LINENO
+		905	text6	12	LINENO
+		909	text6	32	LINENO
+		911	text6	3A	LINENO
+		914	text6	40	LINENO
+		915	text6	42	LINENO
+		916	text6	42	LINENO
+		920	text6	44	LINENO
+		921	text6	4C	LINENO
+		925	text6	4E	LINENO
+		914	text6	54	LINENO
+		929	text6	5C	LINENO
+	95	TEXT	176
+		text6	0x0	0xA6
+	     0: 89 98 92 98 8A 98 93 98 8A 9A 93 9A 8A 98 30 0E	..............0.
+	    10: 00 6E 00 AE 8A 96 00 BE 8A 86 00 AC 8A 94 00 BC	.n..............
+	    20: 8A 84 00 AA 8A 92 00 BA 8A 82 00 A8 8A 90 00 B8	................
+	    30: 8A 80 93 90 93 92 93 94 93 96 64 0E 00 EC 00 F0	..........d.....
+	    40: 06 6A 89 88 FB 6A FB 6A FB 6A FB 6A 89 98 05 0E	.j...j.j.j.j....
+	    50: 00 EC 00 F0 06 2A 02 0E 06 64 F3 D7 20 0E 00 6E	.....*...d.. ..n
+	    60: 00 AE 8A 96 00 BE 8A 86 00 AC 8A 94 00 BC 8A 84	................
+	    70: 00 AA 8A 92 00 BA 8A 82 00 A8 8A 90 00 B8 8A 80	................
+	    80: 89 88 FB 6A FB 6A FB 6A FB 6A 89 98 05 0E 00 EC	...j.j.j.j......
+	    90: 00 F0 8A 98 28 0E 00 6E 00 EC 00 F0 02 0E 00 EC	....(..n........
+	    A0: 00 F0 02 0E 00 EC                              	......
+	96	RELOC	499
+		0x10	RPSECT	nvCOMRAM	1
+		0x12	RPSECT	nvCOMRAM	1
+		0x16	RPSECT	nvCOMRAM	1
+		0x1A	RPSECT	nvCOMRAM	1
+		0x1E	RPSECT	nvCOMRAM	1
+		0x22	RPSECT	nvCOMRAM	1
+		0x26	RPSECT	nvCOMRAM	1
+		0x2A	RPSECT	nvCOMRAM	1
+		0x2E	RPSECT	nvCOMRAM	1
+		0x3C	COMPLEX		1
+		(text8 >> 0x1) & 0xFF
+		0x3E	RELBITS COMPLEX		12
+		text8 >> 0x9
+		0x40	RPSECT	cstackCOMRAM	1
+		0x50	COMPLEX		1
+		(text8 >> 0x1) & 0xFF
+		0x52	RELBITS COMPLEX		12
+		text8 >> 0x9
+		0x54	RPSECT	cstackCOMRAM	1
+		0x58	RPSECT	cstackCOMRAM	1
+		0x5E	RPSECT	nvCOMRAM	1
+		0x60	RPSECT	nvCOMRAM	1
+		0x64	RPSECT	nvCOMRAM	1
+		0x68	RPSECT	nvCOMRAM	1
+		0x6C	RPSECT	nvCOMRAM	1
+		0x70	RPSECT	nvCOMRAM	1
+		0x74	RPSECT	nvCOMRAM	1
+		0x78	RPSECT	nvCOMRAM	1
+		0x7C	RPSECT	nvCOMRAM	1
+		0x8E	COMPLEX		1
+		(text8 >> 0x1) & 0xFF
+		0x90	RELBITS COMPLEX		12
+		text8 >> 0x9
+		0x96	RPSECT	nvCOMRAM	1
+		0x98	COMPLEX		1
+		(text7 >> 0x1) & 0xFF
+		0x9A	RELBITS COMPLEX		12
+		text7 >> 0x9
+		0x9E	COMPLEX		1
+		(text8 >> 0x1) & 0xFF
+		0xA0	RELBITS COMPLEX		12
+		text8 >> 0x9
+		0xA4	COMPLEX		1
+		(text8 >> 0x1) & 0xFF
+	97	TEXT	80
+		text6	0xA6	0x46
+	     0: 00 F0 06 0E 00 6E 00 EC 00 F0 02 0E 00 EC 00 F0	.....n..........
+	    10: 0C 0E 00 6E 00 EC 00 F0 8A 88 06 6A 06 50 00 0F	...n.......j.P..
+	    20: D9 6E DA 6A 20 0E DF 6E 06 2A 1F 0E 06 64 F6 D7	.n.j ..n.*...d..
+	    30: 02 6A 3A 0E CA 6E 89 0E CB 6E 9F 82 9D 82 D0 9E	.j:..n...n......
+	    40: F2 8C CA 84 89 0C                              	......
+	98	RELOC	260
+		0x0	RELBITS COMPLEX		12
+		text8 >> 0x9
+		0x4	RPSECT	nvCOMRAM	1
+		0x6	COMPLEX		1
+		(text7 >> 0x1) & 0xFF
+		0x8	RELBITS COMPLEX		12
+		text7 >> 0x9
+		0xC	COMPLEX		1
+		(text8 >> 0x1) & 0xFF
+		0xE	RELBITS COMPLEX		12
+		text8 >> 0x9
+		0x12	RPSECT	nvCOMRAM	1
+		0x14	COMPLEX		1
+		(text7 >> 0x1) & 0xFF
+		0x16	RELBITS COMPLEX		12
+		text7 >> 0x9
+		0x1A	RPSECT	cstackCOMRAM	1
+		0x1C	RPSECT	cstackCOMRAM	1
+		0x1E	COMPLEX		1
+		low (0x5 + bssCOMRAM)
+		0x28	RPSECT	cstackCOMRAM	1
+		0x2C	RPSECT	cstackCOMRAM	1
+		0x30	RPSECT	bssCOMRAM	1
+	99	TEXT	100
+		text7	0x0	0x5A
+	     0: 00 AE 8A 96 00 BE 8A 86 00 AC 8A 94 00 BC 8A 84	................
+	    10: 00 AA 8A 92 00 BA 8A 82 00 A8 8A 90 00 B8 8A 80	................
+	    20: 89 88 FB 6A FB 6A FB 6A FB 6A 89 98 00 A6 8A 96	...j.j.j.j......
+	    30: 00 B6 8A 86 00 A4 8A 94 00 B4 8A 84 00 A2 8A 92	................
+	    40: 00 B2 8A 82 00 A0 8A 90 00 B0 8A 80 89 88 FB 6A	...............j
+	    50: FB 6A FB 6A FB 6A 89 98 12 00                  	.j.j.j....
+	100	RELOC	192
+		0x0	RPSECT	nvCOMRAM	1
+		0x4	RPSECT	nvCOMRAM	1
+		0x8	RPSECT	nvCOMRAM	1
+		0xC	RPSECT	nvCOMRAM	1
+		0x10	RPSECT	nvCOMRAM	1
+		0x14	RPSECT	nvCOMRAM	1
+		0x18	RPSECT	nvCOMRAM	1
+		0x1C	RPSECT	nvCOMRAM	1
+		0x2C	RPSECT	nvCOMRAM	1
+		0x30	RPSECT	nvCOMRAM	1
+		0x34	RPSECT	nvCOMRAM	1
+		0x38	RPSECT	nvCOMRAM	1
+		0x3C	RPSECT	nvCOMRAM	1
+		0x40	RPSECT	nvCOMRAM	1
+		0x44	RPSECT	nvCOMRAM	1
+		0x48	RPSECT	nvCOMRAM	1
+	101	SYM	494
+		930	text6	60	LINENO
+		931	text6	80	LINENO
+		935	text6	82	LINENO
+		936	text6	8A	LINENO
+		940	text6	8C	LINENO
+		942	text6	92	LINENO
+		950	text6	94	LINENO
+		951	text6	98	LINENO
+		958	text6	9C	LINENO
+		975	text6	A2	LINENO
+		976	text6	A8	LINENO
+		977	text6	AC	LINENO
+		982	text6	B0	LINENO
+		983	text6	B6	LINENO
+		984	text6	BA	LINENO
+		1020	text6	BE	LINENO
+		1026	text6	C0	LINENO
+		1038	text6	D6	LINENO
+		1041	text6	D8	LINENO
+		1043	text6	E8	LINENO
+		1046	text6	EA	LINENO
+		../charlcd.c		0	FILNAM
+		816	text7	0	LINENO
+		825	text7	0	LINENO
+		826	text7	20	LINENO
+		827	text7	2C	LINENO
+		833	text7	4C	LINENO
+		834	text7	58	LINENO
+		../charlcd.c		0	FILNAM
+		668	text8	0	LINENO
+	102	TEXT	46
+		text8	0x0	0x24
+	     0: 03 6E 0B D0 05 0E 05 6E DC 0E 04 6E 04 06 D8 A0	.n.....n...n....
+	    10: 05 06 00 28 D8 B4 00 28 F9 E1 03 06 00 28 D8 B4	...(...(.....(..
+	    20: 12 00 F0 D7                                    	....
+	103	RELOC	186
+		0x0	RPSECT	cstackCOMRAM	1
+		0x6	RPSECT	cstackCOMRAM	1
+		0xA	RPSECT	cstackCOMRAM	1
+		0xC	RPSECT	cstackCOMRAM	1
+		0x10	RPSECT	cstackCOMRAM	1
+		0x12	COMPLEX		1
+		(0x4 + cstackCOMRAM) & 0xFF
+		0x16	COMPLEX		1
+		(0x5 + cstackCOMRAM) & 0xFF
+		0x1A	RPSECT	cstackCOMRAM	1
+		0x1C	COMPLEX		1
+		(0x3 + cstackCOMRAM) & 0xFF
+	104	TEXT	24
+		intcodelo	0x0	0xA
+	     0: E0 CF 02 F0 02 C0 E0 FF 10 00                  	..........
+	105	RELOC	32
+		0x2	RELBITS RPSECT	cstackCOMRAM	12
+		0x4	RELBITS RPSECT	cstackCOMRAM	12
+	106	TEXT	24
+		intcode	0x0	0xC
+	     0: D9 CF 00 F0 DA CF 01 F0 00 ED 00 F0            	............
+	107	RELOC	86
+		0x2	RELBITS RPSECT	cstackCOMRAM	12
+		0x6	RELBITS RPSECT	cstackCOMRAM	12
+		0x8	COMPLEX		1
+		(intcode_body >> 0x1) & 0xFF
+		0xA	RELBITS COMPLEX		12
+		intcode_body >> 0x9
+	108	SYM	500
+		673	text8	2	LINENO
+		675	text8	4	LINENO
+		676	text8	C	LINENO
+		673	text8	1A	LINENO
+		679	text8	20	LINENO
+		673	text8	22	LINENO
+		../charlcd.c		0	FILNAM
+		679	intcodelo	0	LINENO
+		../demo-ora-htc18.c		0	FILNAM
+		272	intcodelo	0	LINENO
+		277	intcodelo	4	LINENO
+		../demo-ora-htc18.c		0	FILNAM
+		277	intcode	0	LINENO
+		279	intcode	0	LINENO
+		../demo-ora-htc18.c		0	FILNAM
+		279	intcode_body	0	LINENO
+		284	intcode_body	2	LINENO
+		288	intcode_body	8	LINENO
+		290	intcode_body	C	LINENO
+		291	intcode_body	1C	LINENO
+		292	intcode_body	1E	LINENO
+		293	intcode_body	22	LINENO
+		295	intcode_body	2C	LINENO
+		296	intcode_body	2E	LINENO
+	109	TEXT	77
+		intcode_body	0x0	0x3C
+	     0: 06 00 9E B2 00 EC 00 F0 F2 A4 13 D0 D6 50 26 0F	.............P&.
+	    10: 04 6E D1 0E E8 6E D7 22 04 C0 D6 FF F2 94 00 4A	.n...n.".......J
+	    20: 01 2A E8 0E 00 5C 03 0E 01 58 03 E3 03 2A 00 6A	.*...\...X...*.j
+	    30: 01 6A 01 C0 DA FF 00 C0 D9 FF 11 00            	.j..........
+	110	RELOC	191
+		0x4	COMPLEX		1
+		(text11 >> 0x1) & 0xFF
+		0x6	RELBITS COMPLEX		12
+		text11 >> 0x9
+		0x10	RPSECT	bssCOMRAM	1
+		0x18	RELBITS RPSECT	bssCOMRAM	12
+		0x1E	RPSECT	bssCOMRAM	1
+		0x20	RPSECT	bssCOMRAM	1
+		0x24	RPSECT	bssCOMRAM	1
+		0x28	RPSECT	bssCOMRAM	1
+		0x2C	RPSECT	bssCOMRAM	1
+		0x2E	RPSECT	bssCOMRAM	1
+		0x30	RPSECT	bssCOMRAM	1
+		0x32	RELBITS RPSECT	cstackCOMRAM	12
+		0x36	RELBITS RPSECT	cstackCOMRAM	12
+	111	SYM	493
+		318	intcode_body	32	LINENO
+		../charlcd.c		0	FILNAM
+		1076	text11	0	LINENO
+		1090	text11	0	LINENO
+		1100	text11	2	LINENO
+		1102	text11	6	LINENO
+		1104	text11	8	LINENO
+		1107	text11	14	LINENO
+		1109	text11	18	LINENO
+		1121	text11	1C	LINENO
+		1146	text11	20	LINENO
+		1168	text11	22	LINENO
+		1172	text11	28	LINENO
+		1180	text11	2E	LINENO
+		1185	text11	32	LINENO
+		1225	text11	36	LINENO
+		1228	text11	3C	LINENO
+		1242	text11	3E	LINENO
+		1244	text11	44	LINENO
+		1245	text11	48	LINENO
+		1249	text11	4C	LINENO
+		1252	text11	4E	LINENO
+		1253	text11	52	LINENO
+		1257	text11	56	LINENO
+		1300	text11	58	LINENO
+		1301	text11	5C	LINENO
+		1304	text11	5E	LINENO
+	112	TEXT	115
+		text11	0x0	0x68
+	     0: 9E 92 02 04 18 E1 8A 88 02 50 00 0F D9 6E DA 6A	.........P...n.j
+	    10: DF 50 00 6E 00 66 02 D0 20 0E 00 6E 00 EC 00 F0	.P.n.f.. ..n....
+	    20: 02 2A 02 50 10 0A 05 E0 02 50 20 0A 1C E1 09 0E	.*.P.....P .....
+	    30: 02 6E 02 0E 12 D0 02 50 02 0A 11 E1 8A 98 02 50	.n.....P.......P
+	    40: 10 0A 05 E1 C0 0E 00 6E 00 EC 00 F0 05 D0 80 0E	.......n........
+	    50: 00 6E 00 EC 00 F0 02 6A 01 0E 02 6E 04 D0 02 66	.n.....j...n...f
+	    60: 02 D0 8A 98 F4 D7 12 00                        	........
+	113	RELOC	356
+		0x2	RPSECT	dataCOMRAM	1
+		0x8	RPSECT	bssCOMRAM	1
+		0xA	COMPLEX		1
+		low (0x5 + bssCOMRAM)
+		0x12	RPSECT	nvCOMRAM	1
+		0x14	RPSECT	nvCOMRAM	1
+		0x1A	RPSECT	nvCOMRAM	1
+		0x1C	COMPLEX		1
+		(text12 >> 0x1) & 0xFF
+		0x1E	RELBITS COMPLEX		12
+		text12 >> 0x9
+		0x20	RPSECT	bssCOMRAM	1
+		0x22	RPSECT	bssCOMRAM	1
+		0x28	RPSECT	bssCOMRAM	1
+		0x30	RPSECT	dataCOMRAM	1
+		0x36	RPSECT	dataCOMRAM	1
+		0x3E	RPSECT	bssCOMRAM	1
+		0x46	RPSECT	nvCOMRAM	1
+		0x48	COMPLEX		1
+		(text12 >> 0x1) & 0xFF
+		0x4A	RELBITS COMPLEX		12
+		text12 >> 0x9
+		0x50	RPSECT	nvCOMRAM	1
+		0x52	COMPLEX		1
+		(text12 >> 0x1) & 0xFF
+		0x54	RELBITS COMPLEX		12
+		text12 >> 0x9
+		0x56	RPSECT	bssCOMRAM	1
+		0x5A	RPSECT	dataCOMRAM	1
+		0x5E	RPSECT	dataCOMRAM	1
+	114	TEXT	101
+		text12	0x0	0x5A
+	     0: 00 AE 8A 96 00 BE 8A 86 00 AC 8A 94 00 BC 8A 84	................
+	    10: 00 AA 8A 92 00 BA 8A 82 00 A8 8A 90 00 B8 8A 80	................
+	    20: 89 88 FB 6A FB 6A FB 6A FB 6A 89 98 00 A6 8A 96	...j.j.j.j......
+	    30: 00 B6 8A 86 00 A4 8A 94 00 B4 8A 84 00 A2 8A 92	................
+	    40: 00 B2 8A 82 00 A0 8A 90 00 B0 8A 80 89 88 FB 6A	...............j
+	    50: FB 6A FB 6A FB 6A 89 98 12 00                  	.j.j.j....
+	115	RELOC	192
+		0x0	RPSECT	nvCOMRAM	1
+		0x4	RPSECT	nvCOMRAM	1
+		0x8	RPSECT	nvCOMRAM	1
+		0xC	RPSECT	nvCOMRAM	1
+		0x10	RPSECT	nvCOMRAM	1
+		0x14	RPSECT	nvCOMRAM	1
+		0x18	RPSECT	nvCOMRAM	1
+		0x1C	RPSECT	nvCOMRAM	1
+		0x2C	RPSECT	nvCOMRAM	1
+		0x30	RPSECT	nvCOMRAM	1
+		0x34	RPSECT	nvCOMRAM	1
+		0x38	RPSECT	nvCOMRAM	1
+		0x3C	RPSECT	nvCOMRAM	1
+		0x40	RPSECT	nvCOMRAM	1
+		0x44	RPSECT	nvCOMRAM	1
+		0x48	RPSECT	nvCOMRAM	1
+	116	TEXT	15
+		smallconst	0x30	0x0
+	117	TEXT	13
+		nvCOMRAM	0x1	0x0
+	118	TEXT	14
+		bssCOMRAM	0x26	0x0
+	119	TEXT	15
+		dataCOMRAM	0x7	0x0
+	120	TEXT	17
+		cstackCOMRAM	0x12	0x0
+	121	TEXT	17
+		intsave_regs	0x0	0x0
+	122	TEXT	11
+		rparam	0x0	0x0
+	123	SYM	158
+		1306	text11	62	LINENO
+		1578	text11	66	LINENO
+		../charlcd.c		0	FILNAM
+		816	text12	0	LINENO
+		825	text12	0	LINENO
+		826	text12	20	LINENO
+		827	text12	2C	LINENO
+		833	text12	4C	LINENO
+		834	text12	58	LINENO
+	124	LISTRELOC	118
+		'dist/4550_Release_XC8/production\demo-ora.X.production.rlf' -> 'dist/4550_Release_XC8/production\demo-ora.X.production.lst'
+	125	FNINFO	235
+		FNROOT	_main
+		FNCALL	_main -> _LcdInit
+		FNCALL	_main -> _init
+		FNCALL	_main -> _memcpy
+		FNCALL	_main -> _utoa
+		FNCALL	_irqh -> _LcdProcess
+		FNCALL	_utoa -> ___lwdiv
+		FNCALL	_utoa -> ___lwmod
+		FNCALL	_LcdProcess -> i2_LcdWrite
+		FNCALL	_LcdInit -> _DelayMs
+		FNCALL	_LcdInit -> _LcdWrite
+		FNROOT	intlevel1
+		FNCALL	intlevel1 -> _irql
+		FNROOT	intlevel2
+		FNCALL	intlevel2 -> _irqh
+	126	END	2
+

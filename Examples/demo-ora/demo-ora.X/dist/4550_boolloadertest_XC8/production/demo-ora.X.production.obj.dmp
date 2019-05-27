@@ -1,0 +1,134 @@
+	1	IDENT	16
+		Object code version	= 3.11
+		Machine			= 18F4550
+		32 bit order		= 0 1 2 3
+		16 bit order		= 0 1
+	2	FNCONF	14
+		PSECT rparam; local prefix ??; arg prefix ?
+	3	PSECT	11
+		pa_nodes	GLOBAL
+	4	XPSECT	27
+		pa_nodes space = 00 delta = 01 class=CODE
+	5	PSECT	9
+		rparam	GLOBAL
+	6	XPSECT	27
+		rparam space = 01 delta = 01 class=COMRAM
+	7	PSECT	15
+		intsave_regs	GLOBAL
+	8	XPSECT	33
+		intsave_regs space = 01 delta = 01 class=BIGRAM
+	9	PSECT	8
+		text1	GLOBAL
+	10	XPSECT	24
+		text1	reloc=2 space = 00 delta = 01 class=CODE
+	11	PSECT	15
+		cstackCOMRAM	GLOBAL
+	12	XPSECT	33
+		cstackCOMRAM space = 01 delta = 01 class=COMRAM
+	13	PSECT	8
+		cinit	GLOBAL
+	14	XPSECT	24
+		cinit	reloc=2 space = 00 delta = 01 class=CODE
+	15	PSECT	8
+		text0	GLOBAL
+	16	XPSECT	24
+		text0	reloc=2 space = 00 delta = 01 class=CODE
+	17	PSECT	3
+		(abs)	GLOBAL	OVRLD	ABS
+	18	XPSECT	15
+		(abs) space = 00 delta = 01
+	19	PSECTBOUND	15
+		(abs)	start=0000	end=0000 delta = 01 space = 0	GLOBAL	OVRLD	ABS
+	20	SYM	508
+		_main	text0	0	GLOBAL	
+		_init	text1	0	GLOBAL	
+		start		0	GLOBAL	EXTERN
+		__initialization	cinit	0	GLOBAL	
+		__end_of_main	text0	2E	GLOBAL	
+		__end_of_init	text1	A	GLOBAL	
+		__activetblptr	(abs)	0	GLOBAL	
+		__accesstop		0	GLOBAL	EXTERN
+		__end_of__initialization	cinit	0	GLOBAL	
+		__pcstackCOMRAM	cstackCOMRAM	0	GLOBAL	
+		__Hparam	__Hrparam	0	GLOBAL	REDIRECT
+		__Lparam	__Lrparam	0	GLOBAL	REDIRECT
+		__pcinit	cinit	0	GLOBAL	
+		__ramtop		0	GLOBAL	EXTERN
+		__ptext0	text0	0	GLOBAL	
+		__ptext1	text1	0	GLOBAL	
+		end_of_initialization	cinit	0	GLOBAL	
+		_TRISBbits	(abs)	F93	GLOBAL	
+		start_initialization	cinit	0	GLOBAL	
+		_LATBbits	(abs)	F8A	GLOBAL	
+		__Hrparam		0	GLOBAL	EXTERN
+		__Lrparam		0	GLOBAL	EXTERN
+	21	SYM	44
+		__size_of_main	(abs)	0	GLOBAL	
+		__size_of_init	(abs)	0	GLOBAL	
+	22	SIGNAT	8
+		_main	88
+	23	SIGNAT	8
+		_init	88
+	24	TEXT	56
+		text0	0x0	0x2E
+	     0: 00 EC 00 F0 8A 9C 8A 8E 8A 9C 8A 8E 8A 9C 8A 8E	................
+	    10: 8A 9C 8A 8E 8A 9C 8A 8E 8A 8C 8A 9E 8A 8C 8A 9E	................
+	    20: 8A 8C 8A 9E 8A 8C 8A 9E 8A 8C 8A 9E EB D7      	..............
+	25	RELOC	40
+		0x0	COMPLEX		1
+		(text1 >> 0x1) & 0xFF
+		0x2	RELBITS COMPLEX		12
+		text1 >> 0x9
+	26	TEXT	16
+		cinit	0x0	0x6
+	     0: 00 01 00 EF 00 F0                              	......
+	27	RELOC	40
+		0x2	COMPLEX		1
+		(text0 >> 0x1) & 0xFF
+		0x4	RELBITS COMPLEX		12
+		text0 >> 0x9
+	28	SYM	498
+		D:/Programok/Microchip/xc8/v1.33/include\pic18f4550.h		0	FILNAM
+		D:/Programok/Microchip/xc8/v1.33/include\pic18f4550.h		0	FILNAM
+		4203	text0	0	LINENO
+		../main.c		0	FILNAM
+		20	text0	0	LINENO
+		22	text0	0	LINENO
+		25	text0	4	LINENO
+		26	text0	8	LINENO
+		27	text0	C	LINENO
+		28	text0	10	LINENO
+		29	text0	14	LINENO
+		30	text0	18	LINENO
+		31	text0	1C	LINENO
+		32	text0	20	LINENO
+		33	text0	24	LINENO
+		34	text0	28	LINENO
+		C:\Users\Benjami\AppData\Local\Temp\s5v4.		0	FILNAM
+		503	cinit	0	LINENO
+		505	cinit	0	LINENO
+		508	cinit	0	LINENO
+		514	cinit	0	LINENO
+		515	cinit	0	LINENO
+		516	cinit	2	LINENO
+		../main.c		0	FILNAM
+	29	TEXT	20
+		text1	0x0	0xA
+	     0: 8A 9C 8A 9E 93 9C 93 9E 12 00                  	..........
+	30	TEXT	17
+		cstackCOMRAM	0x0	0x0
+	31	TEXT	17
+		intsave_regs	0x0	0x0
+	32	TEXT	11
+		rparam	0x0	0x0
+	33	SYM	45
+		15	text1	0	LINENO
+		17	text1	0	LINENO
+		18	text1	8	LINENO
+	34	LISTRELOC	132
+		'dist/4550_boolloadertest_XC8/production\demo-ora.X.production.rlf' -> 'dist/4550_boolloadertest_XC8/production\demo-ora.X.production.lst'
+	35	FNINFO	20
+		FNROOT	_main
+		FNCALL	_main -> _init
+	36	END	2
+
