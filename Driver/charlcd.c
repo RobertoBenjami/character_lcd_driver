@@ -1,111 +1,111 @@
 //------------------------------------------------------------------------------
-// Készítö: Roberto Benjami (robertodebenjami(kukac)gmail(pont)com)
-// Verzió:  v0.65 (2017.11)
+// KÃ©szÃ­tÃ¶: Roberto Benjami (robertodebenjami(kukac)gmail(pont)com)
+// VerziÃ³:  v0.65 (2017.11)
 
 //------------------------------------------------------------------------------
-// Módosítások:
-// 0.4 elsö közzétett verzió
+// MÃ³dosÃ­tÃ¡sok:
+// 0.4 elsÃ¶ kÃ¶zzÃ©tett verziÃ³
 
 // 0.41:
-// - jav: Dupla vezérlö felhasználói karakterkészlet feltöltés javítása (SETDDRAMADDR -> SETCGRAMADDR).
-// - opt: LcdWrite2()-ben felesleges RS-t újra beállítani, mikor LcdWrite()-ban már beállításra került.
-// - opt: LcdWrite2()-ben felesleges az adatiránylábakat újra beállítani, mikor LcdWrite()-ban már beállításra került.
+// - jav: Dupla vezÃ©rlÃ¶ felhasznÃ¡lÃ³i karakterkÃ©szlet feltÃ¶ltÃ©s javÃ­tÃ¡sa (SETDDRAMADDR -> SETCGRAMADDR).
+// - opt: LcdWrite2()-ben felesleges RS-t Ãºjra beÃ¡llÃ­tani, mikor LcdWrite()-ban mÃ¡r beÃ¡llÃ­tÃ¡sra kerÃ¼lt.
+// - opt: LcdWrite2()-ben felesleges az adatirÃ¡nylÃ¡bakat Ãºjra beÃ¡llÃ­tani, mikor LcdWrite()-ban mÃ¡r beÃ¡llÃ­tÃ¡sra kerÃ¼lt.
 
 // 0.42:
-// - opt: Veremmüveletek csökkentése miatt LcdWrite() paraméter nélkülivé alakítva.
-//        (ch úgy is ott van globális változóként, RS láb beállítása, meg a hívás elött történik)
-// - jav: Egysoros kijelzö esetén már egy sorosként is inicializál (LCD_LINES -> LCDLINES).
+// - opt: VeremmÃ¼veletek csÃ¶kkentÃ©se miatt LcdWrite() paramÃ©ter nÃ©lkÃ¼livÃ© alakÃ­tva.
+//        (ch Ãºgy is ott van globÃ¡lis vÃ¡ltozÃ³kÃ©nt, RS lÃ¡b beÃ¡llÃ­tÃ¡sa, meg a hÃ­vÃ¡s elÃ¶tt tÃ¶rtÃ©nik)
+// - jav: Egysoros kijelzÃ¶ esetÃ©n mÃ¡r egy soroskÃ©nt is inicializÃ¡l (LCD_LINES -> LCDLINES).
 
 // 0.43
-// - jav: C18 fordító "LCDWIDTH * LCDLINES + 1" kifejezést, ha > 127 rosszul értékeli ki -> 1UL szorzóval javítva
-// - jav: C18 fordító "LCDWIDTH * LCDLINES + 7) / 8" kifejezést rosszul értékelheti ki -> 1UL szorzóval javítva
+// - jav: C18 fordÃ­tÃ³ "LCDWIDTH * LCDLINES + 1" kifejezÃ©st, ha > 127 rosszul Ã©rtÃ©keli ki -> 1UL szorzÃ³val javÃ­tva
+// - jav: C18 fordÃ­tÃ³ "LCDWIDTH * LCDLINES + 7) / 8" kifejezÃ©st rosszul Ã©rtÃ©kelheti ki -> 1UL szorzÃ³val javÃ­tva
 
 // 0.44
-// - új:  Megszakításos módban lehetöség van a frissítést ki/bekapcsolni (pl. ha pontos idözítésre van szükség)
-//        a LcdRefreshStart(), LcdRefreshStop() függvényhívással.
-//        (ekkor az esetlegesen villogó karakterek is az aktuális állapotban maradnak)
+// - Ãºj:  MegszakÃ­tÃ¡sos mÃ³dban lehetÃ¶sÃ©g van a frissÃ­tÃ©st ki/bekapcsolni (pl. ha pontos idÃ¶zÃ­tÃ©sre van szÃ¼ksÃ©g)
+//        a LcdRefreshStart(), LcdRefreshStop() fÃ¼ggvÃ©nyhÃ­vÃ¡ssal.
+//        (ekkor az esetlegesen villogÃ³ karakterek is az aktuÃ¡lis Ã¡llapotban maradnak)
 
 // 0.45
-// - új:  Lehetöség van a folyamatos mellett, egyszeri frissítési üzemmódra is.
-//        Ekkor LcdRefreshAll() hívásával lehet a kijelzö tartalmát újraírni.
-//        Megszakításos módban LcdRefreshed() visszatérö értékéböl megállapítható befejezte-e a frissítést.
-//        (megszakítás nélküli módban a függvényben marad a frissítés végéig, így erre nincs szükség)
+// - Ãºj:  LehetÃ¶sÃ©g van a folyamatos mellett, egyszeri frissÃ­tÃ©si Ã¼zemmÃ³dra is.
+//        Ekkor LcdRefreshAll() hÃ­vÃ¡sÃ¡val lehet a kijelzÃ¶ tartalmÃ¡t ÃºjraÃ­rni.
+//        MegszakÃ­tÃ¡sos mÃ³dban LcdRefreshed() visszatÃ©rÃ¶ Ã©rtÃ©kÃ©bÃ¶l megÃ¡llapÃ­thatÃ³ befejezte-e a frissÃ­tÃ©st.
+//        (megszakÃ­tÃ¡s nÃ©lkÃ¼li mÃ³dban a fÃ¼ggvÃ©nyben marad a frissÃ­tÃ©s vÃ©gÃ©ig, Ã­gy erre nincs szÃ¼ksÃ©g)
 // - jav: AVR timer2: #ifdef TIMER0_COMP_vect -> #ifdef TIMER2_COMP_vect
-// - új:  ATMEGA8 comparátor nélküli TIMER0-nak a használati lehetösége
-// - jav: FPS->CPS timer számításához a DDRAM állítási ciklust is bekalkulálja
-// - új:  LCDZEROCHANGETEXT definícióval (ez a charlcd.c -ben van kivételesen) az LcdText-ben is szóközre cseréli a #0 karaktereket.
+// - Ãºj:  ATMEGA8 comparÃ¡tor nÃ©lkÃ¼li TIMER0-nak a hasznÃ¡lati lehetÃ¶sÃ©ge
+// - jav: FPS->CPS timer szÃ¡mÃ­tÃ¡sÃ¡hoz a DDRAM Ã¡llÃ­tÃ¡si ciklust is bekalkulÃ¡lja
+// - Ãºj:  LCDZEROCHANGETEXT definÃ­ciÃ³val (ez a charlcd.c -ben van kivÃ©telesen) az LcdText-ben is szÃ³kÃ¶zre cserÃ©li a #0 karaktereket.
 
 // 0.46
-// - új:  LCDSTEREO definíciót használva 2db kijelzöt is használhatunk.
+// - Ãºj:  LCDSTEREO definÃ­ciÃ³t hasznÃ¡lva 2db kijelzÃ¶t is hasznÃ¡lhatunk.
 
 // 0.47
-// - új:  LCDCURSOR definíciót használva lehetöség van a kurzor használatára (csak egyszeri frissítési üzemmódban).
+// - Ãºj:  LCDCURSOR definÃ­ciÃ³t hasznÃ¡lva lehetÃ¶sÃ©g van a kurzor hasznÃ¡latÃ¡ra (csak egyszeri frissÃ­tÃ©si Ã¼zemmÃ³dban).
 
 // 0.48
-// - új:  USERCHARSETCHANGE definíciót használva lehetöség van futás alatt felhasználói karakterkészletet cserélni.
+// - Ãºj:  USERCHARSETCHANGE definÃ­ciÃ³t hasznÃ¡lva lehetÃ¶sÃ©g van futÃ¡s alatt felhasznÃ¡lÃ³i karakterkÃ©szletet cserÃ©lni.
 
 // 0.49
-// - új:  HI-TECH C18 fordító hozzáadása
-// - új:  Újabb üzemmód (megszakítás nélkül egyszeri frissítési üzemmódban BUSY flag figyelés helyett beállítható várakozással)
-// - új:  Az 5 üzemmód között az elnevezésével lehet választani
+// - Ãºj:  HI-TECH C18 fordÃ­tÃ³ hozzÃ¡adÃ¡sa
+// - Ãºj:  Ãšjabb Ã¼zemmÃ³d (megszakÃ­tÃ¡s nÃ©lkÃ¼l egyszeri frissÃ­tÃ©si Ã¼zemmÃ³dban BUSY flag figyelÃ©s helyett beÃ¡llÃ­thatÃ³ vÃ¡rakozÃ¡ssal)
+// - Ãºj:  Az 5 Ã¼zemmÃ³d kÃ¶zÃ¶tt az elnevezÃ©sÃ©vel lehet vÃ¡lasztani
 
 // 0.50
-// - új:  Összeférhetetlen beállítások kiszürése
-// - új:  PIC18: választható prioritás nélki, alacsony, magas prioritás használata megszakításos módban
-// - új:  Megszakítás módban saját megszakításkezeléssel megoldani az LCD frissítési eljárásának hivását
-// - új:  TOUTPS - T2OUTPS fordítási hibaüzenet esetén könnyü átállás a másik verzióra
-// - jav: Karakterkészlet nem 5x7, hanem 5x8 pixeles
-// - jav: USERCHARSET és USERCHARSETCHANGE függetlenítése egymástól
+// - Ãºj:  Ã–sszefÃ©rhetetlen beÃ¡llÃ­tÃ¡sok kiszÃ¼rÃ©se
+// - Ãºj:  PIC18: vÃ¡laszthatÃ³ prioritÃ¡s nÃ©lki, alacsony, magas prioritÃ¡s hasznÃ¡lata megszakÃ­tÃ¡sos mÃ³dban
+// - Ãºj:  MegszakÃ­tÃ¡s mÃ³dban sajÃ¡t megszakÃ­tÃ¡skezelÃ©ssel megoldani az LCD frissÃ­tÃ©si eljÃ¡rÃ¡sÃ¡nak hivÃ¡sÃ¡t
+// - Ãºj:  TOUTPS - T2OUTPS fordÃ­tÃ¡si hibaÃ¼zenet esetÃ©n kÃ¶nnyÃ¼ Ã¡tÃ¡llÃ¡s a mÃ¡sik verziÃ³ra
+// - jav: KarakterkÃ©szlet nem 5x7, hanem 5x8 pixeles
+// - jav: USERCHARSET Ã©s USERCHARSETCHANGE fÃ¼ggetlenÃ­tÃ©se egymÃ¡stÃ³l
 
 // 0.51
-// - jav: PIC18: TIME2DIV osztó javítása 2-es  oszási arány esetén
-// - jav: T2OUTPS elnevezési eltérések miatti hibaüzenet megszüntetése direkt regiszter írással
+// - jav: PIC18: TIME2DIV osztÃ³ javÃ­tÃ¡sa 2-es  oszÃ¡si arÃ¡ny esetÃ©n
+// - jav: T2OUTPS elnevezÃ©si eltÃ©rÃ©sek miatti hibaÃ¼zenet megszÃ¼ntetÃ©se direkt regiszter Ã­rÃ¡ssal
 
 // 0.52
-// - opt: AVR saját karakterkészletet ne másolja át a ROM-ból a RAM-ba.
-// - jav: AVR Timer0 LcdRefreshStart - Stop dupla definiálás megszüntetése
-// - jav: PIC18: Timer1 inicializálásnál T1 számláló helyett T3-ba töltötte a kezdöértéket
+// - opt: AVR sajÃ¡t karakterkÃ©szletet ne mÃ¡solja Ã¡t a ROM-bÃ³l a RAM-ba.
+// - jav: AVR Timer0 LcdRefreshStart - Stop dupla definiÃ¡lÃ¡s megszÃ¼ntetÃ©se
+// - jav: PIC18: Timer1 inicializÃ¡lÃ¡snÃ¡l T1 szÃ¡mlÃ¡lÃ³ helyett T3-ba tÃ¶ltÃ¶tte a kezdÃ¶Ã©rtÃ©ket
 
 // 0.60
-// - új:  Lábhozzárendelések megadásának megváltoztatása (egy sorban a PORT és a láb, pl: #define LCDE B, 3)
+// - Ãºj:  LÃ¡bhozzÃ¡rendelÃ©sek megadÃ¡sÃ¡nak megvÃ¡ltoztatÃ¡sa (egy sorban a PORT Ã©s a lÃ¡b, pl: #define LCDE B, 3)
 
 // 0.61
-// - jav: A 0.60-asban elrontott inicialási hiba javítása
+// - jav: A 0.60-asban elrontott inicialÃ¡si hiba javÃ­tÃ¡sa
 
 // 0.62
-// - opt: E láb magasra állítása elött nem szükséges várakozási idö (kivéve)
-// - új:  LCDDTINm LCDDTOUT, LCDDT0TO3, LCDDT4TO7, LCDDT0TO7 optimalizálási lehetösége charlcd.h-ban
-// - új:  #define LCDNOP ... a fordító optimalizálásának megtartása miatt
+// - opt: E lÃ¡b magasra Ã¡llÃ­tÃ¡sa elÃ¶tt nem szÃ¼ksÃ©ges vÃ¡rakozÃ¡si idÃ¶ (kivÃ©ve)
+// - Ãºj:  LCDDTINm LCDDTOUT, LCDDT0TO3, LCDDT4TO7, LCDDT0TO7 optimalizÃ¡lÃ¡si lehetÃ¶sÃ©ge charlcd.h-ban
+// - Ãºj:  #define LCDNOP ... a fordÃ­tÃ³ optimalizÃ¡lÃ¡sÃ¡nak megtartÃ¡sa miatt
 
 // 0.63
-// - jav: PIC18 TimecCompless ASM -> C, hogy a fordító ne kapcsolja le az optimalizációt
-// - jav: LCDRSPIN makro használat javitása GPIOX_CLRBIT(LCDRS) illetve GPIOX_SETBIT(LCDRS)-re
-// - új:  #define LCDGLOBALINTAUTOSTART inicializáláskor bekapcsolja-e az INT-et
-// - új:  karakterkészlet csere ROM területröl (#define USERCHARSETCHANGEROM)
+// - jav: PIC18 TimecCompless ASM -> C, hogy a fordÃ­tÃ³ ne kapcsolja le az optimalizÃ¡ciÃ³t
+// - jav: LCDRSPIN makro hasznÃ¡lat javitÃ¡sa GPIOX_CLRBIT(LCDRS) illetve GPIOX_SETBIT(LCDRS)-re
+// - Ãºj:  #define LCDGLOBALINTAUTOSTART inicializÃ¡lÃ¡skor bekapcsolja-e az INT-et
+// - Ãºj:  karakterkÃ©szlet csere ROM terÃ¼letrÃ¶l (#define USERCHARSETCHANGEROM)
 
 // 0.64
-// - új:  XC8 fordito felvétele
-// - új:  automatikus optimalizálás, ha egymást követö lábakhoz rendeljük az adatlábakat
+// - Ãºj:  XC8 fordito felvÃ©tele
+// - Ãºj:  automatikus optimalizÃ¡lÃ¡s, ha egymÃ¡st kÃ¶vetÃ¶ lÃ¡bakhoz rendeljÃ¼k az adatlÃ¡bakat
 
 // 0.65
-// - mod: LCDE2 definicio megadása jelenti a két kijelzö használatát, LCDSTEREO definicio számüzve
-//        (a 80 karakteresnél nagyobb kijelzö is kettö kijelzöként müködik)
-// - mod: LCDRW definicio megléte határozza meg, hogy az a láb használva lesz-e (LCDRWUSED számüzve)
-// - mod: LCDDT0..LCDDT3 definicio megléte esetén automatikusan 8 bites modban fog müködni (LCD4BITMODE definicio megléte határozza meg, hogy az a láb használva lesz-e (LCDRWUSED számüzve)
-// - jav: LcdRefreshStart: a timer alapállapotbol induljon, hogy az elsõ körben ne legyen rövidebb az idözités
+// - mod: LCDE2 definicio megadÃ¡sa jelenti a kÃ©t kijelzÃ¶ hasznÃ¡latÃ¡t, LCDSTEREO definicio szÃ¡mÃ¼zve
+//        (a 80 karakteresnÃ©l nagyobb kijelzÃ¶ is kettÃ¶ kijelzÃ¶kÃ©nt mÃ¼kÃ¶dik)
+// - mod: LCDRW definicio meglÃ©te hatÃ¡rozza meg, hogy az a lÃ¡b hasznÃ¡lva lesz-e (LCDRWUSED szÃ¡mÃ¼zve)
+// - mod: LCDDT0..LCDDT3 definicio meglÃ©te esetÃ©n automatikusan 8 bites modban fog mÃ¼kÃ¶dni (LCD4BITMODE definicio meglÃ©te hatÃ¡rozza meg, hogy az a lÃ¡b hasznÃ¡lva lesz-e (LCDRWUSED szÃ¡mÃ¼zve)
+// - jav: LcdRefreshStart: a timer alapÃ¡llapotbol induljon, hogy az elsÅ‘ kÃ¶rben ne legyen rÃ¶videbb az idÃ¶zitÃ©s
 
 //------------------------------------------------------------------------------
-// Ha ez definiálva van, a frissítés során az Lcdtext[] tömbben is kicserélgeti a #0 karaktereket szóközre
-// (általában nincs erre szükség, csak ha más célra is fel szeretnénk használni a szöveget)
+// Ha ez definiÃ¡lva van, a frissÃ­tÃ©s sorÃ¡n az Lcdtext[] tÃ¶mbben is kicserÃ©lgeti a #0 karaktereket szÃ³kÃ¶zre
+// (Ã¡ltalÃ¡ban nincs erre szÃ¼ksÃ©g, csak ha mÃ¡s cÃ©lra is fel szeretnÃ©nk hasznÃ¡lni a szÃ¶veget)
 // #define LCDZEROCHANGETEXT
 //------------------------------------------------------------------------------
-// Szoftver szimulátorhoz: kihagyja az LcdBusy függvényt (figyelem: engedélyezve a kijelzö nem fog müködni!)
+// Szoftver szimulÃ¡torhoz: kihagyja az LcdBusy fÃ¼ggvÃ©nyt (figyelem: engedÃ©lyezve a kijelzÃ¶ nem fog mÃ¼kÃ¶dni!)
 // #define SOFTSIMBUSY
-// Szoftver szimulátorhoz: inicializáláskor a várakozási ciklusok kihagyása (figyelem: engedélyezve a kijelzö nem fog müködni!)
+// Szoftver szimulÃ¡torhoz: inicializÃ¡lÃ¡skor a vÃ¡rakozÃ¡si ciklusok kihagyÃ¡sa (figyelem: engedÃ©lyezve a kijelzÃ¶ nem fog mÃ¼kÃ¶dni!)
 // #define SOFTSIMFAST
 //------------------------------------------------------------------------------
 
-// processzorcsalád include
+// processzorcsalÃ¡d include
 #if defined(__AVR__)
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -130,13 +130,13 @@
 #elif defined(__PIC24H__)
 #include <p24Hxxxx.h>
 #else
-#error "ismeretlen processzorcsalád vagy forditoprogram"
+#error "ismeretlen processzorcsalÃ¡d vagy forditoprogram"
 #endif
 #endif // defined(xxx proci)
 
 #include "charlcd.h"
 
-// ha LCDDT0..LCDDT3 létezik, akkor 8 bites mod
+// ha LCDDT0..LCDDT3 lÃ©tezik, akkor 8 bites mod
 #if (defined(LCDDT0) && defined(LCDDT1) && defined(LCDDT2) && defined(LCDDT3))
 #define LCD8BITMODE
 #else
@@ -144,85 +144,85 @@
 #endif
 
 //------------------------------------------------------------------------------
-// Összeférhetetlen beállítások kiszürése
+// Ã–sszefÃ©rhetetlen beÃ¡llÃ­tÃ¡sok kiszÃ¼rÃ©se
 #if !((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY) || (defined LCDMODEONCEIRQ) || (defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ)) 
-#error "Valamelyik üzemmódot válaszd ki!"
+#error "Valamelyik Ã¼zemmÃ³dot vÃ¡laszd ki!"
 #endif
 
 #ifdef LCDMODEONCEBUSY
 #if ((defined LCDMODEONCEDELAY) || (defined LCDMODEONCEIRQ) || (defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ)) 
-#error "Csak 1 üzemmódot állíts be!"
+#error "Csak 1 Ã¼zemmÃ³dot Ã¡llÃ­ts be!"
 #endif
 #ifndef LCDRW
-#error "LCD MODEONCEBUSY üzemmódban kötelezö használni az RW lábat!"
+#error "LCD MODEONCEBUSY Ã¼zemmÃ³dban kÃ¶telezÃ¶ hasznÃ¡lni az RW lÃ¡bat!"
 #endif
 #ifdef LCDUSERTIMER
-#error "LCD USERTIMER csak megszakításos módban használható"
+#error "LCD USERTIMER csak megszakÃ­tÃ¡sos mÃ³dban hasznÃ¡lhatÃ³"
 #endif
 #endif
 
 #ifdef LCDMODEONCEDELAY
 #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEIRQ) || (defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-#error "Csak 1 üzemmódot állíts be!"
+#error "Csak 1 Ã¼zemmÃ³dot Ã¡llÃ­ts be!"
 #endif
 #ifndef LCDEXECUTIONTIME
-#error "LCD MODEONCEDELAY üzemmódban LCDEXECUTIONTIME értékét is meg kell adni!"
+#error "LCD MODEONCEDELAY Ã¼zemmÃ³dban LCDEXECUTIONTIME Ã©rtÃ©kÃ©t is meg kell adni!"
 #endif
 #ifdef LCDUSERTIMER
-#error "LCD USERTIMER csak megszakításos módban használható"
+#error "LCD USERTIMER csak megszakÃ­tÃ¡sos mÃ³dban hasznÃ¡lhatÃ³"
 #endif
 #endif
 
 #ifdef LCDMODEONCEIRQ
 #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY) || (defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-#error "Csak 1 üzemmódot állíts be!"
+#error "Csak 1 Ã¼zemmÃ³dot Ã¡llÃ­ts be!"
 #endif
 #endif
 
 #ifdef LCDMODECONTBUSY
 #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY) || (defined LCDMODEONCEIRQ) || (defined LCDMODECONTIRQ))
-#error "Csak 1 üzemmódot állíts be!"
+#error "Csak 1 Ã¼zemmÃ³dot Ã¡llÃ­ts be!"
 #endif
 #ifndef LCDRW
-#error "LCD MODECONTBUSY üzemmódban kötelezö használni az RW lábat!"
+#error "LCD MODECONTBUSY Ã¼zemmÃ³dban kÃ¶telezÃ¶ hasznÃ¡lni az RW lÃ¡bat!"
 #endif
 #ifdef LCDCURSOR
-#error "LCD MODECONTBUSY üzemmódban LCD CURSOR nem használható!"
+#error "LCD MODECONTBUSY Ã¼zemmÃ³dban LCD CURSOR nem hasznÃ¡lhatÃ³!"
 #endif
 #ifdef LCDUSERTIMER
-#error "LCD USERTIMER csak megszakításos módban használható"
+#error "LCD USERTIMER csak megszakÃ­tÃ¡sos mÃ³dban hasznÃ¡lhatÃ³"
 #endif
 #endif
 
 #ifdef LCDMODECONTIRQ
 #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY) || (defined LCDMODEONCEIRQ) || (defined LCDMODECONTBUSY))
-#error "Csak 1 üzemmódot állíts be!"
+#error "Csak 1 Ã¼zemmÃ³dot Ã¡llÃ­ts be!"
 #endif
 #ifdef LCDCURSOR
-#error "LCD MODECONTIRQ üzemmódban LCD CURSOR nem használható!"
+#error "LCD MODECONTIRQ Ã¼zemmÃ³dban LCD CURSOR nem hasznÃ¡lhatÃ³!"
 #endif
 #endif
 
 #if (LCDLINES != 1) && (LCDLINES != 2) && (LCDLINES != 4)
-#error "A driver csak 1, 2, 4 soros kijelzövel használható!"
+#error "A driver csak 1, 2, 4 soros kijelzÃ¶vel hasznÃ¡lhatÃ³!"
 #endif
 
 #if (LCDWIDTH > 40)
-#error "A driver maximum 40 karakter széles kijelzövel használható!"
+#error "A driver maximum 40 karakter szÃ©les kijelzÃ¶vel hasznÃ¡lhatÃ³!"
 #endif
 
 //------------------------------------------------------------------------------
-// rendszerórajel
+// rendszerÃ³rajel
 #ifndef SystemClock
-#error  "Nincs rendszerórajel frekvencia definiálva!"
+#error  "Nincs rendszerÃ³rajel frekvencia definiÃ¡lva!"
 #endif
 
-// ha CPU órajel frekvencia nincs megadva akkor a rendszerórajellel megegyezik
+// ha CPU Ã³rajel frekvencia nincs megadva akkor a rendszerÃ³rajellel megegyezik
 #ifndef CpuClock
 #define CpuClock SystemClock
 #endif
 
-// processzorcsalád szerinti órajel osztások
+// processzorcsalÃ¡d szerinti Ã³rajel osztÃ¡sok
 #if defined(__AVR__)
 #define Cpu8bit
 #define CpuMips (1UL*CpuClock)
@@ -288,7 +288,7 @@
 #define LCDPROCCYCLENULLSTEREO   159
 #define TimerSrcClock (1UL*SystemClock/2)
 #else
-#error "ismeretlen processzortípus"
+#error "ismeretlen processzortÃ­pus"
 #endif
 #endif // defined(xxx proci)
 
@@ -385,23 +385,23 @@
 #endif // #else defined(__AVR__)
 
 //------------------------------------------------------------------------------
-// karakterenkénti frissítési frekvencia (csak interrupt módban)
-// (ha 80 karakteresnél nagyobb, akkor a fele, mert egyszerre 2 karaktert frissít)
+// karakterenkÃ©nti frissÃ­tÃ©si frekvencia (csak interrupt mÃ³dban)
+// (ha 80 karakteresnÃ©l nagyobb, akkor a fele, mert egyszerre 2 karaktert frissÃ­t)
 #if (1UL * LCDLINES * LCDWIDTH > 160)
-#error "Maximum 2x80 karakteres lehet a kijelzö"
+#error "Maximum 2x80 karakteres lehet a kijelzÃ¶"
 #endif
 
 #if (1UL * LCDLINES * LCDWIDTH > 80)
 
 #ifndef  LCDE2
-#error  "80 karakteresnél nagyobb kijelzö esetén E2 lábat is meg kell adni!"
+#error  "80 karakteresnÃ©l nagyobb kijelzÃ¶ esetÃ©n E2 lÃ¡bat is meg kell adni!"
 #endif
 
 #if     LCDLINES != 4
-#error  "80 karakteresnél nagyobb kijelzö, csak 4 sorosban létezik!"
+#error  "80 karakteresnÃ©l nagyobb kijelzÃ¶, csak 4 sorosban lÃ©tezik!"
 #endif
 
-// a 80 karakteresnél nagyobbat, 2db 2 sorosnak tekintjük
+// a 80 karakteresnÃ©l nagyobbat, 2db 2 sorosnak tekintjÃ¼k
 #undef  LCDLINES
 #define LCDLINES        2
 #endif  // #if (1UL * LCDLINES * LCDWIDTH > 80)
@@ -409,7 +409,7 @@
 #define LCDCHARPERMODUL (1UL * LCDLINES * LCDWIDTH)
 #define LCDCHARPERSEC   (1UL * LCDFRAMEPERSEC * (LCDLINES * LCDWIDTH + LCDLINES))
 
-// LCD memóriacímek (1..4 sorok kezdete)
+// LCD memÃ³riacÃ­mek (1..4 sorok kezdete)
 #define SETDDRAMADDR1  0x80
 #define SETDDRAMADDR2  0xC0
 #define SETDDRAMADDR3  (0x80 + LCDWIDTH)
@@ -417,7 +417,7 @@
 
 #define SETCGRAMADDR   0x40
 
-// megszakítás üzemmódban a timer beállítások
+// megszakÃ­tÃ¡s Ã¼zemmÃ³dban a timer beÃ¡llÃ­tÃ¡sok
 #if ((!defined LCDUSERTIMER) && ((defined LCDMODEONCEIRQ) || (defined LCDMODECONTIRQ)))
 
 #include "charlcd-timers.h"
@@ -425,9 +425,9 @@
 #endif // (!defined LCDUSERTIMER) && ((defined LCDMODEONCEIRQ) || (defined LCDMODECONTIRQ))
 
 //==============================================================================
-// általános változók
+// Ã¡ltalÃ¡nos vÃ¡ltozÃ³k
 
-// az LcdWrite függvény használja átmeneti tárolásra (csak a felesleges veremmüveletek elkerülése miatt)
+// az LcdWrite fÃ¼ggvÃ©ny hasznÃ¡lja Ã¡tmeneti tÃ¡rolÃ¡sra (csak a felesleges veremmÃ¼veletek elkerÃ¼lÃ©se miatt)
 volatile union
 {
   struct
@@ -449,28 +449,28 @@ volatile union
   unsigned char chr;
 }ch;
 
-// ebben a tömbben tároljuk a megjelenítendö karaktereket
+// ebben a tÃ¶mbben tÃ¡roljuk a megjelenÃ­tendÃ¶ karaktereket
 #ifdef LCDE2
 volatile char LcdText[2UL * LCDWIDTH * LCDLINES + 1];
 #else
 volatile char LcdText[1UL * LCDWIDTH * LCDLINES + 1];
 #endif
-volatile unsigned char LcdPos;                   // Frissítésnél az aktuális karakter pozíciója
+volatile unsigned char LcdPos;                   // FrissÃ­tÃ©snÃ©l az aktuÃ¡lis karakter pozÃ­ciÃ³ja
 
-// LcdStatus lehetséges értékei:
-// - HOME: DDRAM = 0 állítási fázis
-// - LCHAR: karakterek kiírása fázis
-// - DDR: DDRAM állítás fázis
-// - CURTYPE: kurzor típus állítása fázis
-// - CURPOS: kurzorpozíció beállítási fázis
-// - CGR: CGRAM állítási fázis RAM-ból
-// - CHARGEN: felhasználói karakterkészlet feltöltése RAM-ból fázis
-// - CGRROM: CGRAM állítási fázis ROM-ból
-// - CHARGENROM: felhasználói karakterkészlet feltöltése ROM-ból fázis
-// - REFREND: frissítés befejezve
+// LcdStatus lehetsÃ©ges Ã©rtÃ©kei:
+// - HOME: DDRAM = 0 Ã¡llÃ­tÃ¡si fÃ¡zis
+// - LCHAR: karakterek kiÃ­rÃ¡sa fÃ¡zis
+// - DDR: DDRAM Ã¡llÃ­tÃ¡s fÃ¡zis
+// - CURTYPE: kurzor tÃ­pus Ã¡llÃ­tÃ¡sa fÃ¡zis
+// - CURPOS: kurzorpozÃ­ciÃ³ beÃ¡llÃ­tÃ¡si fÃ¡zis
+// - CGR: CGRAM Ã¡llÃ­tÃ¡si fÃ¡zis RAM-bÃ³l
+// - CHARGEN: felhasznÃ¡lÃ³i karakterkÃ©szlet feltÃ¶ltÃ©se RAM-bÃ³l fÃ¡zis
+// - CGRROM: CGRAM Ã¡llÃ­tÃ¡si fÃ¡zis ROM-bÃ³l
+// - CHARGENROM: felhasznÃ¡lÃ³i karakterkÃ©szlet feltÃ¶ltÃ©se ROM-bÃ³l fÃ¡zis
+// - REFREND: frissÃ­tÃ©s befejezve
 enum LS {HOME, LCHAR, DDR, CURTYPE, CURPOS, CGR, CHARGEN, CGRROM, CHARGENROM, REFREND} LcdStatus = LCHAR;
 
-// A villogó karaktereket ebben a tömbben 1 értékü bit jelzi
+// A villogÃ³ karaktereket ebben a tÃ¶mbben 1 Ã©rtÃ©kÃ¼ bit jelzi
 #ifdef LCDBLINKCHAR
 #ifdef LCDE2
 volatile char LcdBlink[(2UL * LCDWIDTH * LCDLINES + 7) / 8];
@@ -478,33 +478,33 @@ volatile char LcdBlink[(2UL * LCDWIDTH * LCDLINES + 7) / 8];
 volatile char LcdBlink[(1UL * LCDWIDTH * LCDLINES + 7) / 8];
 #endif // LCDE2
 
-// Villogási fázis tárolója
-volatile unsigned char BlinkPhase = 0;  // 0 = villogó karakterek látszanak, 1 = nem látszik
+// VillogÃ¡si fÃ¡zis tÃ¡rolÃ³ja
+volatile unsigned char BlinkPhase = 0;  // 0 = villogÃ³ karakterek lÃ¡tszanak, 1 = nem lÃ¡tszik
 #endif // LCDBLINKCHAR
 
-// Kurzor pozíció és kurzor típus
+// Kurzor pozÃ­ciÃ³ Ã©s kurzor tÃ­pus
 #ifdef LCDCURSOR
 volatile unsigned char LcdCursorPos = 0;
 volatile unsigned char LcdCursorType;
 #endif
 
-// saját megszakításkezelövel és idözítéskezelövel használva a frissítési állapot ebben a változóban lesz
+// sajÃ¡t megszakÃ­tÃ¡skezelÃ¶vel Ã©s idÃ¶zÃ­tÃ©skezelÃ¶vel hasznÃ¡lva a frissÃ­tÃ©si Ã¡llapot ebben a vÃ¡ltozÃ³ban lesz
 #if (defined LCDUSERTIMER) && ((defined LCDMODEONCEIRQ) || (defined LCDMODECONTIRQ))
 unsigned char LcdIrqStatus = 0;
 #endif
 
-// Felhasználói karakterkészlet RAM-ból
+// FelhasznÃ¡lÃ³i karakterkÃ©szlet RAM-bÃ³l
 #ifdef USERCHARSETCHANGE
 char*  uchp;
 #endif
 
-// Felhasználói karakterkészlet ROM-ból
+// FelhasznÃ¡lÃ³i karakterkÃ©szlet ROM-bÃ³l
 #ifdef USERCHARSETCHANGEROM
 rom char*  uchpr;
 #endif
 
 //==============================================================================
-// C18 fordito a nem forditando területen is hibát jelez, ha nincs definiálva LCDDT0..3
+// C18 fordito a nem forditando terÃ¼leten is hibÃ¡t jelez, ha nincs definiÃ¡lva LCDDT0..3
 #if defined(LCD4BITMODE) && defined(__18CXX)
 #undef LCDDT0
 #undef LCDDT1
@@ -522,7 +522,7 @@ rom char*  uchpr;
 #if ((GPIOX_PIN(LCDDT4) + 1 == GPIOX_PIN(LCDDT5))\
   && (GPIOX_PIN(LCDDT5) + 1 == GPIOX_PIN(LCDDT6))\
   && (GPIOX_PIN(LCDDT6) + 1 == GPIOX_PIN(LCDDT7)))
-// LCD adatlábai folyamotosan vannak beállitva (pl. B2,B3,B4,B5)
+// LCD adatlÃ¡bai folyamotosan vannak beÃ¡llitva (pl. B2,B3,B4,B5)
 #ifdef LCD8BITMODE
 #if ((GPIOX_PORTNUM(LCDDT0) == GPIOX_PORTNUM(LCDDT1))\
   && (GPIOX_PORTNUM(LCDDT1) == GPIOX_PORTNUM(LCDDT2))\
@@ -532,22 +532,22 @@ rom char*  uchpr;
   && (GPIOX_PIN(LCDDT1) + 1 == GPIOX_PIN(LCDDT2))\
   && (GPIOX_PIN(LCDDT2) + 1 == GPIOX_PIN(LCDDT3))\
   && (GPIOX_PIN(LCDDT3) + 1 == GPIOX_PIN(LCDDT4)))
-// LCD adatlábai folyamotosan vannak beállitva (pl. B0,B1,B2,B3,B4,B5,B6,B7)
+// LCD adatlÃ¡bai folyamotosan vannak beÃ¡llitva (pl. B0,B1,B2,B3,B4,B5,B6,B7)
 #define LCDDTAUTOOPT
-#endif // D0..D4 portláb folytonosság ?
-#endif // D0..D4 port azonosság ?
+#endif // D0..D4 portlÃ¡b folytonossÃ¡g ?
+#endif // D0..D4 port azonossÃ¡g ?
 #else  // #ifdef LCD8BITMODE
-// LCD adatlábai folyamotosan vannak beállitva (pl. B2,B3,B4,B5)
+// LCD adatlÃ¡bai folyamotosan vannak beÃ¡llitva (pl. B2,B3,B4,B5)
 #define LCDDTAUTOOPT
 #endif // #else LCD8BITMODE
-#endif // D4..D7 portláb folytonosság ?
-#endif // D4..D7 port azonosság ?
+#endif // D4..D7 portlÃ¡b folytonossÃ¡g ?
+#endif // D4..D7 port azonossÃ¡g ?
 
 //------------------------------------------------------------------ 4 bites mod
 
 #ifdef LCD4BITMODE
 
-// LCD adatlábak LCD -> CPU (Lcd olvasása)
+// LCD adatlÃ¡bak LCD -> CPU (Lcd olvasÃ¡sa)
 #ifndef LCDDTIN
 #ifdef  LCDDTAUTOOPT
 #if defined(__AVR__)
@@ -560,7 +560,7 @@ rom char*  uchpr;
 #endif
 #endif
 
-// LCD adatlábak CPU -> LCD (Lcd irása)
+// LCD adatlÃ¡bak CPU -> LCD (Lcd irÃ¡sa)
 #ifndef LCDDTOUT
 #ifdef  LCDDTAUTOOPT
 #if defined(__AVR__)
@@ -573,7 +573,7 @@ rom char*  uchpr;
 #endif
 #endif
 
-// LCD adatlábakra 4..7 bit kirakása (4 bites módban)
+// LCD adatlÃ¡bakra 4..7 bit kirakÃ¡sa (4 bites mÃ³dban)
 #ifndef LCDDT4TO7
 #ifdef  LCDDTAUTOOPT
 #define LCDDT4TO7 GPIOX_WRITEPORT(LCDDT4) = (GPIOX_WRITEPORT(LCDDT4) & ~(0b00001111 << GPIOX_PIN(LCDDT4)))\
@@ -587,7 +587,7 @@ rom char*  uchpr;
 #endif  // else LCDDTAUTOOPT
 #endif
 
-// LCD adatlábakra 0..3 bit kirakása (4 bites módban)
+// LCD adatlÃ¡bakra 0..3 bit kirakÃ¡sa (4 bites mÃ³dban)
 #ifndef LCDDT0TO3
 #ifdef  LCDDTAUTOOPT
 #define LCDDT0TO3 GPIOX_WRITEPORT(LCDDT4) = (GPIOX_WRITEPORT(LCDDT4) & ~(0b00001111 << GPIOX_PIN(LCDDT4)))\
@@ -604,7 +604,7 @@ rom char*  uchpr;
 
 //------------------------------------------------------------------ 8 bites mod
 #ifdef  LCD8BITMODE
-// LCD adatlábak LCD -> CPU (Lcd olvasása)
+// LCD adatlÃ¡bak LCD -> CPU (Lcd olvasÃ¡sa)
 #ifndef LCDDTIN
 #ifdef  LCDDTAUTOOPT
 #if defined(__AVR__)
@@ -622,7 +622,7 @@ rom char*  uchpr;
 #endif
 #endif
 
-// LCD adatlábak CPU -> LCD (Lcd irása)
+// LCD adatlÃ¡bak CPU -> LCD (Lcd irÃ¡sa)
 #ifndef LCDDTOUT
 #ifdef  LCDDTAUTOOPT
 #if defined(__AVR__)
@@ -640,7 +640,7 @@ rom char*  uchpr;
 #endif
 #endif
 
-  // LCD adatlábakra 0..3 bit kirakása (8 bites módban)
+  // LCD adatlÃ¡bakra 0..3 bit kirakÃ¡sa (8 bites mÃ³dban)
 #ifndef LCDDT0TO7
 #ifdef  LCDDTAUTOOPT
 #ifdef  Cpu8bit
@@ -670,7 +670,7 @@ rom char*  uchpr;
 #else  // SOFTSIMFAST
 
 
-// E láb tartási idö
+// E lÃ¡b tartÃ¡si idÃ¶
 // AVR
 #if defined(__AVR__)
 #if   CpuMips >= 30000000
@@ -738,12 +738,12 @@ rom char*  uchpr;
 #endif // else SOFTSIMFAST
 
 //==============================================================================
-// Processzorfüggetlen részek
+// ProcesszorfÃ¼ggetlen rÃ©szek
 //==============================================================================
 
 //==============================================================================
 // DelayMs
-// - 1..255msec várakozás (nem teljesen pontos de az LCD inicializáláshoz elegendö)
+// - 1..255msec vÃ¡rakozÃ¡s (nem teljesen pontos de az LCD inicializÃ¡lÃ¡shoz elegendÃ¶)
 //==============================================================================
 void DelayMs(unsigned char ms)
 {
@@ -761,12 +761,12 @@ void DelayMs(unsigned char ms)
 #ifdef LCDMODEONCEDELAY
 //==============================================================================
 // DelayLcd
-// - Lcd írás várakozás várakozás (nem teljesen pontos)
+// - Lcd Ã­rÃ¡s vÃ¡rakozÃ¡s vÃ¡rakozÃ¡s (nem teljesen pontos)
 //==============================================================================
-// LCD írások között ennyi utasításciklusnak kell legalább lenni:
+// LCD Ã­rÃ¡sok kÃ¶zÃ¶tt ennyi utasÃ­tÃ¡sciklusnak kell legalÃ¡bb lenni:
 #define LCDEXECUTIONCYCLE ((CpuMips * LCDEXECUTIONTIME) / 1000000)
 
-// ennyi a valós végrehajtási ideje az LCD író függvénynek
+// ennyi a valÃ³s vÃ©grehajtÃ¡si ideje az LCD Ã­rÃ³ fÃ¼ggvÃ©nynek
 #ifdef LCDE2
 #ifdef LCD4BITMODE
 #define LCDPROCCYCLE (LCDPROCCYCLENULLSTEREO + 8 * EDELAYCYCLE + 4)
@@ -781,12 +781,12 @@ void DelayMs(unsigned char ms)
 #endif // else LCD4BITMODE
 #endif // else LCDE2
 
-// ha LcdProc végrehajtási ideje >= LCDEXECUTIONTIME -> nincs szükség késleltetö ciklusra
+// ha LcdProc vÃ©grehajtÃ¡si ideje >= LCDEXECUTIONTIME -> nincs szÃ¼ksÃ©g kÃ©sleltetÃ¶ ciklusra
 #if LCDPROCCYCLE >= LCDEXECUTIONCYCLE
 #define DelayLcd() ;
 #else  // LCDPROCCYCLE >= LCDEXECUTIONCYCLE
 
-// ennyit kell még várakozni az LCDEXECUTIONTIME-hoz
+// ennyit kell mÃ©g vÃ¡rakozni az LCDEXECUTIONTIME-hoz
 #define LCDDELAYCYCLE (LCDEXECUTIONCYCLE - LCDPROCCYCLE)
 
 void DelayLcd(void)
@@ -794,21 +794,21 @@ void DelayLcd(void)
   #if defined(__AVR__)
   static volatile unsigned char cl;
   #if (LCDDELAYCYCLE / 10) > 255
-  #error "LCD EXECUTIONTIME túl nagy!"
+  #error "LCD EXECUTIONTIME tÃºl nagy!"
   #else
   cl = LCDDELAYCYCLE / 10;
   #endif
   #elif defined(__C30__)
   static volatile unsigned int cl;
   #if (LCDDELAYCYCLE / 4) > 65535
-  #error "LCD EXECUTIONTIME túl nagy!"
+  #error "LCD EXECUTIONTIME tÃºl nagy!"
   #else
   cl = LCDDELAYCYCLE / 4;
   #endif
   #else // defined(__C30__)
   volatile unsigned char cl;
   #if (LCDDELAYCYCLE / 3) > 255
-  #error "LCD EXECUTIONTIME túl nagy!"
+  #error "LCD EXECUTIONTIME tÃºl nagy!"
   #else
   cl = LCDDELAYCYCLE / 3;
   #endif
@@ -821,18 +821,18 @@ void DelayLcd(void)
 #endif // LCDMODEONCEDELAY
 
 //==============================================================================
-// LcdBusy (csak LCDMODEONCEBUSY módban)
-// - LCD vezérlö foglaltságának ellenörzése
-//   (nem várja meg míg szabad lesz)
-// visszatérö érték:
-//   1 ha a Busy flag is be van állítva (foglalt)
-//   0 ha szabad (lehet adatot küldeni)
+// LcdBusy (csak LCDMODEONCEBUSY mÃ³dban)
+// - LCD vezÃ©rlÃ¶ foglaltsÃ¡gÃ¡nak ellenÃ¶rzÃ©se
+//   (nem vÃ¡rja meg mÃ­g szabad lesz)
+// visszatÃ©rÃ¶ Ã©rtÃ©k:
+//   1 ha a Busy flag is be van Ã¡llÃ­tva (foglalt)
+//   0 ha szabad (lehet adatot kÃ¼ldeni)
 //==============================================================================
 #if (defined LCDMODEONCEBUSY) || (defined LCDMODECONTBUSY)
 char LcdBusy(void)
 {
-  LCDDTIN;                              // adatlábak bemenetek
-  GPIOX_SETBIT(LCDRW);                  // adatirány: LCD -> mikrovezérlö (read)
+  LCDDTIN;                              // adatlÃ¡bak bemenetek
+  GPIOX_SETBIT(LCDRW);                  // adatirÃ¡ny: LCD -> mikrovezÃ©rlÃ¶ (read)
   GPIOX_CLRBIT(LCDRS);                  // RS = 0
   EDELAY;
   GPIOX_SETBIT(LCDE);
@@ -867,7 +867,7 @@ char LcdBusy(void)
     #endif // LCD4BITMODE
     return 1;                           // foglalt
   }
-  LCDE2PIN0;
+  GPIOX_CLRBIT(LCDE2);
   #ifdef LCD4BITMODE
   EDELAY;
   GPIOX_SETBIT(LCDE2); EDELAY; GPIOX_CLRBIT(LCDE2);
@@ -880,16 +880,16 @@ char LcdBusy(void)
 #endif // (defined LCDMODEONCEBUSY) || (defined LCDMODECONTBUSY)
 
 //==============================================================================
-// LcdWrite (I/O lábakon keresztül egy karaktert ír az LCD-re)
-// - RS láb = 0: config regiszter (parancs)
-// - RS láb = 1: RAM (karakter)
-// - ch globális báltozó = adat
+// LcdWrite (I/O lÃ¡bakon keresztÃ¼l egy karaktert Ã­r az LCD-re)
+// - RS lÃ¡b = 0: config regiszter (parancs)
+// - RS lÃ¡b = 1: RAM (karakter)
+// - ch globÃ¡lis bÃ¡ltozÃ³ = adat
 //==============================================================================
 void LcdWrite(void)
 {
-  // ha nem használunk BUSY módot, mindig kimenet marad az összes adatláb, ezért nem kell állítgatni
+  // ha nem hasznÃ¡lunk BUSY mÃ³dot, mindig kimenet marad az Ã¶sszes adatlÃ¡b, ezÃ©rt nem kell Ã¡llÃ­tgatni
   #if (defined LCDMODEONCEBUSY) || (defined LCDMODECONTBUSY)
-  GPIOX_CLRBIT(LCDRW);                  // adatirány: mikrovezérlö -> LCD
+  GPIOX_CLRBIT(LCDRW);                  // adatirÃ¡ny: mikrovezÃ©rlÃ¶ -> LCD
   LCDDTOUT;
   #endif // !((defined LCDMODEONCEIRQ) || (defined LCDMODECONTIRQ))
 
@@ -951,13 +951,13 @@ const USERCHARSETARRAY userromcharset =
 
 //==============================================================================
 // LcdInit
-// - I/O lábak, TRIS regiszterek beállítása 
-// - LCD kijelzö bekapcsolása és alapállapotba állítása
+// - I/O lÃ¡bak, TRIS regiszterek beÃ¡llÃ­tÃ¡sa 
+// - LCD kijelzÃ¶ bekapcsolÃ¡sa Ã©s alapÃ¡llapotba Ã¡llÃ­tÃ¡sa
 //==============================================================================
 void LcdInit(void)
 {
   unsigned char i;
-  // I/O lábak beállítása
+  // I/O lÃ¡bak beÃ¡llÃ­tÃ¡sa
   GPIOX_CLRBIT(LCDE);         // E = 0
   GPIOX_MODEPINOUT(LCDE);     // E = kimenet
 
@@ -969,7 +969,7 @@ void LcdInit(void)
   GPIOX_CLRBIT(LCDRS);        // RS = 0
   GPIOX_MODEPINOUT(LCDRS);    // RS = kimenet
 
-  // ha R/W lábat is használjuk
+  // ha R/W lÃ¡bat is hasznÃ¡ljuk
   #ifdef LCDRW
   GPIOX_CLRBIT(LCDRW);        // RW = 0
   GPIOX_MODEPINOUT(LCDRW);    // RW = kimenet
@@ -993,7 +993,7 @@ void LcdInit(void)
   EIMPULSE;                             // 0010
   DelayMs(5);
   #if  LCDLINES > 1
-  ch.chr = 0b00101000;                  // 2 soros esetén 00101000
+  ch.chr = 0b00101000;                  // 2 soros esetÃ©n 00101000
   #endif
   LcdWrite();
   LcdWrite2();
@@ -1012,14 +1012,14 @@ void LcdInit(void)
   EIMPULSE;
   DelayMs(5);
   #if  LCDLINES > 1
-  ch.chr = 0b00111000;                  // 2 soros esetén 00111000
+  ch.chr = 0b00111000;                  // 2 soros esetÃ©n 00111000
   #endif
   LcdWrite();
   LcdWrite2();
   #endif // #else LCD4BITMODE
 
   DelayMs(2);
-  ch.chr = 0b00001100;                  // kijelzö bekapcs, kurzor ki, kurzor villogás ki
+  ch.chr = 0b00001100;                  // kijelzÃ¶ bekapcs, kurzor ki, kurzor villogÃ¡s ki
   LcdWrite();
   LcdWrite2();
   
@@ -1055,20 +1055,20 @@ void LcdInit(void)
 
   DelayMs(2);
   GPIOX_CLRBIT(LCDRS);
-  ch.chr = SETDDRAMADDR1;               // DDRAM = elsö sor eleje
+  ch.chr = SETDDRAMADDR1;               // DDRAM = elsÃ¶ sor eleje
   LcdWrite();
   LcdWrite2();
   #endif // USERCHARSET
   GPIOX_SETBIT(LCDRS);
 
-  // szöveg törlése
+  // szÃ¶veg tÃ¶rlÃ©se
   #ifdef LCDE2
   for(i = 0; i < (2UL * LCDWIDTH * LCDLINES); i++) LcdText[i] = ' ';
   #else
   for(i = 0; i < (1UL * LCDWIDTH * LCDLINES); i++) LcdText[i] = ' ';
   #endif
 
-  // villogás tömb törlése
+  // villogÃ¡s tÃ¶mb tÃ¶rlÃ©se
   #ifdef LCDBLINKCHAR
   #ifdef LCDE2
   for(i = 0; i < ((2UL * LCDWIDTH * LCDLINES + 7) / 8); i++) LcdBlink[i] = 0;
@@ -1089,7 +1089,7 @@ void LcdInit(void)
 
 
 //==============================================================================
-// Blinker (villogtató, csak megszakításos folyamatos frissítési üzemmódban)
+// Blinker (villogtatÃ³, csak megszakÃ­tÃ¡sos folyamatos frissÃ­tÃ©si Ã¼zemmÃ³dban)
 #if (defined LCDMODECONTIRQ) && (defined LCDBLINKCHAR) && (LCDBLINKSPEED > 0)
 #define BLINKER() {             \
   if(!BlinkTimer--)             \
@@ -1104,13 +1104,13 @@ void LcdInit(void)
 #endif // else (defined LCDMODECONTIRQ) && (defined LCDBLINKCHAR) && (LCDBLINKSPEED > 0)
 
 //==============================================================================
-// LcdProcess (egy karaktert frissít a kijelzön)
-// Elöfeltétel: LcdInit() inicializálni kell
-// Input:           LcdText[], villogó módban LcdBlink[]
-// Áttekintés:      Ha szabad az LCD, egy karaktert átmásol az LcdText[] tömbböl 
-//                  az LCD kijelzöre 
-// Megjegyzés:      Nincs várokozási idö, ezért USB-s alkalmazásnál ezzel frissíthetö 
-//                  a kijelzö.
+// LcdProcess (egy karaktert frissÃ­t a kijelzÃ¶n)
+// ElÃ¶feltÃ©tel: LcdInit() inicializÃ¡lni kell
+// Input:           LcdText[], villogÃ³ mÃ³dban LcdBlink[]
+// ÃttekintÃ©s:      Ha szabad az LCD, egy karaktert Ã¡tmÃ¡sol az LcdText[] tÃ¶mbbÃ¶l 
+//                  az LCD kijelzÃ¶re 
+// MegjegyzÃ©s:      Nincs vÃ¡rokozÃ¡si idÃ¶, ezÃ©rt USB-s alkalmazÃ¡snÃ¡l ezzel frissÃ­thetÃ¶ 
+//                  a kijelzÃ¶.
 //==============================================================================
 #ifdef TIMERINTPROCESS
 TIMERINTPROCESS
@@ -1118,22 +1118,22 @@ TIMERINTPROCESS
 void LcdProcess(void)
 #endif // else TIMERINTPROCESS
 {
-  // Automatikus blinker frame számlálója a villogás ütemezéséhez
+  // Automatikus blinker frame szÃ¡mlÃ¡lÃ³ja a villogÃ¡s Ã¼temezÃ©sÃ©hez
   #ifdef AUTOBLINKER
   static char BlinkTimer = LCDBLINKSPEED;
   #endif
 
 //------------------------------------------------------------------------------
-  // megszakítás mód specialitásai
+  // megszakÃ­tÃ¡s mÃ³d specialitÃ¡sai
   #if (!defined LCDUSERTIMER) && ((defined LCDMODEONCEIRQ) || (defined LCDMODECONTIRQ))
-  // komparátor nélküli idözítö átállítása
+  // komparÃ¡tor nÃ©lkÃ¼li idÃ¶zÃ­tÃ¶ Ã¡tÃ¡llÃ­tÃ¡sa
   TIMERCOMPLESS;
-  // megszakítás nyugtázása
+  // megszakÃ­tÃ¡s nyugtÃ¡zÃ¡sa
   TIMERIRQACK;
   #endif
 
 //------------------------------------------------------------------------------
-  // LCD foglaltságfigyeléses üzemmód
+  // LCD foglaltsÃ¡gfigyelÃ©ses Ã¼zemmÃ³d
   #if (((defined LCDMODEONCEBUSY) || (defined LCDMODECONTBUSY)) && (!defined SOFTSIMBUSY))
   if(LcdBusy()) return;                 // LCD foglalt ?
   #endif
@@ -1141,14 +1141,14 @@ void LcdProcess(void)
   //----------------------------------------------------------------------------
   if(LcdStatus == LCHAR)
   {
-    GPIOX_SETBIT(LCDRS);                // karakter megy majd a kijelzöre
-    // ----------------------------------- egy karakter fissítés
+    GPIOX_SETBIT(LCDRS);                // karakter megy majd a kijelzÃ¶re
+    // ----------------------------------- egy karakter fissÃ­tÃ©s
     ch.chr = LcdText[LcdPos];
     
     #ifdef LCDZEROCHANGE
     if (ch.chr == 0)
     {
-      ch.chr = ' ';                     // #0 kódú karakter -> szóköz karakter
+      ch.chr = ' ';                     // #0 kÃ³dÃº karakter -> szÃ³kÃ¶z karakter
       #ifdef LCDZEROCHANGETEXT
       LcdText[LcdPos] = ' ';            // LcdText-ben is #0 -> 'SPACE' csere
       #endif
@@ -1157,12 +1157,12 @@ void LcdProcess(void)
 
     #ifdef LCDBLINKCHAR
     if((BlinkPhase) && (LcdBlink[LcdPos >> 3] & (1 << (LcdPos & 7))))
-      ch.chr = ' ';                     // ha villogási fázis == 1, és az adott karakter is villogtatva van -> szóköz
+      ch.chr = ' ';                     // ha villogÃ¡si fÃ¡zis == 1, Ã©s az adott karakter is villogtatva van -> szÃ³kÃ¶z
     #endif // LCDBLINKCHAR
 
     LcdWrite();
 
-    // ----------------------------------- stereo kijelzö esetén, a másik is rögtön írható
+    // ----------------------------------- stereo kijelzÃ¶ esetÃ©n, a mÃ¡sik is rÃ¶gtÃ¶n Ã­rhatÃ³
     #ifdef LCDE2
 
     ch.chr = LcdText[LcdPos + LCDLINES * LCDWIDTH];
@@ -1189,74 +1189,74 @@ void LcdProcess(void)
 
     //------------------------------------ 1 soros
     #if LCDLINES == 1
-    if(LcdPos == LCDWIDTH)              // 1 soros 1.sor vége?
+    if(LcdPos == LCDWIDTH)              // 1 soros 1.sor vÃ©ge?
     {
       #ifdef LCDCURSOR
-      LcdStatus = CURPOS;               // kurzor pozíció beállítás
+      LcdStatus = CURPOS;               // kurzor pozÃ­ciÃ³ beÃ¡llÃ­tÃ¡s
       #else // LCDCURSOR
       #ifdef LCDMODEONCEIRQ
-      LcdRefreshStop();                 // kész az LCD frissítése, leállítható
+      LcdRefreshStop();                 // kÃ©sz az LCD frissÃ­tÃ©se, leÃ¡llÃ­thatÃ³
       #else  // LCDMODEONCEIRQ
-      LcdStatus = REFREND;              // kész az LCD frissítése, LcdRefresh while ciklusa befejezödhet
+      LcdStatus = REFREND;              // kÃ©sz az LCD frissÃ­tÃ©se, LcdRefresh while ciklusa befejezÃ¶dhet
       #endif // else LCDMODEONCEIRQ
       #endif // LCDCURSOR
 
       #if ((defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-      LcdStatus = DDR;                  // folyamatos frissítési üzemmódban DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // folyamatos frissÃ­tÃ©si Ã¼zemmÃ³dban DDRAM Ã¡llÃ­tÃ¡s lesz majd
       #endif
     }
     //------------------------------------ 2 soros
     #elif LCDLINES == 2
-    if(LcdPos == LCDWIDTH)              // 2 soros, 1.sor vége?
+    if(LcdPos == LCDWIDTH)              // 2 soros, 1.sor vÃ©ge?
     {
-      LcdStatus = DDR;                  // DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // DDRAM Ã¡llÃ­tÃ¡s lesz majd
     }
-    else if(LcdPos == LCDWIDTH * 2)     // 2 soros, 2.sor vége?
+    else if(LcdPos == LCDWIDTH * 2)     // 2 soros, 2.sor vÃ©ge?
     {
       #ifdef LCDCURSOR
-      LcdStatus = CURPOS;               // kurzor pozíció beállítás
+      LcdStatus = CURPOS;               // kurzor pozÃ­ciÃ³ beÃ¡llÃ­tÃ¡s
       #else // LCDCURSOR
       #ifdef LCDMODEONCEIRQ
-      LcdRefreshStop();                 // kész az LCD frissítése, leállítható
+      LcdRefreshStop();                 // kÃ©sz az LCD frissÃ­tÃ©se, leÃ¡llÃ­thatÃ³
       #else  // LCDMODEONCEIRQ
-      LcdStatus = REFREND;              // kész az LCD frissítése, LcdRefresh while ciklusa befejezödhet
+      LcdStatus = REFREND;              // kÃ©sz az LCD frissÃ­tÃ©se, LcdRefresh while ciklusa befejezÃ¶dhet
       #endif // else LCDMODEONCEIRQ
       #endif // LCDCURSOR
 
       #if ((defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-      LcdStatus = DDR;                  // folyamatos frissítési üzemmódban DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // folyamatos frissÃ­tÃ©si Ã¼zemmÃ³dban DDRAM Ã¡llÃ­tÃ¡s lesz majd
       #endif
     }
     //------------------------------------ 4 soros
     #elif LCDLINES == 4
  
-    //------------------------------------ 4 soros szimpla vezérlös
-    if(LcdPos == LCDWIDTH)              // 4 soros, 1.sor vége?
+    //------------------------------------ 4 soros szimpla vezÃ©rlÃ¶s
+    if(LcdPos == LCDWIDTH)              // 4 soros, 1.sor vÃ©ge?
     {
-      LcdStatus = DDR;                  // DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // DDRAM Ã¡llÃ­tÃ¡s lesz majd
     }
-    else if(LcdPos == LCDWIDTH * 2)     // 4 soros, 2.sor vége?
+    else if(LcdPos == LCDWIDTH * 2)     // 4 soros, 2.sor vÃ©ge?
     {
-      LcdStatus = DDR;                  // DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // DDRAM Ã¡llÃ­tÃ¡s lesz majd
     }
-    else if(LcdPos == LCDWIDTH * 3)     // 4 soros, 3.sor vége?
+    else if(LcdPos == LCDWIDTH * 3)     // 4 soros, 3.sor vÃ©ge?
     {
-      LcdStatus = DDR;                  // DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // DDRAM Ã¡llÃ­tÃ¡s lesz majd
     }
-    else if(LcdPos == LCDWIDTH * 4)     // 4 soros, 4.sor vége?
+    else if(LcdPos == LCDWIDTH * 4)     // 4 soros, 4.sor vÃ©ge?
     {
       #ifdef LCDCURSOR
-      LcdStatus = CURPOS;               // kurzor pozíció beállítás
+      LcdStatus = CURPOS;               // kurzor pozÃ­ciÃ³ beÃ¡llÃ­tÃ¡s
       #else // LCDCURSOR
       #ifdef LCDMODEONCEIRQ
-      LcdRefreshStop();                 // kész az LCD frissítése, leállítható
+      LcdRefreshStop();                 // kÃ©sz az LCD frissÃ­tÃ©se, leÃ¡llÃ­thatÃ³
       #else  // LCDMODEONCEIRQ
-      LcdStatus = REFREND;              // kész az LCD frissítése, LcdRefresh while ciklusa befejezödhet
+      LcdStatus = REFREND;              // kÃ©sz az LCD frissÃ­tÃ©se, LcdRefresh while ciklusa befejezÃ¶dhet
       #endif // else LCDMODEONCEIRQ
       #endif // LCDCURSOR
 
       #if ((defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-      LcdStatus = DDR;                  // folyamatos frissítési üzemmódban DDRAM állítás lesz majd
+      LcdStatus = DDR;                  // folyamatos frissÃ­tÃ©si Ã¼zemmÃ³dban DDRAM Ã¡llÃ­tÃ¡s lesz majd
       #endif
     }
     #endif // LCDLINES
@@ -1264,29 +1264,29 @@ void LcdProcess(void)
   } // LcdStatus
 
   //----------------------------------------------------------------------------
-  else if(LcdStatus == DDR)             // DDRAM állítgatás
+  else if(LcdStatus == DDR)             // DDRAM Ã¡llÃ­tgatÃ¡s
   {
-    // ----------------------------------- DDRAM állítgatás (sorok végein), villogtatási ütemezés
-    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzöre (RS = 0)
+    // ----------------------------------- DDRAM Ã¡llÃ­tgatÃ¡s (sorok vÃ©gein), villogtatÃ¡si Ã¼temezÃ©s
+    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzÃ¶re (RS = 0)
 
-    // ----------------------------------- 1 soros kijelzö
+    // ----------------------------------- 1 soros kijelzÃ¶
     #if LCDLINES == 1
-    ch.chr = SETDDRAMADDR1;             // 1 soros, 1.sor vége -> DDRAM = 1.sor eleje
+    ch.chr = SETDDRAMADDR1;             // 1 soros, 1.sor vÃ©ge -> DDRAM = 1.sor eleje
     LcdWrite();
     LcdWrite2();
     LcdPos = 0;
     BLINKER();
 
-    // ----------------------------------- 2 soros kijelzö
+    // ----------------------------------- 2 soros kijelzÃ¶
     #elif LCDLINES == 2
     if(LcdPos == LCDWIDTH)
-    {                                   // 2 soros, 1.sor vége
+    {                                   // 2 soros, 1.sor vÃ©ge
       ch.chr = SETDDRAMADDR2;           // DDRAM = 2.sor eleje
       LcdWrite();
       LcdWrite2();
     }
     else
-    {                                   // 2 soros, 2.sor vége
+    {                                   // 2 soros, 2.sor vÃ©ge
     ch.chr = SETDDRAMADDR1;             // DDRAM = 1.sor eleje
       LcdWrite();
       LcdWrite2();
@@ -1294,29 +1294,29 @@ void LcdProcess(void)
       BLINKER();
     }
 
-    // ----------------------------------- 4 soros kijelzö
+    // ----------------------------------- 4 soros kijelzÃ¶
     #elif LCDLINES == 4
 
-    // 4 soros szimpla vezérlös (max 80 karakteres)
-    if(LcdPos == LCDWIDTH)              // 1. sor vége ?
+    // 4 soros szimpla vezÃ©rlÃ¶s (max 80 karakteres)
+    if(LcdPos == LCDWIDTH)              // 1. sor vÃ©ge ?
     { 
       ch.chr = SETDDRAMADDR2;           // DDRAM = 2.sor eleje
       LcdWrite();
       LcdWrite2();
     }
-    else if(LcdPos == (LCDWIDTH * 2))   // 2. sor vége ?
+    else if(LcdPos == (LCDWIDTH * 2))   // 2. sor vÃ©ge ?
     {
       ch.chr = SETDDRAMADDR3;           // DDRAM = 3.sor eleje
       LcdWrite();
       LcdWrite2();
     }
-    else if(LcdPos == (LCDWIDTH * 3))   // 3. sor vége ?
+    else if(LcdPos == (LCDWIDTH * 3))   // 3. sor vÃ©ge ?
     {
       ch.chr = SETDDRAMADDR4;           // DDRAM = 4.sor eleje
       LcdWrite();
       LcdWrite2();
     }
-    else if(LcdPos == (LCDWIDTH * 4))   // 4. sor vége ?
+    else if(LcdPos == (LCDWIDTH * 4))   // 4. sor vÃ©ge ?
     {
       ch.chr = SETDDRAMADDR1;           // DDRAM = 1.sor eleje
       LcdWrite(); 
@@ -1325,61 +1325,61 @@ void LcdProcess(void)
       BLINKER();
     }
     #endif // LCDLINES
-    LcdStatus = LCHAR;                  // a következö hívásnál már karakter megy a kijelzöre
+    LcdStatus = LCHAR;                  // a kÃ¶vetkezÃ¶ hÃ­vÃ¡snÃ¡l mÃ¡r karakter megy a kijelzÃ¶re
   }
 
   //----------------------------------------------------------------------------
   else if(LcdStatus == HOME)            // DDRAM = 0
   {
-    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzöre (RS = 0)
+    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzÃ¶re (RS = 0)
     ch.chr = SETDDRAMADDR1;             // DDRAM = 1.sor eleje
     LcdWrite();
     LcdWrite2();
     LcdPos = 0;
-    LcdStatus = LCHAR;                  // a következö hívásnál már karakter megy a kijelzöre
+    LcdStatus = LCHAR;                  // a kÃ¶vetkezÃ¶ hÃ­vÃ¡snÃ¡l mÃ¡r karakter megy a kijelzÃ¶re
   }
 
   #ifdef LCDCURSOR
   //----------------------------------------------------------------------------
-  else if(LcdStatus == CURPOS)          // kurzor pozíció állítási fázis
+  else if(LcdStatus == CURPOS)          // kurzor pozÃ­ciÃ³ Ã¡llÃ­tÃ¡si fÃ¡zis
   {
-    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzöre (RS = 0)
+    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzÃ¶re (RS = 0)
 
-    // ----------------------------------- 1 soros kijelzö
+    // ----------------------------------- 1 soros kijelzÃ¶
     #if LCDLINES == 1
-    ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozíció
+    ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozÃ­ciÃ³
     LcdWrite();
 
     #elif LCDLINES == 2
-    // ----------------------------------- 2db 2 soros kijelzö
+    // ----------------------------------- 2db 2 soros kijelzÃ¶
     #ifdef LCDE2
     if(LcdCursorPos < LCDCHARPERMODUL)
     {                                   // a kurzor az 1.modulban van
       if (LcdCursorPos < LCDWIDTH)
-        ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozíció
+        ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozÃ­ciÃ³
       else
-        ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozÃ­ciÃ³
     }
     else
     {                                   // a kurzor az 2.modulban van
       if (LcdCursorPos < LCDCHARPERMODUL + LCDWIDTH)
-        ch.chr = SETDDRAMADDR1 - LCDCHARPERMODUL + LcdCursorPos;// DDRAM = 1.sor - modulkarakterszám + kurzor pozíció
+        ch.chr = SETDDRAMADDR1 - LCDCHARPERMODUL + LcdCursorPos;// DDRAM = 1.sor - modulkarakterszÃ¡m + kurzor pozÃ­ciÃ³
       else
-        ch.chr = SETDDRAMADDR2 - LCDCHARPERMODUL - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - modulkarakterszám - 1*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR2 - LCDCHARPERMODUL - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - modulkarakterszÃ¡m - 1*sorhossz + kurzor pozÃ­ciÃ³
     }
     LcdWrite();
     LcdWrite2();
     #else  // LCDE2
 
-    // ----------------------------------- 2 soros kijelzö
+    // ----------------------------------- 2 soros kijelzÃ¶
     if (LcdCursorPos < LCDWIDTH)
-      ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozíció
+      ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozÃ­ciÃ³
     else
-      ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1 * sorhossz + kurzor pozíció
+      ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1 * sorhossz + kurzor pozÃ­ciÃ³
     LcdWrite();
     #endif // else LCDE2
 
-    // ----------------------------------- 2db 4 soros kijelzö
+    // ----------------------------------- 2db 4 soros kijelzÃ¶
     #elif LCDLINES == 4
     #ifdef LCDE2
 
@@ -1387,88 +1387,88 @@ void LcdProcess(void)
     {                                   // a kurzor az 1.modulban van
       if(LcdCursorPos < LCDWIDTH)
       {
-        ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozíció
+        ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozÃ­ciÃ³
       }
       else if(LcdCursorPos < 2 * LCDWIDTH)
       {
-        ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozÃ­ciÃ³
       }
       else if(LcdCursorPos < 3 * LCDWIDTH)
       {
-        ch.chr = SETDDRAMADDR3 - 2*LCDWIDTH + LcdCursorPos;// DDRAM = 3.sor - 2*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR3 - 2*LCDWIDTH + LcdCursorPos;// DDRAM = 3.sor - 2*sorhossz + kurzor pozÃ­ciÃ³
       }
       else
       {
-        ch.chr = SETDDRAMADDR4 - 3*LCDWIDTH + LcdCursorPos;// DDRAM = 4.sor - 3*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR4 - 3*LCDWIDTH + LcdCursorPos;// DDRAM = 4.sor - 3*sorhossz + kurzor pozÃ­ciÃ³
       }
     }
     else
     {                                   // a kurzor az 2.modulban van
       if(LcdCursorPos < LCDWIDTH + LCDCHARPERMODUL)
       {
-        ch.chr = SETDDRAMADDR1 - LCDCHARPERMODUL + LcdCursorPos;// DDRAM = 1.sor + kurzor pozíció
+        ch.chr = SETDDRAMADDR1 - LCDCHARPERMODUL + LcdCursorPos;// DDRAM = 1.sor + kurzor pozÃ­ciÃ³
       }
       else if(LcdCursorPos < 2 * LCDWIDTH + LCDCHARPERMODUL)
       {
-        ch.chr = SETDDRAMADDR2 - LCDCHARPERMODUL - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR2 - LCDCHARPERMODUL - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozÃ­ciÃ³
       }
       else if(LcdCursorPos < 3 * LCDWIDTH + LCDCHARPERMODUL)
       {
-        ch.chr = SETDDRAMADDR3 - LCDCHARPERMODUL - 2*LCDWIDTH + LcdCursorPos;// DDRAM = 3.sor - 2*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR3 - LCDCHARPERMODUL - 2*LCDWIDTH + LcdCursorPos;// DDRAM = 3.sor - 2*sorhossz + kurzor pozÃ­ciÃ³
       }
       else
       {
-        ch.chr = SETDDRAMADDR4 - LCDCHARPERMODUL - 3*LCDWIDTH + LcdCursorPos;// DDRAM = 4.sor - 3*sorhossz + kurzor pozíció
+        ch.chr = SETDDRAMADDR4 - LCDCHARPERMODUL - 3*LCDWIDTH + LcdCursorPos;// DDRAM = 4.sor - 3*sorhossz + kurzor pozÃ­ciÃ³
       }
     }
     LcdWrite();
     LcdWrite2();
   
-    // ----------------------------------- 4 soros dupla vezérlös kijelzö (2db 2soros)
+    // ----------------------------------- 4 soros dupla vezÃ©rlÃ¶s kijelzÃ¶ (2db 2soros)
     #else  // LCDE2
     if(LcdCursorPos < LCDWIDTH)
     {
-      ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozíció
+      ch.chr = SETDDRAMADDR1 + LcdCursorPos;// DDRAM = 1.sor + kurzor pozÃ­ciÃ³
     }
     else if(LcdCursorPos < 2 * LCDWIDTH)
     {
-      ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozíció
+      ch.chr = SETDDRAMADDR2 - LCDWIDTH + LcdCursorPos;// DDRAM = 2.sor - 1*sorhossz + kurzor pozÃ­ciÃ³
     }
     else if(LcdCursorPos < 3 * LCDWIDTH)
     {
-      ch.chr = SETDDRAMADDR3 - 2*LCDWIDTH + LcdCursorPos;// DDRAM = 3.sor - 2*sorhossz + kurzor pozíció
+      ch.chr = SETDDRAMADDR3 - 2*LCDWIDTH + LcdCursorPos;// DDRAM = 3.sor - 2*sorhossz + kurzor pozÃ­ciÃ³
     }
     else
     {
-      ch.chr = SETDDRAMADDR4 - 3*LCDWIDTH + LcdCursorPos;// DDRAM = 4.sor - 3*sorhossz + kurzor pozíció
+      ch.chr = SETDDRAMADDR4 - 3*LCDWIDTH + LcdCursorPos;// DDRAM = 4.sor - 3*sorhossz + kurzor pozÃ­ciÃ³
     }
     LcdWrite();
 
     #endif // else LCDE2
     #endif // LCDLINES 
 
-    LcdStatus = CURTYPE;                // a következö hívásnál kurzortípus beállítás
+    LcdStatus = CURTYPE;                // a kÃ¶vetkezÃ¶ hÃ­vÃ¡snÃ¡l kurzortÃ­pus beÃ¡llÃ­tÃ¡s
   }
 
   //----------------------------------------------------------------------------
-  else if(LcdStatus == CURTYPE)         // kurzor típus állítási fázis
+  else if(LcdStatus == CURTYPE)         // kurzor tÃ­pus Ã¡llÃ­tÃ¡si fÃ¡zis
   {
-    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzöre (RS = 0)
+    GPIOX_CLRBIT(LCDRS);                // parancs megy majd a kijelzÃ¶re (RS = 0)
 
     #ifdef LCDE2
     if(LcdCursorPos < LCDCHARPERMODUL)
-    { // elsö modulban van
+    { // elsÃ¶ modulban van
       ch.chr = LcdCursorType | 0b00001100;
-      LcdWrite();                       // kurzor a beállítás
+      LcdWrite();                       // kurzor a beÃ¡llÃ­tÃ¡s
       ch.chr = 0b00001100;
       LcdWrite2();                      // kurzor kikapcs
     }
     else
-    { // második modulban van a kurzor
+    { // mÃ¡sodik modulban van a kurzor
       ch.chr = 0b00001100;
       LcdWrite();                       // kurzor kikapcs
       ch.chr = LcdCursorType | 0b00001100;
-      LcdWrite2();                      // kurzor a beállítás
+      LcdWrite2();                      // kurzor a beÃ¡llÃ­tÃ¡s
     }
 
     #else  // LCDE2
@@ -1477,61 +1477,61 @@ void LcdProcess(void)
     #endif // LCDE2
 
     #ifdef LCDMODEONCEIRQ
-    LcdRefreshStop();                   // kész az LCD frissítése, leállítható
+    LcdRefreshStop();                   // kÃ©sz az LCD frissÃ­tÃ©se, leÃ¡llÃ­thatÃ³
     #else  // LCDMODEONCEIRQ
-    LcdStatus = REFREND;                // kész az LCD frissítése, LcdRefresh while ciklusa befejezödhet
+    LcdStatus = REFREND;                // kÃ©sz az LCD frissÃ­tÃ©se, LcdRefresh while ciklusa befejezÃ¶dhet
     #endif // else LCDMODEONCEIRQ
   }
   #endif // LCDCURSOR
 
   //----------------------------------------------------------------------------
-  // Karakterkészlet frissítés RAM területröl
+  // KarakterkÃ©szlet frissÃ­tÃ©s RAM terÃ¼letrÃ¶l
   #ifdef USERCHARSETCHANGE
-  else if(LcdStatus == CGR)             // CGRAM cím beállítási fázis
+  else if(LcdStatus == CGR)             // CGRAM cÃ­m beÃ¡llÃ­tÃ¡si fÃ¡zis
   {
-    GPIOX_CLRBIT(LCDRS);                // parancs megy a kijelzöre (RS = 0)
+    GPIOX_CLRBIT(LCDRS);                // parancs megy a kijelzÃ¶re (RS = 0)
     ch.chr = SETCGRAMADDR;              // CGRAM = 0
     LcdWrite();
     LcdWrite2();
-    LcdPos = 0;                         // karakter generátor karakter számláló
-    LcdStatus = CHARGEN;                // karakter generátor feltöltése következik
+    LcdPos = 0;                         // karakter generÃ¡tor karakter szÃ¡mlÃ¡lÃ³
+    LcdStatus = CHARGEN;                // karakter generÃ¡tor feltÃ¶ltÃ©se kÃ¶vetkezik
   }
 
   //----------------------------------------------------------------------------
-  else if(LcdStatus == CHARGEN)         // karakter generátor feltöltése
+  else if(LcdStatus == CHARGEN)         // karakter generÃ¡tor feltÃ¶ltÃ©se
   {
-    GPIOX_SETBIT(LCDRS);                // karakter megy a kijelzöre (RS = 1)
-    ch.chr = *uchp++;                   // karakter leíró tömb
+    GPIOX_SETBIT(LCDRS);                // karakter megy a kijelzÃ¶re (RS = 1)
+    ch.chr = *uchp++;                   // karakter leÃ­rÃ³ tÃ¶mb
     LcdWrite();
     LcdWrite2();
     LcdPos++;
     if(LcdPos >= 64)
-    {                                   // karaktergenerátor feltöltés befejezödött
+    {                                   // karaktergenerÃ¡tor feltÃ¶ltÃ©s befejezÃ¶dÃ¶tt
       #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY))
       #ifdef LCDCURSOR
-      LcdStatus = CURPOS;               // egyszeri frissítési mód, megszakítás nélkül kurzorral: kurzor pozíció beállítás
+      LcdStatus = CURPOS;               // egyszeri frissÃ­tÃ©si mÃ³d, megszakÃ­tÃ¡s nÃ©lkÃ¼l kurzorral: kurzor pozÃ­ciÃ³ beÃ¡llÃ­tÃ¡s
       #else  // LCDCURSOR
-      LcdStatus = REFREND;              // egyszeri frissítési mód, megszakítás nélkül: kész az LCD karaktergenerátor frissítése -> LcdRefresh while ciklusa befejezödhet
+      LcdStatus = REFREND;              // egyszeri frissÃ­tÃ©si mÃ³d, megszakÃ­tÃ¡s nÃ©lkÃ¼l: kÃ©sz az LCD karaktergenerÃ¡tor frissÃ­tÃ©se -> LcdRefresh while ciklusa befejezÃ¶dhet
       #endif // else LCDCURSOR
       #endif // ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY))
 
       #ifdef LCDMODEONCEIRQ
-      LcdStatus = HOME;                 // egyszeri frissítési mód megszakítással: DDRAM = 0 lesz a következö körben
+      LcdStatus = HOME;                 // egyszeri frissÃ­tÃ©si mÃ³d megszakÃ­tÃ¡ssal: DDRAM = 0 lesz a kÃ¶vetkezÃ¶ kÃ¶rben
       #endif // LCDMODEONCEIRQ
 
       #if ((defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-      LcdStatus = HOME;                 // folyamatos frissítési mód: DDRAM = 0 lesz a következö körben
+      LcdStatus = HOME;                 // folyamatos frissÃ­tÃ©si mÃ³d: DDRAM = 0 lesz a kÃ¶vetkezÃ¶ kÃ¶rben
       #ifdef AUTOBLINKER
       #if LCDCHARPERMODUL <= 24
-      BLINKER();                        // hogy a villogási ütemezés ne maradjon ki
-      BLINKER();                        // 1x16, 1x20-as kijelzöknél a 64 byte feltöltése kb annyi ideig tart mint négy frame
+      BLINKER();                        // hogy a villogÃ¡si Ã¼temezÃ©s ne maradjon ki
+      BLINKER();                        // 1x16, 1x20-as kijelzÃ¶knÃ©l a 64 byte feltÃ¶ltÃ©se kb annyi ideig tart mint nÃ©gy frame
       BLINKER();
       BLINKER();
       #elif LCDCHARPERMODUL <= 48
-      BLINKER();                        // hogy a villogási ütemezés ne maradjon ki
-      BLINKER();                        // 2x16, 2x20-as kijelzöknél a 64 byte feltöltése kb annyi ideig tart mint két frame
+      BLINKER();                        // hogy a villogÃ¡si Ã¼temezÃ©s ne maradjon ki
+      BLINKER();                        // 2x16, 2x20-as kijelzÃ¶knÃ©l a 64 byte feltÃ¶ltÃ©se kb annyi ideig tart mint kÃ©t frame
       #else  // LCDCHARPERMODUL
-      BLINKER();                        // nagyobb kijelzöknél a 64 byte feltöltése kb annyi ideig tart mint egy frame
+      BLINKER();                        // nagyobb kijelzÃ¶knÃ©l a 64 byte feltÃ¶ltÃ©se kb annyi ideig tart mint egy frame
       #endif // LCDCHARPERMODUL
       #endif // AUTOBLINKER
       #endif // (defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ)
@@ -1540,53 +1540,53 @@ void LcdProcess(void)
   #endif // USERCHARSETCHANGE
 
   //----------------------------------------------------------------------------
-  // Karakterkészlet frissítés ROM területröl
+  // KarakterkÃ©szlet frissÃ­tÃ©s ROM terÃ¼letrÃ¶l
   #ifdef USERCHARSETCHANGEROM
-  else if(LcdStatus == CGRROM)          // CGRAM cím beállítási fázis
+  else if(LcdStatus == CGRROM)          // CGRAM cÃ­m beÃ¡llÃ­tÃ¡si fÃ¡zis
   {
-    GPIOX_CLRBIT(LCDRS);                // parancs megy a kijelzöre (RS = 0)
+    GPIOX_CLRBIT(LCDRS);                // parancs megy a kijelzÃ¶re (RS = 0)
     ch.chr = SETCGRAMADDR;              // CGRAM = 0
     LcdWrite();
     LcdWrite2();
-    LcdPos = 0;                         // karakter generátor karakter számláló
-    LcdStatus = CHARGENROM;             // karakter generátor feltöltése következik
+    LcdPos = 0;                         // karakter generÃ¡tor karakter szÃ¡mlÃ¡lÃ³
+    LcdStatus = CHARGENROM;             // karakter generÃ¡tor feltÃ¶ltÃ©se kÃ¶vetkezik
   }
 
   //----------------------------------------------------------------------------
-  else if(LcdStatus == CHARGENROM)      // karakter generátor feltöltése
+  else if(LcdStatus == CHARGENROM)      // karakter generÃ¡tor feltÃ¶ltÃ©se
   {
-    GPIOX_SETBIT(LCDRS);                // karakter megy a kijelzöre (RS = 1)
-    ch.chr = *uchpr++;                  // karakter leíró tömb
+    GPIOX_SETBIT(LCDRS);                // karakter megy a kijelzÃ¶re (RS = 1)
+    ch.chr = *uchpr++;                  // karakter leÃ­rÃ³ tÃ¶mb
     LcdWrite();
     LcdWrite2();
     LcdPos++;
     if(LcdPos >= 64)
-    {                                   // karaktergenerátor feltöltés befejezödött
+    {                                   // karaktergenerÃ¡tor feltÃ¶ltÃ©s befejezÃ¶dÃ¶tt
       #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY))
       #ifdef LCDCURSOR
-      LcdStatus = CURPOS;               // egyszeri frissítési mód, megszakítás nélkül kurzorral: kurzor pozíció beállítás
+      LcdStatus = CURPOS;               // egyszeri frissÃ­tÃ©si mÃ³d, megszakÃ­tÃ¡s nÃ©lkÃ¼l kurzorral: kurzor pozÃ­ciÃ³ beÃ¡llÃ­tÃ¡s
       #else  // LCDCURSOR
-      LcdStatus = REFREND;              // egyszeri frissítési mód, megszakítás nélkül: kész az LCD karaktergenerátor frissítése -> LcdRefresh while ciklusa befejezödhet
+      LcdStatus = REFREND;              // egyszeri frissÃ­tÃ©si mÃ³d, megszakÃ­tÃ¡s nÃ©lkÃ¼l: kÃ©sz az LCD karaktergenerÃ¡tor frissÃ­tÃ©se -> LcdRefresh while ciklusa befejezÃ¶dhet
       #endif // else LCDCURSOR
       #endif // ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY))
 
       #ifdef LCDMODEONCEIRQ
-      LcdStatus = HOME;                 // egyszeri frissítési mód megszakítással: DDRAM = 0 lesz a következö körben
+      LcdStatus = HOME;                 // egyszeri frissÃ­tÃ©si mÃ³d megszakÃ­tÃ¡ssal: DDRAM = 0 lesz a kÃ¶vetkezÃ¶ kÃ¶rben
       #endif // LCDMODEONCEIRQ
 
       #if ((defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ))
-      LcdStatus = HOME;                 // folyamatos frissítési mód: DDRAM = 0 lesz a következö körben
+      LcdStatus = HOME;                 // folyamatos frissÃ­tÃ©si mÃ³d: DDRAM = 0 lesz a kÃ¶vetkezÃ¶ kÃ¶rben
       #ifdef AUTOBLINKER
       #if LCDCHARPERMODUL <= 24
-      BLINKER();                        // hogy a villogási ütemezés ne maradjon ki
-      BLINKER();                        // 1x16, 1x20-as kijelzöknél a 64 byte feltöltése kb annyi ideig tart mint négy frame
+      BLINKER();                        // hogy a villogÃ¡si Ã¼temezÃ©s ne maradjon ki
+      BLINKER();                        // 1x16, 1x20-as kijelzÃ¶knÃ©l a 64 byte feltÃ¶ltÃ©se kb annyi ideig tart mint nÃ©gy frame
       BLINKER();
       BLINKER();
       #elif LCDCHARPERMODUL <= 48
-      BLINKER();                        // hogy a villogási ütemezés ne maradjon ki
-      BLINKER();                        // 2x16, 2x20-as kijelzöknél a 64 byte feltöltése kb annyi ideig tart mint két frame
+      BLINKER();                        // hogy a villogÃ¡si Ã¼temezÃ©s ne maradjon ki
+      BLINKER();                        // 2x16, 2x20-as kijelzÃ¶knÃ©l a 64 byte feltÃ¶ltÃ©se kb annyi ideig tart mint kÃ©t frame
       #else  // LCDCHARPERMODUL
-      BLINKER();                        // nagyobb kijelzöknél a 64 byte feltöltése kb annyi ideig tart mint egy frame
+      BLINKER();                        // nagyobb kijelzÃ¶knÃ©l a 64 byte feltÃ¶ltÃ©se kb annyi ideig tart mint egy frame
       #endif // LCDCHARPERMODUL
       #endif // AUTOBLINKER
       #endif // (defined LCDMODECONTBUSY) || (defined LCDMODECONTIRQ)
@@ -1597,55 +1597,55 @@ void LcdProcess(void)
 
 #if ((defined LCDMODEONCEBUSY) || (defined LCDMODEONCEDELAY) || (defined LCDMODEONCEIRQ))
 //==============================================================================
-// LcdRefreshAll (csak egyszeri frissítési üzemmódban: a teljes kijelzötartalom frissítése)
-// Elöfeltétel: LcdInit() inicializálni kell
-// Input:           LcdText[], villogó módban LcdBlink[]
-// Áttekintés:      LcdText[] teljes tartalmát átmásolja az LCD kijerlzöre 
-//                  megszakítás nélküli mód:
-//                    addig tart a függvém lefutása, amíg az átmásolás tart (blokkoló függvény!)
-//                  megszakításos mód:
-//                    csak elindítja a másolást, a karakterek kiírása megszakításból fog megtörténni,
-//                    a teljes tartalom kiírása után leállítja a frissítést
-// Megjegyzés:      
+// LcdRefreshAll (csak egyszeri frissÃ­tÃ©si Ã¼zemmÃ³dban: a teljes kijelzÃ¶tartalom frissÃ­tÃ©se)
+// ElÃ¶feltÃ©tel: LcdInit() inicializÃ¡lni kell
+// Input:           LcdText[], villogÃ³ mÃ³dban LcdBlink[]
+// ÃttekintÃ©s:      LcdText[] teljes tartalmÃ¡t Ã¡tmÃ¡solja az LCD kijerlzÃ¶re 
+//                  megszakÃ­tÃ¡s nÃ©lkÃ¼li mÃ³d:
+//                    addig tart a fÃ¼ggvÃ©m lefutÃ¡sa, amÃ­g az Ã¡tmÃ¡solÃ¡s tart (blokkolÃ³ fÃ¼ggvÃ©ny!)
+//                  megszakÃ­tÃ¡sos mÃ³d:
+//                    csak elindÃ­tja a mÃ¡solÃ¡st, a karakterek kiÃ­rÃ¡sa megszakÃ­tÃ¡sbÃ³l fog megtÃ¶rtÃ©nni,
+//                    a teljes tartalom kiÃ­rÃ¡sa utÃ¡n leÃ¡llÃ­tja a frissÃ­tÃ©st
+// MegjegyzÃ©s:      
 //==============================================================================
 void LcdRefreshAll(void)
 {
   #ifdef LCDMODEONCEIRQ
   #ifdef USERCHARSETCHANGE
   if(!LcdRefreshed())
-  { // frissítés folyamatban van még
+  { // frissÃ­tÃ©s folyamatban van mÃ©g
     if((LcdStatus == CGR) || (LcdStatus == CHARGEN))
-    { // karaktergenerátor frissítés van folyamatban, semmit nem kell csinálni
-    } // mert a karaktergenerátor végeztével a kijelzö tartalmat is újraírja
+    { // karaktergenerÃ¡tor frissÃ­tÃ©s van folyamatban, semmit nem kell csinÃ¡lni
+    } // mert a karaktergenerÃ¡tor vÃ©geztÃ©vel a kijelzÃ¶ tartalmat is ÃºjraÃ­rja
     else
-    { // szöveg frissítés van még folyamatban -> elölröl kezdeni
+    { // szÃ¶veg frissÃ­tÃ©s van mÃ©g folyamatban -> elÃ¶lrÃ¶l kezdeni
       LcdStatus = HOME;
-      LcdRefreshStart();                // mehet (ha pont most állt volna le)
+      LcdRefreshStart();                // mehet (ha pont most Ã¡llt volna le)
     }
   }
   else
-  { // nincs frissítés alatt
-    LcdStatus = HOME;                   // megszakítás, kijelzö frissítést elölröl kezdeni
+  { // nincs frissÃ­tÃ©s alatt
+    LcdStatus = HOME;                   // megszakÃ­tÃ¡s, kijelzÃ¶ frissÃ­tÃ©st elÃ¶lrÃ¶l kezdeni
     LcdRefreshStart();                  // mehet
   }
   #else  // USERCHARSETCHANGE
-  LcdStatus = HOME;                     // megszakítás, karakterkészlet módosítás nélkül
+  LcdStatus = HOME;                     // megszakÃ­tÃ¡s, karakterkÃ©szlet mÃ³dosÃ­tÃ¡s nÃ©lkÃ¼l
   LcdRefreshStart();
   #endif // USERCHARSETCHANGE
   #endif // LCDMODEONCEIRQ
 
   #ifdef LCDMODEONCEBUSY
-  LcdStatus = HOME;                     // megszakítás nélkül
+  LcdStatus = HOME;                     // megszakÃ­tÃ¡s nÃ©lkÃ¼l
   while(LcdStatus != REFREND)
-    LcdProcess();                       // megvárjuk amíg kiíródik
+    LcdProcess();                       // megvÃ¡rjuk amÃ­g kiÃ­rÃ³dik
   #endif
 
   #ifdef LCDMODEONCEDELAY
-  LcdStatus = HOME;                     // megszakítás nélkül
+  LcdStatus = HOME;                     // megszakÃ­tÃ¡s nÃ©lkÃ¼l
   while(LcdStatus != REFREND)
   {
-    DelayLcd();                         // Lcd írás várakozás
-    LcdProcess();                       // megvárjuk amíg kiíródik
+    DelayLcd();                         // Lcd Ã­rÃ¡s vÃ¡rakozÃ¡s
+    LcdProcess();                       // megvÃ¡rjuk amÃ­g kiÃ­rÃ³dik
   }
   #endif
 }
@@ -1653,26 +1653,26 @@ void LcdRefreshAll(void)
 
 #ifdef USERCHARSETCHANGE
 //==============================================================================
-// LcdChangeCharset (a 8db felhasználó által definiált karakterkészlet átvitele CGRAM-ba )
-// Elöfeltétel: LcdInit(), USERCHARSETCHANGE
-// Input:           pch*: a 64 bájtos karaktertábla címe a RAM-ban
-// Áttekintés:      Egyszeri frissítési üzemmódban:
-//                  megszakítás nélküli mód:
-//                    addig tart a függvém lefutása, amíg az átmásolás tart (blokkoló függvény, 
-//                    csak a karakterkészletet másolja át, a kijelzö tartalmat nem!)
-//                  megszakításos mód:
-//                    csak elindítja a másolást, a karakterkészlet és a kijelzö tartalmának kiírása 
-//                    (a karakterkészlet után a szöveget is újraírja) megszakításból fog megtörténni,
-//                    a teljes tartalom kiírása után leállítja a frissítést
+// LcdChangeCharset (a 8db felhasznÃ¡lÃ³ Ã¡ltal definiÃ¡lt karakterkÃ©szlet Ã¡tvitele CGRAM-ba )
+// ElÃ¶feltÃ©tel: LcdInit(), USERCHARSETCHANGE
+// Input:           pch*: a 64 bÃ¡jtos karaktertÃ¡bla cÃ­me a RAM-ban
+// ÃttekintÃ©s:      Egyszeri frissÃ­tÃ©si Ã¼zemmÃ³dban:
+//                  megszakÃ­tÃ¡s nÃ©lkÃ¼li mÃ³d:
+//                    addig tart a fÃ¼ggvÃ©m lefutÃ¡sa, amÃ­g az Ã¡tmÃ¡solÃ¡s tart (blokkolÃ³ fÃ¼ggvÃ©ny, 
+//                    csak a karakterkÃ©szletet mÃ¡solja Ã¡t, a kijelzÃ¶ tartalmat nem!)
+//                  megszakÃ­tÃ¡sos mÃ³d:
+//                    csak elindÃ­tja a mÃ¡solÃ¡st, a karakterkÃ©szlet Ã©s a kijelzÃ¶ tartalmÃ¡nak kiÃ­rÃ¡sa 
+//                    (a karakterkÃ©szlet utÃ¡n a szÃ¶veget is ÃºjraÃ­rja) megszakÃ­tÃ¡sbÃ³l fog megtÃ¶rtÃ©nni,
+//                    a teljes tartalom kiÃ­rÃ¡sa utÃ¡n leÃ¡llÃ­tja a frissÃ­tÃ©st
 //
-//                  Folyamatos frissítési üzemmódban:
-//                  megszakítás nélküli mód: 
-//                    A kijelzöre történö kiírás a föprogramhurokban az LcdProcess() függvényhívással fog megtörténni (ha a kijelzö szabad).
-//                    Ha a teljes karakterkészletet kiírta, akkor automatikusan a tartalom kiírására tér át.
-//                  megszakításos mód:
-//                    csak elindítja a másolást, a karakterkészlet és a kijelzö tartalmának kiírása megszakításból fog megtörténni,
-//                    a teljes tartalom kiírása után automatikusan a tartalom kiírására tér át.
-// Megjegyzés:
+//                  Folyamatos frissÃ­tÃ©si Ã¼zemmÃ³dban:
+//                  megszakÃ­tÃ¡s nÃ©lkÃ¼li mÃ³d: 
+//                    A kijelzÃ¶re tÃ¶rtÃ©nÃ¶ kiÃ­rÃ¡s a fÃ¶programhurokban az LcdProcess() fÃ¼ggvÃ©nyhÃ­vÃ¡ssal fog megtÃ¶rtÃ©nni (ha a kijelzÃ¶ szabad).
+//                    Ha a teljes karakterkÃ©szletet kiÃ­rta, akkor automatikusan a tartalom kiÃ­rÃ¡sÃ¡ra tÃ©r Ã¡t.
+//                  megszakÃ­tÃ¡sos mÃ³d:
+//                    csak elindÃ­tja a mÃ¡solÃ¡st, a karakterkÃ©szlet Ã©s a kijelzÃ¶ tartalmÃ¡nak kiÃ­rÃ¡sa megszakÃ­tÃ¡sbÃ³l fog megtÃ¶rtÃ©nni,
+//                    a teljes tartalom kiÃ­rÃ¡sa utÃ¡n automatikusan a tartalom kiÃ­rÃ¡sÃ¡ra tÃ©r Ã¡t.
+// MegjegyzÃ©s:
 //==============================================================================
 void LcdChangeCharset(char* pch)
 {
@@ -1680,19 +1680,19 @@ void LcdChangeCharset(char* pch)
   uchp = pch;
 
   #ifdef LCDMODEONCEIRQ
-  LcdRefreshStart();                    // egyszeri frissítési üzemmód, megszakításban
+  LcdRefreshStart();                    // egyszeri frissÃ­tÃ©si Ã¼zemmÃ³d, megszakÃ­tÃ¡sban
   #endif
 
   #ifdef LCDMODEONCEBUSY
-  while(LcdStatus != REFREND)           // egyszeri frissítési üzemmód, megszakítás nélkül
-    LcdProcess();                       // megvárjuk amíg kiíródik
+  while(LcdStatus != REFREND)           // egyszeri frissÃ­tÃ©si Ã¼zemmÃ³d, megszakÃ­tÃ¡s nÃ©lkÃ¼l
+    LcdProcess();                       // megvÃ¡rjuk amÃ­g kiÃ­rÃ³dik
   #endif
 
   #ifdef LCDMODEONCEDELAY
-  while(LcdStatus != REFREND)           // egyszeri frissítési üzemmód várakozásos mód
+  while(LcdStatus != REFREND)           // egyszeri frissÃ­tÃ©si Ã¼zemmÃ³d vÃ¡rakozÃ¡sos mÃ³d
   {
-    DelayLcd();                         // Lcd írás várakozás
-    LcdProcess();                       // megvárjuk amíg kiíródik
+    DelayLcd();                         // Lcd Ã­rÃ¡s vÃ¡rakozÃ¡s
+    LcdProcess();                       // megvÃ¡rjuk amÃ­g kiÃ­rÃ³dik
   }
   #endif
 }
@@ -1700,26 +1700,26 @@ void LcdChangeCharset(char* pch)
 
 #ifdef USERCHARSETCHANGEROM
 //==============================================================================
-// LcdChangeCharset (a 8db felhasználó által definiált karakterkészlet átvitele CGRAM-ba )
-// Elöfeltétel: LcdInit(), USERCHARSETCHANGE
-// Input:           pch*: a 64 bájtos karaktertábla címe a ROM-ban
-// Áttekintés:      Egyszeri frissítési üzemmódban:
-//                  megszakítás nélküli mód:
-//                    addig tart a függvém lefutása, amíg az átmásolás tart (blokkoló függvény,
-//                    csak a karakterkészletet másolja át, a kijelzö tartalmat nem!)
-//                  megszakításos mód:
-//                    csak elindítja a másolást, a karakterkészlet és a kijelzö tartalmának kiírása
-//                    (a karakterkészlet után a szöveget is újraírja) megszakításból fog megtörténni,
-//                    a teljes tartalom kiírása után leállítja a frissítést
+// LcdChangeCharset (a 8db felhasznÃ¡lÃ³ Ã¡ltal definiÃ¡lt karakterkÃ©szlet Ã¡tvitele CGRAM-ba )
+// ElÃ¶feltÃ©tel: LcdInit(), USERCHARSETCHANGE
+// Input:           pch*: a 64 bÃ¡jtos karaktertÃ¡bla cÃ­me a ROM-ban
+// ÃttekintÃ©s:      Egyszeri frissÃ­tÃ©si Ã¼zemmÃ³dban:
+//                  megszakÃ­tÃ¡s nÃ©lkÃ¼li mÃ³d:
+//                    addig tart a fÃ¼ggvÃ©m lefutÃ¡sa, amÃ­g az Ã¡tmÃ¡solÃ¡s tart (blokkolÃ³ fÃ¼ggvÃ©ny,
+//                    csak a karakterkÃ©szletet mÃ¡solja Ã¡t, a kijelzÃ¶ tartalmat nem!)
+//                  megszakÃ­tÃ¡sos mÃ³d:
+//                    csak elindÃ­tja a mÃ¡solÃ¡st, a karakterkÃ©szlet Ã©s a kijelzÃ¶ tartalmÃ¡nak kiÃ­rÃ¡sa
+//                    (a karakterkÃ©szlet utÃ¡n a szÃ¶veget is ÃºjraÃ­rja) megszakÃ­tÃ¡sbÃ³l fog megtÃ¶rtÃ©nni,
+//                    a teljes tartalom kiÃ­rÃ¡sa utÃ¡n leÃ¡llÃ­tja a frissÃ­tÃ©st
 //
-//                  Folyamatos frissítési üzemmódban:
-//                  megszakítás nélküli mód:
-//                    A kijelzöre történö kiírás a föprogramhurokban az LcdProcess() függvényhívással fog megtörténni (ha a kijelzö szabad).
-//                    Ha a teljes karakterkészletet kiírta, akkor automatikusan a tartalom kiírására tér át.
-//                  megszakításos mód:
-//                    csak elindítja a másolást, a karakterkészlet és a kijelzö tartalmának kiírása megszakításból fog megtörténni,
-//                    a teljes tartalom kiírása után automatikusan a tartalom kiírására tér át.
-// Megjegyzés:
+//                  Folyamatos frissÃ­tÃ©si Ã¼zemmÃ³dban:
+//                  megszakÃ­tÃ¡s nÃ©lkÃ¼li mÃ³d:
+//                    A kijelzÃ¶re tÃ¶rtÃ©nÃ¶ kiÃ­rÃ¡s a fÃ¶programhurokban az LcdProcess() fÃ¼ggvÃ©nyhÃ­vÃ¡ssal fog megtÃ¶rtÃ©nni (ha a kijelzÃ¶ szabad).
+//                    Ha a teljes karakterkÃ©szletet kiÃ­rta, akkor automatikusan a tartalom kiÃ­rÃ¡sÃ¡ra tÃ©r Ã¡t.
+//                  megszakÃ­tÃ¡sos mÃ³d:
+//                    csak elindÃ­tja a mÃ¡solÃ¡st, a karakterkÃ©szlet Ã©s a kijelzÃ¶ tartalmÃ¡nak kiÃ­rÃ¡sa megszakÃ­tÃ¡sbÃ³l fog megtÃ¶rtÃ©nni,
+//                    a teljes tartalom kiÃ­rÃ¡sa utÃ¡n automatikusan a tartalom kiÃ­rÃ¡sÃ¡ra tÃ©r Ã¡t.
+// MegjegyzÃ©s:
 //==============================================================================
 void LcdChangeCharsetRom(rom char* pch)
 {
@@ -1727,19 +1727,19 @@ void LcdChangeCharsetRom(rom char* pch)
   uchpr = pch;
 
   #ifdef LCDMODEONCEIRQ
-  LcdRefreshStart();                    // egyszeri frissítési üzemmód, megszakításban
+  LcdRefreshStart();                    // egyszeri frissÃ­tÃ©si Ã¼zemmÃ³d, megszakÃ­tÃ¡sban
   #endif
 
   #ifdef LCDMODEONCEBUSY
-  while(LcdStatus != REFREND)           // egyszeri frissítési üzemmód, megszakítás nélkül
-    LcdProcess();                       // megvárjuk amíg kiíródik
+  while(LcdStatus != REFREND)           // egyszeri frissÃ­tÃ©si Ã¼zemmÃ³d, megszakÃ­tÃ¡s nÃ©lkÃ¼l
+    LcdProcess();                       // megvÃ¡rjuk amÃ­g kiÃ­rÃ³dik
   #endif
 
   #ifdef LCDMODEONCEDELAY
-  while(LcdStatus != REFREND)           // egyszeri frissítési üzemmód várakozásos mód
+  while(LcdStatus != REFREND)           // egyszeri frissÃ­tÃ©si Ã¼zemmÃ³d vÃ¡rakozÃ¡sos mÃ³d
   {
-    DelayLcd();                         // Lcd írás várakozás
-    LcdProcess();                       // megvárjuk amíg kiíródik
+    DelayLcd();                         // Lcd Ã­rÃ¡s vÃ¡rakozÃ¡s
+    LcdProcess();                       // megvÃ¡rjuk amÃ­g kiÃ­rÃ³dik
   }
   #endif
 }
